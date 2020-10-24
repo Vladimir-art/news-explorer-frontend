@@ -1,0 +1,19 @@
+.navigation__links_hover::after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #FFF;
+  content: '';
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transform: translateY(14px);
+  box-sizing: border-box;
+}
+
+
+.navigation__links_hover:hover::after {
+  opacity: 1;
+  transform: translateY(13px);
+}

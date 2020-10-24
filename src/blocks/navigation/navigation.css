@@ -3,3 +3,21 @@
 @import url(./_image/navigation__image.css);
 @import url(./__links/_loggedin/navigation__links_loggedin.css);
 @import url(./__links/_loggedout/navigation__links_loggedout.css);
+@import url(./__links/_hover/navigation__links_hover.css);
+
+.navigation {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.navigation :last-child, .navigation :nth-child(3) {
+  margin: 0;
+}
+
+.navigation :nth-child(2n) {
+  display: none;
+}

@@ -1,0 +1,14 @@
+.navigation__links_loggedout {
+  max-width: 176px;
+  height: 48px;
+  padding: 15px;
+  border: 1px solid #FFF;
+  box-sizing: border-box;
+  border-radius: 100px;
+  transition: all .2s ease;
+}
+
+.navigation__links_loggedout:hover {
+  cursor: pointer;
+  opacity: .9;
+}
