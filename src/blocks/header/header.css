@@ -1,0 +1,13 @@
+@import url(./__info/header__info.css);
+@import url(./__mobile/header__mobile.css);
+@import url(./__button/header__button.css);
+@import url(./__text/header__text.css);
+
+.header {
+  width: 100%;
+  height: 80px;
+  margin: 0;
+  padding: 0;
+  background: rgba(196, 196, 196, 0.01);
+  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+}

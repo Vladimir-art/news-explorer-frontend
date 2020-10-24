@@ -1,19 +1,24 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import logOut from '../../images/logout.svg';
 
 function Navigation() {
   return (
-    <ul className="header__list">
-        <li className="header__links">
-          <Link className="header__link">Главная</Link>
-        </li>
-        <li className="header__links">
-          <Link className="header__link">Сохранённые статьи</Link>
-        </li>
-        <li className="header__links header__links_logged">
-          <Link className="header__link">Авторизоваться</Link>
-        </li>
-      </ul>
+    <ul className="navigation">
+      <li className="navigation__links">
+        <Link className="navigation__link">Главная</Link>
+      </li>
+      <li className="navigation__links">
+        <Link className="navigation__link">Сохранённые статьи</Link>
+      </li>
+      <li className="navigation__links navigation__links_loggedout">
+        <Link className="navigation__link">Авторизоваться</Link>
+      </li>
+      <li className="navigation__links navigation__links_loggedin">
+        <Link className="navigation__link">Имя</Link>
+        <img className="navigation__image" alt="Иконка-выйти" src={logOut} />
+      </li>
+    </ul>
   );
 }
 
