@@ -10,5 +10,5 @@
 
 .navigation__links_loggedin:hover {
   cursor: pointer;
-  opacity: .9;
+  opacity: .7;
 }
