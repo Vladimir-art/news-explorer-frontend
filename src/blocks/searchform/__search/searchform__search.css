@@ -1,0 +1,22 @@
+.searchform__search {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+
+  padding: 0;
+  margin: 0;
+  width: 168px;
+  height: 64px;
+  border: none;
+  background: #2F71E5;
+  box-shadow: -5px 5px 10px rgba(14, 26, 57, 0.2);
+  border-radius: 100px;
+
+  font-family: "Roboto", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #FFF;
+}
