@@ -13,7 +13,7 @@ function NewsCard() {
           здесь начала складываться система национальных парков – охраняемых территорий,
           где и сегодня каждый может приобщиться к природе.
         </p>
-        <p className="article-element__source">Лента.ру</p>
+        <a className="article-element__source" href="#">Лента.ру</a>
       </div>
       <div className="article-element__loggedout">
         <p className="article-element__attantion">Войдите, чтобы сохранять статьи</p>

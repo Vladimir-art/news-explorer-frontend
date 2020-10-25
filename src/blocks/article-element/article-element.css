@@ -18,8 +18,5 @@
   background: #FFF;
   border-radius: 16px;
   position: relative;
+  padding-bottom: 24px;
 }
-
-/* .article-element__loggedout:hover .article-element__attantion {
-  color: red;
-} */
