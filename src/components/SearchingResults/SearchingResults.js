@@ -5,7 +5,7 @@ function SearchingResults() {
     <section className="searching-results">
       <h2 className="searching-results__title">Результаты поиска</h2>
       <div className="searching-results__elements"></div>
-      <button className="searching-results__button">Показать еще</button>
+      <button className="searching-results__button" type="button">Показать еще</button>
     </section>
   );
 }

@@ -1,3 +1,10 @@
 @import url(./__title/searching-results__title.css);
 @import url(./__elements/searching-results__elements.css);
 @import url(./__button/searching-results__button.css);
+
+.searching-results {
+  margin: 0;
+  padding: 80px 0;
+  max-width: 1232px;
+  margin: 0 auto;
+}
