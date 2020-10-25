@@ -1,0 +1,11 @@
+.searchform__text {
+  margin: 0 0 64px 0;
+  padding: 0;
+  max-width: 545px;
+  font-family: "Roboto", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFF;
+}
