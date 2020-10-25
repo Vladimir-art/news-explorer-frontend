@@ -1,0 +1,18 @@
+.article-element__trash {
+  width: 40px;
+  height: 40px;
+  background: #FFF;
+  border: none;
+  border-radius: 8px;
+
+  background-image: url('../../../images/trash.svg');
+  background-size: 14px 19px;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.article-element__trash:hover {
+  background-image: url('../../../images/trash-active.svg');
+}

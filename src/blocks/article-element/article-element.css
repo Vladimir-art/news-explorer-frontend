@@ -1,5 +1,25 @@
 @import url(./__image/article-element__image.css);
+@import url(./__cover/article-element__cover.css);
 @import url(./__date/article-element__date.css);
 @import url(./__title/article-element__title.css);
 @import url(./__text/article-element__text.css);
 @import url(./__source/article-element__source.css);
+@import url(./__loggedout/article-element__loggedout.css);
+@import url(./__loggedin/article-element__loggedin.css);
+@import url(./__attantion/article-element__attantion.css);
+@import url(./__flag/article-element__flag.css);
+@import url(./__trash/article-element__trash.css);
+@import url(./__category/article-element__category.css);
+@import url(./__inactive/article-element__inactive.css);
+
+.article-element {
+  max-width: 400px;
+  margin: 0 auto;
+  background: #FFF;
+  border-radius: 16px;
+  position: relative;
+}
+
+/* .article-element__loggedout:hover .article-element__attantion {
+  color: red;
+} */

@@ -1,0 +1,20 @@
+.article-element__flag {
+  width: 40px;
+  height: 40px;
+  background: #FFF;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+
+  background-image: url('../../../images/flag.svg');
+  background-size: 14px 19px;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  transition: all .3s ease;
+  cursor: pointer;
+}
+
+.article-element__flag:hover {
+  background-image: url('../../../images/flag-active.svg');
+}
