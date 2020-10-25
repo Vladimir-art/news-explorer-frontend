@@ -19,4 +19,16 @@
   line-height: 24px;
   text-align: center;
   color: #FFF;
+  transition: all .2s ease;
+}
+
+.searchform__search:hover {
+  cursor: pointer;
+  background: #347EFF;
+}
+
+.searchform__search:active {
+  cursor: pointer;
+  background: #2A65CC;
+  outline: none;
 }
