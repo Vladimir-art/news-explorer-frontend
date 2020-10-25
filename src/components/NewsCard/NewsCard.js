@@ -1,20 +1,18 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
-import flower from '../../images/flowers-pic.png'
 
-function NewsCard() {
+function NewsCard(props) {
   return (
     <div className="article-element">
-      <img className="article-element__image" alt="Изображение" src={flower} />
+      <img className="article-element__image" alt="Изображение" src={props.scr} />
       <div className="article-element__cover">
         <p className="article-element__date">2 августа, 2019</p>
-        <h3 className="article-element__title">Национальное достояние – парки</h3>
+        <h3 className="article-element__title">{props.title}</h3>
         <p className="article-element__text">
-          В 2016 году Америка отмечала важный юбилей: сто лет назад
-          здесь начала складываться система национальных парков – охраняемых территорий,
-          где и сегодня каждый может приобщиться к природе.
+          {props.text}
         </p>
-        <a className="article-element__source" href="#">Лента.ру</a>
       </div>
+      <a className="article-element__source" href="#">{props.source}</a>
       <div className="article-element__loggedout">
         <p className="article-element__attantion">Войдите, чтобы сохранять статьи</p>
         <button className="article-element__flag" type="button"></button>

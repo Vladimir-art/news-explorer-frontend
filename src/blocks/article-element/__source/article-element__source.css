@@ -1,7 +1,7 @@
 .article-element__source {
-  padding: 0;
-
+  margin: 0 0 0 24px;
   text-decoration: none;
+
   font-family: "Roboto Slab", Arial, sans-serif;
   font-style: normal;
   font-weight: bold;

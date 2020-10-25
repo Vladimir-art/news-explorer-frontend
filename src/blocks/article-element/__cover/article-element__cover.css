@@ -1,5 +1,6 @@
 .article-element__cover {
   width: 352px;
-  margin: 0 auto;
+  height: 230px;
+  margin: 0 auto 8px;
   text-align: left;
 }
