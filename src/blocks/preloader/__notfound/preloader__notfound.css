@@ -1,4 +1,5 @@
 .preloader__notfound {
+  display: none;
   margin: 0 auto;
   padding: 80px 0;
   width: 1440px;
