@@ -10,7 +10,7 @@ function Footer() {
         <div className="footer__sources">
           <ul className="footer__list">
             <li className="footer__links">
-              <a className="footer__link" href="#">Главная</a>
+              <a className="footer__link" href="/">Главная</a>
             </li>
             <li className="footer__links">
               <a className="footer__link" href="https://praktikum.yandex.ru">Яндекс.Практикум</a>
