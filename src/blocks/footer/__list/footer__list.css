@@ -4,4 +4,9 @@
   width: 20%;
   display: flex;
   justify-content: space-between;
+  list-style-type: none;
+}
+
+.footer__list :last-child {
+  margin: 0;
 }
