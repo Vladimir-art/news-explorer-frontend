@@ -1,10 +1,11 @@
 import React from 'react';
+import author from '../../images/author.png';
 
 function About() {
   return (
     <section className="about">
       <div className="about__cover">
-        <img className="about__image" alt="Автор" src="#" />
+        <img className="about__image" alt="Автор" src={author} />
         <div className="about__info">
         <h2 className="about__title">Об авторе</h2>
           <p className="about__knowledge">
