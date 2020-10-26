@@ -1,11 +1,9 @@
 .searching-results__elements {
   width: 100%;
-  /* display: flex; */
   margin: 0 0 64px;
   padding: 0;
-  /* flex-wrap: wrap; */
   display: grid;
-    grid-template-columns: repeat(auto-fill, 400px);
-    grid-row-gap: 16px;
-    grid-column-gap: 16px;
+  grid-template-columns: repeat(auto-fill, 400px);
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
 }

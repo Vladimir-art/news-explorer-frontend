@@ -1,5 +1,11 @@
+@import url(./__cover/about__cover.css);
 @import url(./__image/about__image.css);
 @import url(./__info/about__info.css);
 @import url(./__title/about__title.css);
 @import url(./__knowlege/about__knowledge.css);
 @import url(./__author/about__author.css);
+
+.about {
+  width: 100%;
+  background: #FFF;
+}
