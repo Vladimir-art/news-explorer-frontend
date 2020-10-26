@@ -1,0 +1,13 @@
+@import url(./__cover/footer__cover.css);
+@import url(./__author/footer__author.css);
+@import url(./__sources/footer__sources.css);
+@import url(./__list/footer__list.css);
+@import url(./__links/footer__links.css);
+@import url(./__link/footer__link.css);
+@import url(./__icon/footer__icon.css);
+
+.footer {
+  max-width: 1440px;
+  margin: 0 auto;
+  background: #FFF;
+}
