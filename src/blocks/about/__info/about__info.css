@@ -2,3 +2,7 @@
   max-width: 600px;
   text-align: left;
 }
+
+.about__info :nth-child(3) {
+  margin: 0;
+}
