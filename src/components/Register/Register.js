@@ -21,7 +21,7 @@ function Register() {
             <input className="register-container__input" id="name" name="name" placeholder="Введите своё имя" type="text" pattern="[A-Za-zАЯ-Ёая-ё -]{1,}" />
             <span className="register-container__input-error" id="name-error">Неправильный формат</span>
           </label>
-          <span className="register-container__input-error" id="name-error">Такой пользователь уже есть</span>
+          <span className="register-container__input-error register-container__input-error_center" id="name-error">Такой пользователь уже есть</span>
           <button className="register-container__button" type="submit">Зарегистрироваться</button>
           <p className="register-container__choice">или <a className="register-container__link" href="#">Войти</a></p>
         </fieldset>
