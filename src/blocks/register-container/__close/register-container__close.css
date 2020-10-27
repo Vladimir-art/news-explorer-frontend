@@ -1,0 +1,21 @@
+.register-container__close {
+  margin: 4px;
+  padding: 0;
+
+  width: 40px;
+  height: 40px;
+  border: none;
+  position: absolute;
+  bottom: 100%;
+  left: 100%;
+  background-image: url('../../../images/close.svg');
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all .3s ease;
+}
+
+.register-container__close:hover {
+  cursor: pointer;
+  opacity: .6;
+}

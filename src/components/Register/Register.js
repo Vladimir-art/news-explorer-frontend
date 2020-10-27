@@ -25,7 +25,7 @@ function Register() {
           <button className="register-container__button" type="submit">Зарегистрироваться</button>
           <p className="register-container__choice">или <a className="register-container__link" href="#">Войти</a></p>
         </fieldset>
-        <button className="register-container__close" type="button"></button>
+        <button className="register-container__close" type="reset" aria-label="Close"></button>
       </form>
     </section>
   );
