@@ -2,3 +2,14 @@
   background: #E6E8EB;
   color: #B6BCBF;
 }
+
+.register-container__button_inactive:hover {
+  cursor: pointer;
+  background: #E6E8EB;
+  color: #B6BCBF;
+}
+
+.register-container__button_inactive:active {
+  background: #E6E8EB;
+  color: #B6BCBF;
+}
