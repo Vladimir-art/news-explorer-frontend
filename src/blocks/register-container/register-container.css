@@ -8,7 +8,7 @@
 @import url(./__close/register-container__close.css);
 
 .register-container {
-  max-width: 430px;
+  width: 430px;
   display: flex;
   flex-direction: column;
   position: relative;
