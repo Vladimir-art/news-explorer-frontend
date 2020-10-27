@@ -4,6 +4,7 @@
 @import url(./__input/register-container__input.css);
 @import url(./__input-error/register-container__input-error.css);
 @import url(./__input-error/_center/register-container__input-error_center.css);
+@import url(./__input-error/_active/register-container__input-error_active.css);
 @import url(./__choice/register-container__choice.css);
 @import url(./__button/register-container__button.css);
 @import url(./__close/register-container__close.css);
