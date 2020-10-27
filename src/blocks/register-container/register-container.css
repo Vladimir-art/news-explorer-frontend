@@ -7,6 +7,7 @@
 @import url(./__input-error/_active/register-container__input-error_active.css);
 @import url(./__choice/register-container__choice.css);
 @import url(./__button/register-container__button.css);
+@import url(./__link/register-container__link.css);
 @import url(./__close/register-container__close.css);
 
 .register-container {
