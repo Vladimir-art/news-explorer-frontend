@@ -10,7 +10,7 @@ function SavedNewsHeader() {
           По ключевым словам:
           <span className="saved-articles__keyword">&nbsp;Природа</span>,
           <span className="saved-articles__keyword">&nbsp;Тайга</span>&nbsp;и
-          <span className="saved-articles__keyword">&nbsp;2</span>-м другим
+          <span className="saved-articles__keyword">&nbsp;2-м другим</span>
         </p>
       </div>
     </section>

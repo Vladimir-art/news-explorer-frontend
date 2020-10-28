@@ -9,4 +9,5 @@
   height: 80px;
   margin: 0 auto;
   box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(26, 27, 34, 0.2);
 }
