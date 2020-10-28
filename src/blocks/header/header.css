@@ -2,6 +2,7 @@
 @import url(./__mobile/header__mobile.css);
 @import url(./__button/header__button.css);
 @import url(./__text/header__text.css);
+@import url(./__text/_theme-dark/header__text_theme-dark.css);
 
 .header {
   width: 1440px;

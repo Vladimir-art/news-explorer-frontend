@@ -4,6 +4,9 @@
 @import url(./__links/_loggedin/navigation__links_loggedin.css);
 @import url(./__links/_loggedout/navigation__links_loggedout.css);
 @import url(./__links/_hover/navigation__links_hover.css);
+@import url(./__link/_theme-dark/navigation__link_theme-dark.css);
+@import url(./__links/_theme-dark/navigation__links_theme-dark.css);
+@import url(./__links/_hover/_theme-dark/navigation__links_hover_theme-dark.css);
 
 .navigation {
   margin: 0;

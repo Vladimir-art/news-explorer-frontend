@@ -6,7 +6,7 @@ function Header() {
     <header className="header">
       <div className="header__info">
         <div className="header__mobile">
-          <h3 className="header__text">NewsExplorer</h3>
+          <h3 className="header__text header__text_theme-dark">NewsExplorer</h3>
           <button className="header__button"></button>
         </div>
         <Navigation />
