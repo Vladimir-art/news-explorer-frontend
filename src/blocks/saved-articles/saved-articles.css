@@ -2,5 +2,16 @@
 @import url(./__title/saved-articles__title.css);
 @import url(./__greeting/saved-articles__greeting.css);
 @import url(./__count/saved-articles__count.css);
-@import url(./_text/saved-articles__text.css);
+@import url(./__text/saved-articles__text.css);
 @import url(./__keyword/saved-articles__keyword.css);
+
+.saved-articles {
+  width: 100%;
+  background: #FFF;
+  margin: 0;
+  padding: 0;
+}
+
+.saved-articles, .header {
+  background: #FFF;
+}
