@@ -10,6 +10,7 @@ function App() {
     <div className="page">
       <Header />
       <Register />
+      <Login />
       <Main />
       <Footer />
     </div>
