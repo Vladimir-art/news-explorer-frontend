@@ -12,3 +12,10 @@
   cursor: pointer;
   opacity: .7;
 }
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .navigation__links_loggedout {
+    max-width: 152px;
+    padding: 8px;
+  }
+}

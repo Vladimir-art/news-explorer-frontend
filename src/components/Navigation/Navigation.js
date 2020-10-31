@@ -9,7 +9,7 @@ function Navigation() {
         <Link className="navigation__link ">Главная</Link>
       </li>
       <li className="navigation__links navigation__links_hover ">
-        <Link className="navigation__link navigation__link_theme-dark">Сохранённые статьи</Link>
+        <Link className="navigation__link ">Сохранённые статьи</Link>
       </li>
       <li className="navigation__links navigation__links_loggedout ">
         <Link className="navigation__link ">Авторизоваться</Link>

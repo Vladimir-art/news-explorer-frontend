@@ -6,3 +6,9 @@
   text-align: center;
   position: relative;
 }
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .navigation__links {
+    margin: 0 15px 0 0;
+  }
+}
