@@ -2,8 +2,10 @@
   width: 100%;
   margin: 0 0 64px;
   padding: 0;
+  height: 576px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 400px);
   grid-row-gap: 16px;
   grid-column-gap: 16px;
+  overflow: hidden;
 }
