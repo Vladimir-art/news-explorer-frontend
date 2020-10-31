@@ -9,10 +9,10 @@
   width: 100%;
   margin: 0 auto;
   color: #FFF;
-
-  background-image: url('../../images/main_theme.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-position: 0 -81px;
 }
+
+/* @media screen and (max-width: 1024px) and (min-width: 768px) {
+  .searchform {
+    height: 66px;
+  }
+} */

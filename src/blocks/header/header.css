@@ -11,16 +11,21 @@
   margin: 0 auto;
   box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(26, 27, 34, 0.2);
+}
 
+.header, .searchform {
   background-image: url('../../images/main_theme.png');
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-position: 0 0;
+  background-size: 100% 576px;
+  background-position: center top;
+  background-attachment: fixed;
 }
 
 @media screen and (max-width: 1024px) and (min-width: 768px) {
   .header {
     height: 66px;
+  }
+  .header, .searchform {
+    background-size: 100% 400px;
   }
 }
