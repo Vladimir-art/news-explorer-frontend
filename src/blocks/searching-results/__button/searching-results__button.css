@@ -27,3 +27,9 @@
   opacity: 0.9;
   box-shadow: 0 5px 10px rgba(14, 26, 57, 0.2);
 }
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .searching-results__button {
+    width: 240px;
+  }
+}

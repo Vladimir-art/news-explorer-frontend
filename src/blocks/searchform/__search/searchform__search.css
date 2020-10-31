@@ -33,3 +33,9 @@
   background: #2A65CC;
   outline: none;
 }
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .searchform__search {
+    width: 160px;
+  }
+}

@@ -9,3 +9,12 @@
   grid-column-gap: 16px;
   overflow: hidden;
 }
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .searching-results__elements {
+    margin: 0 0 37px;
+    grid-template-columns: repeat(auto-fill, 224px);
+    grid-row-gap: 8px;
+    grid-column-gap: 8px;
+  }
+}
