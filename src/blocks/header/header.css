@@ -3,6 +3,7 @@
 @import url(./__button/header__button.css);
 @import url(./__text/header__text.css);
 @import url(./__text/_theme-dark/header__text_theme-dark.css);
+@import url(./_theme-dark/header_theme-dark.css);
 
 .header {
   width: 1440px;
@@ -10,4 +11,10 @@
   margin: 0 auto;
   box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
   border-bottom: 1px solid rgba(26, 27, 34, 0.2);
+
+  background-image: url('../../images/main_theme.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-position: 0 0;
 }

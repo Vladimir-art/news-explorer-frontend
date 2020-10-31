@@ -9,12 +9,10 @@
   width: 100%;
   margin: 0 auto;
   color: #FFF;
-}
 
-.searchform, .header {
   background-image: url('../../images/main_theme.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
+  background-position: 0 -81px;
 }
