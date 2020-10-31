@@ -18,3 +18,9 @@
   background-position: center;
   background-position: 0 0;
 }
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .header {
+    height: 66px;
+  }
+}
