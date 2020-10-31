@@ -1,5 +1,5 @@
 .article-element__source {
-  margin: 0 0 0 24px;
+  margin: 0 0 20px 24px;
   text-decoration: none;
 
   font-family: "Roboto Slab", Arial, sans-serif;
@@ -16,4 +16,10 @@
 
 .article-element__source:hover {
   color: #a0a5a8;
+}
+
+@media screen and (max-width: 1268px) and (min-width: 768px) {
+  .article-element__source {
+    margin: 0 0 16px 16px;
+  }
 }

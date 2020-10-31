@@ -18,5 +18,13 @@
   background: #FFF;
   border-radius: 16px;
   position: relative;
-  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1268px) and (min-width: 768px) {
+  .article-element {
+    max-width: 224px;
+  }
 }

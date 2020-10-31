@@ -4,13 +4,13 @@
 
 .searching-results {
   padding: 80px 0;
-  max-width: 85%;
+  max-width: 1232px;
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1024px) and (min-width: 768px) {
+@media screen and (max-width: 1268px) and (min-width: 768px) {
   .searching-results {
-    max-width: 89%;
+    max-width: 688px;
     padding: 40px 0 57px;
   }
 }

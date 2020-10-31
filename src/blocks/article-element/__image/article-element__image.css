@@ -4,5 +4,11 @@
   object-fit: contain;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
-  margin: 0 0 20px;
+}
+
+@media screen and (max-width: 1268px) and (min-width: 768px) {
+  .article-element__image {
+    width: 224px;
+    height: 150px;
+  }
 }
