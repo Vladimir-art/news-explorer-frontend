@@ -12,3 +12,9 @@
 .article-element__loggedin:hover .article-element__attantion {
   display: flex;
 }
+
+@media screen and (max-width: 1268px) and (min-width: 768px) {
+  .article-element__loggedin {
+    margin: 8px;
+  }
+}

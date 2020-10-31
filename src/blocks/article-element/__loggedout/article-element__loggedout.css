@@ -12,3 +12,9 @@
 .article-element__loggedout:hover .article-element__attantion {
   display: flex;
 }
+
+@media screen and (max-width: 1268px) and (min-width: 768px) {
+  .article-element__loggedout {
+    margin: 8px;
+  }
+}
