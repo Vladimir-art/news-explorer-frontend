@@ -7,3 +7,9 @@
   backdrop-filter: blur(8px);
   border-radius: 100px;
 }
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .searchform__form {
+    height: 56px;
+  }
+}
