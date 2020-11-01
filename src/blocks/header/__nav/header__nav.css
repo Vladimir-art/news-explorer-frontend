@@ -3,12 +3,11 @@
     position: absolute;
     top: 100%;
     left: 0;
-    z-index: 1;
     width: 100%;
     min-height: 100vh;
     background-color: rgba(0, 0, 0, .5);
-    /* visibility: hidden; */
-    /* opacity: 0; */
+    visibility: hidden;
+    opacity: 0;
     transition: .3s opacity, .3s visibility;
   }
 }
