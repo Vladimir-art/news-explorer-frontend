@@ -5,7 +5,10 @@ function Header() {
   return (
     <header className="header header__main-background ">
       <div className="header__info">
-        <h3 className="header__text ">NewsExplorer</h3>
+        <div className="header__mobile">
+          <h3 className="header__text ">NewsExplorer</h3>
+          <button className="header__button"></button>
+        </div>
         <Navigation />
       </div>
     </header>
@@ -14,4 +17,4 @@ function Header() {
 
 export default Header;
 
-// если необходимо изменить фон header и цвет текста, то добавь модификатор class_theme-dark || header__main-background_inactive
+// если необходимо изменить фон header и цвет текста, то добавь модификатор class_theme-dark  header__main-background_inactive
