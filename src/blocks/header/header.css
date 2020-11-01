@@ -11,6 +11,7 @@
 @import url(./__button/_active/header__button_active.css);
 
 .header {
+  position: relative;
   max-width: 1440px;
   height: 80px;
   margin: 0 auto;
