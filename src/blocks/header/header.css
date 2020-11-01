@@ -6,6 +6,7 @@
 @import url(./__text/header__text.css);
 @import url(./__text/_theme-dark/header__text_theme-dark.css);
 @import url(./__main-background/_inactive/header__main-background_inactive.css);
+@import url(./__main-background/_mobile/header__main-background_mobile.css);
 
 .header {
   max-width: 1440px;
