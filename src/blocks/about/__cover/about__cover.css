@@ -11,3 +11,11 @@
     padding: 61px 0;
   }
 }
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .about__cover {
+    max-width: 288px;
+    padding: 32px 0 80px;
+    flex-direction: column;
+  }
+}
