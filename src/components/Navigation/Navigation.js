@@ -12,10 +12,10 @@ function Navigation() {
         <Link className="navigation__link ">Сохранённые статьи</Link>
       </li>
       <li className="navigation__links navigation__links_loggedout ">
-        <Link className="navigation__link ">Авторизоваться</Link>
+        <Link className="navigation__link navigation__link_center">Авторизоваться</Link>
       </li>
       <li className="navigation__links navigation__links_loggedin ">
-        <Link className="navigation__link ">Имя</Link>
+        <Link className="navigation__link navigation__link_center">Имя</Link>
         <img className="navigation__image" alt="Иконка-выйти" src={logOut} />
       </li>
     </ul>

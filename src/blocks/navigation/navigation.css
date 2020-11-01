@@ -7,6 +7,7 @@
 @import url(./__link/_theme-dark/navigation__link_theme-dark.css);
 @import url(./__links/_theme-dark/navigation__links_theme-dark.css);
 @import url(./__links/_hover/_theme-dark/navigation__links_hover_theme-dark.css);
+@import url(./__link/_center/navigation__link_center.css);
 
 .navigation {
   margin: 0;
@@ -17,9 +18,9 @@
   position: relative;
 }
 
-.navigation :last-child, .navigation :nth-child(3) {
+/* .navigation :last-child, .navigation :nth-child(3) {
   margin: 0;
-}
+} */
 
 .navigation :nth-child(2n) {
   display: none;
@@ -27,8 +28,11 @@
 
 @media screen and (max-width: 767px) and (min-width: 320px) {
   .navigation {
-    max-width: 288px;
+    width: 100%;
     margin: 0 auto;
     flex-direction: column;
+    background: #1A1B22;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
   }
 }
