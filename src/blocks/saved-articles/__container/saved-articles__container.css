@@ -11,3 +11,10 @@
     padding: 24px 0 32px;
   }
 }
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .saved-articles__container {
+    max-width: 288px;
+    padding: 8px 0 32px;
+  }
+}
