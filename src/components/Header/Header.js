@@ -20,7 +20,7 @@ function Header() {
             <div className="header__button "></div>
           </button>
         </div>
-        <div className="header__nav">
+        <div className="header__nav ">
           <Navigation />
         </div>
       </div>

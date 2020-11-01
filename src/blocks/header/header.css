@@ -9,6 +9,7 @@
 @import url(./__main-background/_inactive/header__main-background_inactive.css);
 @import url(./__main-background/_mobile/header__main-background_mobile.css);
 @import url(./__button/_active/header__button_active.css);
+@import url(./__nav/_inactive/header__nav_inactive.css);
 
 .header {
   position: relative;
@@ -27,6 +28,6 @@
 
 @media screen and (max-width: 767px) and (min-width: 320px) {
   .header {
-    height: 56px;
+    height: 100%;
   }
 }

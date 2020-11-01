@@ -24,3 +24,11 @@
 .navigation :nth-child(2n) {
   display: none;
 }
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .navigation {
+    max-width: 288px;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+}
