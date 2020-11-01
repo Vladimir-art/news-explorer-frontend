@@ -14,3 +14,10 @@
     padding: 40px 0 57px;
   }
 }
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .searching-results {
+    max-width: 288px;
+    padding: 32px 0;
+  }
+}
