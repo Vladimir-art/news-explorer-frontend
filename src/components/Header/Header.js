@@ -3,7 +3,7 @@ import Navigation from '../Navigation/Navigation';
 
 function Header() {
   return (
-    <header className="header header__main-background header_theme-dark">
+    <header className="header header__main-background ">
       <div className="header__info">
         <h3 className="header__text ">NewsExplorer</h3>
         <Navigation />
@@ -14,4 +14,4 @@ function Header() {
 
 export default Header;
 
-// если необходимо изменить фон header и цвет текста, то добавь модификатор class_theme-dark
+// если необходимо изменить фон header и цвет текста, то добавь модификатор class_theme-dark || header__main-background_inactive
