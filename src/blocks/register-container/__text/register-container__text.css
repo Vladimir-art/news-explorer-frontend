@@ -1,7 +1,7 @@
 .register-container__text {
   margin: 30px auto 22px;
   padding: 0;
-  width: 358px;
+  max-width: 358px;
   text-align: left;
 
   font-family: "Roboto", Arial, sans-serif;
@@ -10,4 +10,11 @@
   font-size: 24px;
   line-height: 28px;
   color: #1A1B22;
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .register-container__text {
+    width: 288px;
+    margin: 16px auto 22px;
+  }
 }
