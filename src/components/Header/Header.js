@@ -7,9 +7,11 @@ function Header() {
       <div className="header__info">
         <div className="header__mobile">
           <h3 className="header__text ">NewsExplorer</h3>
-          <button className="header__button"></button>
+          <button className="header__button header__button_active"></button>
         </div>
-        <Navigation />
+        <div className="header__nav">
+          <Navigation />
+        </div>
       </div>
     </header>
   );
