@@ -7,3 +7,12 @@
   grid-row-gap: 16px;
   grid-column-gap: 16px;
 }
+
+@media screen and (max-width: 1268px) and (min-width: 768px) {
+  .article-list__item {
+    max-width: 688px;
+    grid-template-columns: repeat(auto-fill, 224px);
+    grid-row-gap: 8px;
+    grid-column-gap: 8px;
+  }
+}
