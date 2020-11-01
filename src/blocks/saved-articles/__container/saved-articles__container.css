@@ -4,3 +4,10 @@
   padding: 40px 0 56px;
   text-align: left;
 }
+
+@media screen and (max-width: 1268px) and (min-width: 768px) {
+  .saved-articles__container {
+    max-width: 688px;
+    padding: 24px 0 32px;
+  }
+}
