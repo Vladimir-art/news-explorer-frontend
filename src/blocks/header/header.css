@@ -1,3 +1,4 @@
+@import url(./__main-background/header__main-background.css);
 @import url(./__info/header__info.css);
 @import url(./__mobile/header__mobile.css);
 @import url(./__button/header__button.css);
@@ -13,13 +14,13 @@
   border-bottom: 1px solid rgba(26, 27, 34, 0.2);
 }
 
-.header, .searchform {
+/* .background {
   background-image: url('../../images/main_theme.png');
   background-repeat: no-repeat;
   background-size: 100% 576px;
   background-position: center top;
   background-attachment: fixed;
-}
+} */
 
 @media screen and (max-width: 1024px) and (min-width: 768px) {
   .header {

@@ -3,9 +3,9 @@ import Navigation from '../Navigation/Navigation';
 
 function Header() {
   return (
-    <header className="header">
+    <header className="header header__main-background header_theme-dark">
       <div className="header__info">
-        <h3 className="header__text">NewsExplorer</h3>
+        <h3 className="header__text ">NewsExplorer</h3>
         <Navigation />
       </div>
     </header>

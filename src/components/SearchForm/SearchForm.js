@@ -2,7 +2,7 @@ import React from 'react';
 
 function SearchForm() {
   return (
-    <section className="searchform">
+    <section className="searchform header__main-background">
       <div className="searchform__info">
         <h1 className="searchform__title">Что творится в мире?</h1>
         <p className="searchform__text">Находите самые свежие статьи на любую тему и сохраняйте в&nbsp;своём личном кабинете.</p>
