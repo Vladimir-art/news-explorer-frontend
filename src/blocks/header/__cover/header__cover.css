@@ -1,0 +1,14 @@
+.header__cover {
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all .2s ease;
+}
+
+.header__cover:hover {
+  cursor: pointer;
+  opacity: .8;
+}

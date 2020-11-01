@@ -1,0 +1,9 @@
+/* .header__button.header__button_active {
+  transform: rotate(45deg);
+  top: 0
+} */
+
+/* .header__button.header__button_active::before {
+  transform: rotate(-45deg);
+  top: 0
+} */

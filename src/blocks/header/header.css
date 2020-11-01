@@ -5,6 +5,7 @@
 @import url(./__button/header__button.css);
 @import url(./__text/header__text.css);
 @import url(./__text/_theme-dark/header__text_theme-dark.css);
+@import URL(./__cover/header__cover.css);
 @import url(./__main-background/_inactive/header__main-background_inactive.css);
 @import url(./__main-background/_mobile/header__main-background_mobile.css);
 @import url(./__button/_active/header__button_active.css);
