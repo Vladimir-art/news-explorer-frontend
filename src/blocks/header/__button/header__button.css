@@ -23,8 +23,7 @@
   width: 16px;
   height: 2px;
   background-color: #FFF;
-  border: none;
-  outline: none;
+  transition: transform .2s ease, top .2s linear .2s;
 }
 
 .header__button::after {
@@ -38,13 +37,7 @@
   width: 16px;
   height: 2px;
   background-color: #FFF;
-  border: none;
-  outline: none;
-}
-
-.header__button:hover {
-  cursor: pointer;
-  opacity: .8;
+  transition: transform .2s ease, top .2s linear .2s;
 }
 
 @media screen and (max-width: 767px) and (min-width: 320px) {

@@ -1,9 +1,11 @@
-/* .header__button.header__button_active {
+.header__button.header__button_active::before {
   transform: rotate(45deg);
-  top: 0
-} */
+  top: 0;
+  transition: top .2s linear, transform .2s ease .2s;
+}
 
-/* .header__button.header__button_active::before {
+ .header__button.header__button_active::after {
   transform: rotate(-45deg);
-  top: 0
-} */
+  top: 0;
+  transition: top .2s linear, transform .2s ease .2s;
+}
