@@ -16,7 +16,7 @@ function Footer() {
               <a className="footer__link" href="https://praktikum.yandex.ru">Яндекс.Практикум</a>
             </li>
           </ul>
-          <ul className="footer__list">
+          <ul className="footer__list footer__list_icon">
             <li className="footer__links">
               <a className="footer__link" href="https://github.com/Vladimir-art">
                 <img className="footer__icon" alt="GitHub" src={github} />

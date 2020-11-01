@@ -10,3 +10,10 @@
 .footer__list :last-child {
   margin: 0;
 }
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .footer__list {
+    flex-direction: column;
+    width: 60%;
+  }
+}

@@ -1,0 +1,7 @@
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .footer__list_icon {
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 30%;
+  }
+}
