@@ -1,3 +1,42 @@
 .header__button {
   display: none;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 16px;
+  height: 2px;
+  background-color: #FFF;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all .2s ease;
+}
+
+.header__button::before {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: -5px;
+  content: '';
+  margin: 0;
+  padding: 0;
+  width: 16px;
+  height: 2px;
+  background-color: #FFF;
+  border: none;
+  outline: none;
+}
+
+.header__button:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .header__button {
+    display: block;
+  }
+  .header__button::before {
+    display: block;
+  }
 }
