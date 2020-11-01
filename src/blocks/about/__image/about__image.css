@@ -5,3 +5,11 @@
   object-fit: contain;
   margin: 0 56px 0 0;
 }
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .about__image {
+    width: 232px;
+    height: 232px;
+    margin: 0 32px 0 0;
+  }
+}

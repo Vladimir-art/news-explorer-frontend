@@ -9,3 +9,9 @@
   line-height: 24px;
   color: #1A1B22;
 }
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .about__knowledge {
+    margin: 0 0 15px 0;
+  }
+}
