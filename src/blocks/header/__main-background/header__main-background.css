@@ -5,3 +5,15 @@
   background-position: center top;
   background-attachment: fixed;
 }
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .header__main-background {
+    background-size: 100% 400px;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .header__main-background {
+    background-size: 200% 560px;
+  }
+}

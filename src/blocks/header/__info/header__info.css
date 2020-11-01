@@ -1,14 +1,8 @@
 .header__info {
   max-width: 85%;
-  height: 80px;
+  height: inherit;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-@media screen and (max-width: 1024px) and (min-width: 768px) {
-  .header__info {
-    height: 66px;
-  }
 }
