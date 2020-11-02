@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import Navigation from '../Navigation/Navigation';
 
 function Header() {
@@ -19,14 +21,14 @@ function Header() {
     <header className={`header header__main-background ${activeMenu && `header__main-background_mobile`}`}>
       <div className="header__info">
         <div className="header__mobile">
-          <h3 className="header__text ">NewsExplorer</h3>
+          <Link exact to="/" className="header__text ">NewsExplorer</Link>
           <button className="header__cover" onClick={changeButton}>
             <div className="header__button "></div>
           </button>
         </div>
-        <div className={`header__nav ${activeMenu && `header__nav_active`}`}>
+        <nav className={`header__nav ${activeMenu && `header__nav_active`}`}>
           <Navigation />
-        </div>
+        </nav>
       </div>
     </header>
   );

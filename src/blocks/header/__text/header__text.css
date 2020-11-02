@@ -1,12 +1,19 @@
 .header__text {
   margin: 0;
   padding: 0;
+  text-decoration: none;
   font-family: "Roboto Slab", Arial, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
   line-height: 24px;
   color: #FFF;
+  transition: all .2s ease;
+}
+
+.header__text:hover {
+  cursor: pointer;
+  opacity: .8;
 }
 
 @media screen and (max-width: 767px) and (min-width: 320px) {
