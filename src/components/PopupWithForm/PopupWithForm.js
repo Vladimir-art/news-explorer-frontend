@@ -35,9 +35,9 @@ function PopupWithForm(props) {
           <button className="register-container__button" type="submit">{props.button}</button>
           <p className="register-container__choice">
             или&#32;
-            <a className="register-container__link" name={props.name} href="#" onClick={changePopup}>
+            <button className="register-container__link" name={props.name} href="#" onClick={changePopup}>
               {` ${props.link}`}
-            </a>
+            </button>
           </p>
         </fieldset>
         <button className="register-container__close" type="reset" aria-label="Close" onClick={props.closePopup}></button>

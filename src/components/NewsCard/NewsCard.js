@@ -12,7 +12,7 @@ function NewsCard(props) {
           {props.text}
         </p>
       </div>
-      <a className="article-element__source" href="#">{props.source}</a>
+      <a className="article-element__source" href="https://newsapi.org/" target="_blank" rel="noreferrer">{props.source}</a>
       <div className="article-element__loggedout">
         <p className="article-element__attantion">Войдите, чтобы сохранять статьи</p>
         <button className="article-element__flag" type="button"></button>
