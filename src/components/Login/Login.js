@@ -17,6 +17,7 @@ function Login(props) {
       isOpenLogin={props.isOpenLogin}
       onChangeLog={isOpenReg}
       closeLogin={closeLog}
+      closePopup={props.closePopup}
       name="login"
       title="Вход"
       button="Войти"

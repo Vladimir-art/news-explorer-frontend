@@ -20,6 +20,7 @@ function Register(props) {
       isOpenReg={props.isOpenRegister}
       onChangeReg={isOpenLog}
       closeRegister={closeReg}
+      closePopup={props.closePopup}
       name="register"
       title="Регистрация"
       button="Зарегистрироваться"

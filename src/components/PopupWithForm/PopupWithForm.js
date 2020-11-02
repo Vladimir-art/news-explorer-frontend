@@ -40,7 +40,7 @@ function PopupWithForm(props) {
             </a>
           </p>
         </fieldset>
-        <button className="register-container__close" type="reset" aria-label="Close"></button>
+        <button className="register-container__close" type="reset" aria-label="Close" onClick={props.closePopup}></button>
       </form>
     </section>
   );

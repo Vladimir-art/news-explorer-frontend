@@ -42,7 +42,12 @@ function App() {
     setLogin(false);
   }
 
-  // console.log(register, '  ncjdjdj  ', login)
+  function closeAllPopups() {
+    setRegister(false);
+    setLogin(false);
+  }
+
+  console.log(register, '  ncjdjdj  ', login)
   return (
     <div className="page">
       <Header
@@ -64,11 +69,13 @@ function App() {
         isOpenRegister={register} // открытие попапа регистрации
         closeRegister={closeRegister}
         onChageReg={openLogin}
+        closePopup={closeAllPopups}
       />
       <Login
         isOpenLogin={login}
         closeLogin={closeLogin}
         onChageLog={openRegister}
+        closePopup={closeAllPopups}
       />
 
       <Footer />
