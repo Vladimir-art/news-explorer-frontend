@@ -10,6 +10,7 @@ function Register(props) {
   return (
     <PopupWithForm
       isOpenReg={props.isOpenRegister}
+      name="register"
       title="Регистрация"
       button="Зарегистрироваться"
       link="Войти"

@@ -5,7 +5,7 @@ function PopupWithForm(props) {
 
   return (
     <section className={`register ${props.isOpenReg && `register_opened`}`}>
-      <form className="register-container" name="register" method="POST">
+      <form className="register-container" name={props.name} method="POST">
         <h2 className="register-container__text">{props.title}</h2>
         <fieldset className="register-container__info">
           <label className="register-container__name" id="email">
