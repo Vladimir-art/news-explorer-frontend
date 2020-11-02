@@ -2,8 +2,9 @@
 import React from 'react';
 
 function PopupWithForm(props) {
+
   return (
-    <section className="register">
+    <section className={`register ${props.isOpenReg && `register_opened`}`}>
       <form className="register-container" name="register" method="POST">
         <h2 className="register-container__text">{props.title}</h2>
         <fieldset className="register-container__info">

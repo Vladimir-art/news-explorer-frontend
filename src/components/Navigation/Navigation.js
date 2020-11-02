@@ -5,6 +5,11 @@ import logOut from '../../images/logout.svg';
 
 function Navigation(props) {
 
+  function onClickAuthorize() {
+    props.resetBlackTheme();
+    props.isOpenRegister();
+  }
+
   console.log(props.isBlackTheme);
   return (
     <ul className="navigation">
@@ -28,7 +33,7 @@ function Navigation(props) {
       </NavLink>
       <li
         className={`navigation__links navigation__links_loggedout ${props.isBlackTheme && `navigation__links_theme-dark`}`}
-        onClick={props.resetBlackTheme}
+        onClick={onClickAuthorize}
       >
         <button
           className={`navigation__link navigation__link_center ${props.isBlackTheme && `navigation__link_theme-dark`}`}

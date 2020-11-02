@@ -1,11 +1,15 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-children-prop */
 
 import React from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 
-function Register() {
+function Register(props) {
+
   return (
     <PopupWithForm
+      isOpenReg={props.isOpenRegister}
       title="Регистрация"
       button="Зарегистрироваться"
       link="Войти"

@@ -11,18 +11,31 @@ import Login from '../Login/Login';
 function App() {
 
   const [changeTheme, setChangeTheme] = React.useState(false);
+  const [register, setRegister] = React.useState(false);
+
   // стейт для включения темной темя для шапки сайта
   function changeThemes() {
     setChangeTheme(true);
   }
+
   // стейт для отключения темной темы
   function resetChangeTheme() {
     setChangeTheme(false);
   }
 
+  //функция для открытия попапа с регистрацией
+  function openRegister() {
+    setRegister(true);
+  }
+
   return (
     <div className="page">
-      <Header isChangeTheme={changeTheme} onChange={changeThemes} resetTheme={resetChangeTheme} />
+      <Header
+        isChangeTheme={changeTheme} // стейт для вкл/откл темной темы
+        onChange={changeThemes} // вкл темной темы
+        resetTheme={resetChangeTheme} // откл темной темы
+        handleRegister={openRegister}
+      />
       <Switch>
         <Route exact path="/">
           <Main />
@@ -32,7 +45,7 @@ function App() {
         </Route>
       </Switch>
 
-      <Register />
+      <Register isOpenRegister={register} />
       <Login />
 
       <Footer />

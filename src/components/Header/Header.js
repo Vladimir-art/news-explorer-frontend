@@ -26,6 +26,10 @@ function Header(props) {
     props.resetTheme();
   }
 
+  function handleRegisterForm() {
+    props.handleRegister();
+  }
+
   return (
     <header
       className={
@@ -47,7 +51,13 @@ function Header(props) {
           </button>
         </div>
         <nav className={`header__nav ${activeMenu && `header__nav_active`}`}>
-          <Navigation onChangeTheme={setBlackTheme} isBlackTheme={props.isChangeTheme} resetBlackTheme={resetBlackTheme} />
+          <Navigation
+            onChangeTheme={setBlackTheme} // вкл темную тему
+            isBlackTheme={props.isChangeTheme} // отк/вкл темную тему state
+            resetBlackTheme={resetBlackTheme} // откл темную тему
+            isOpenRegister={handleRegisterForm}
+            openRegister={props.isOpenRegister}
+          />
         </nav>
       </div>
     </header>
