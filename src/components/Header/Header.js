@@ -23,10 +23,16 @@ function Header(props) {
   }
 
   return (
-    <header className={`header header__main-background ${activeMenu && `header__main-background_mobile`}`}>
+    <header
+      className={
+        `header header__main-background
+        ${activeMenu && `header__main-background_mobile`}
+        ${props.isChangeTheme && `header__main-background_inactive`}`
+      }
+    >
       <div className="header__info">
         <div className="header__mobile">
-          <Link exact to="/" className="header__text ">NewsExplorer</Link>
+          <Link exact to="/" className={`header__text ${props.isChangeTheme && `header__text_theme-dark`}`}>NewsExplorer</Link>
           <button className="header__cover" onClick={changeButton}>
             <div className="header__button "></div>
           </button>

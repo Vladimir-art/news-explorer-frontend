@@ -7,13 +7,6 @@
   background: #FFF;
   content: '';
   opacity: 1;
-  transition: opacity 0.3s ease, transform 0.3s ease;
   transform: translateY(13px);
   box-sizing: border-box;
 }
-
-
-/* .navigation__links_hover::after {
-  opacity: 1;
-  transform: translateY(13px);
-} */
