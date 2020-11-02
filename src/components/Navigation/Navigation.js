@@ -11,6 +11,7 @@ function Navigation(props) {
       <NavLink exact to="/"
         className="navigation__links"
         activeClassName={`navigation__links_hover ${props.isBlackTheme && `navigation__links_hover_theme-dark`}`}
+        onClick={props.resetBlackTheme}
       >
         <p className={`navigation__link ${props.isBlackTheme && `navigation__link_theme-dark`}`}>Главная</p>
       </NavLink>
@@ -27,6 +28,7 @@ function Navigation(props) {
       </NavLink>
       <li
         className={`navigation__links navigation__links_loggedout ${props.isBlackTheme && `navigation__links_theme-dark`}`}
+        onClick={props.resetBlackTheme}
       >
         <button
           className={`navigation__link navigation__link_center ${props.isBlackTheme && `navigation__link_theme-dark`}`}
@@ -36,6 +38,7 @@ function Navigation(props) {
       </li>
       <li
         className={`navigation__links navigation__links_loggedout ${props.isBlackTheme && `navigation__links_theme-dark`}`}
+        onClick={props.resetBlackTheme}
       >
         <button
           className={`navigation__link navigation__link_center ${props.isBlackTheme && `navigation__link_theme-dark`}`}

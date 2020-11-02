@@ -16,9 +16,13 @@ function App() {
     setChangeTheme(true);
   }
 
+  function resetChangeTheme() {
+    setChangeTheme(false);
+  }
+
   return (
     <div className="page">
-      <Header isChangeTheme={changeTheme} onChange={changeThemes} />
+      <Header isChangeTheme={changeTheme} onChange={changeThemes} resetTheme={resetChangeTheme} />
       {/* <Register /> */}
       {/* <Login /> */}
       <Switch>

@@ -17,9 +17,13 @@ function Header(props) {
       setActiveMenu(!activeMenu);
     }
   }
-
+  // устанавливаем черную тему для меню
   function setBlackTheme() {
     props.onChange();
+  }
+  // сбрасываем черную тему
+  function resetBlackTheme() {
+    props.resetTheme();
   }
 
   return (
@@ -32,13 +36,18 @@ function Header(props) {
     >
       <div className="header__info">
         <div className="header__mobile">
-          <Link exact to="/" className={`header__text ${props.isChangeTheme && `header__text_theme-dark`}`}>NewsExplorer</Link>
+          <Link exact to="/"
+            className={`header__text ${props.isChangeTheme && `header__text_theme-dark`}`}
+            onClick={props.resetTheme}
+          >
+            NewsExplorer
+          </Link>
           <button className="header__cover" onClick={changeButton}>
             <div className="header__button "></div>
           </button>
         </div>
         <nav className={`header__nav ${activeMenu && `header__nav_active`}`}>
-          <Navigation onChangeTheme={setBlackTheme} isBlackTheme={props.isChangeTheme} />
+          <Navigation onChangeTheme={setBlackTheme} isBlackTheme={props.isChangeTheme} resetBlackTheme={resetBlackTheme} />
         </nav>
       </div>
     </header>
