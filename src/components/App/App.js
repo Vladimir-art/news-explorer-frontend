@@ -37,7 +37,12 @@ function App() {
   function closeRegister() {
     setRegister(false);
   }
-  console.log(register, '  ncjdjdj  ', login)
+
+  function closeLogin() {
+    setLogin(false);
+  }
+
+  // console.log(register, '  ncjdjdj  ', login)
   return (
     <div className="page">
       <Header
@@ -60,7 +65,11 @@ function App() {
         closeRegister={closeRegister}
         onChageReg={openLogin}
       />
-      <Login isOpenLogin={login} />
+      <Login
+        isOpenLogin={login}
+        closeLogin={closeLogin}
+        onChageLog={openRegister}
+      />
 
       <Footer />
     </div>

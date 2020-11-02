@@ -3,11 +3,19 @@ import React from 'react';
 
 function PopupWithForm(props) {
 
-  function changePopup() {
-    props.onChangeReg();
-    props.closeRegister();
+  function changePopup(e) {
+    switch (e.target.name) {
+      case 'register':
+        props.closeRegister();
+        props.onChangeReg();
+        break;
+      case 'login':
+        props.closeLogin();
+        props.onChangeLog();
+        break;
+    }
   }
-  console.log(props.isOpenLogin);
+
   return (
     <section className={`register ${props.isOpenReg && `register_opened`} ${props.isOpenLogin && `register_opened`}`}>
       <form className="register-container" name={props.name} method="POST">
@@ -27,7 +35,7 @@ function PopupWithForm(props) {
           <button className="register-container__button" type="submit">{props.button}</button>
           <p className="register-container__choice">
             или&#32;
-            <a className="register-container__link" href="#" onClick={changePopup}>
+            <a className="register-container__link" name={props.name} href="#" onClick={changePopup}>
               {` ${props.link}`}
             </a>
           </p>
