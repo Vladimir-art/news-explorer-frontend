@@ -34,9 +34,9 @@ function PopupWithForm(props) {
           {props.children}
           <button className="register-container__button" type="submit">{props.button}</button>
           <p className="register-container__choice">
-            или&#32;
+            {`или `}
             <button className="register-container__link" name={props.name} href="#" onClick={changePopup}>
-              {` ${props.link}`}
+              {props.link}
             </button>
           </p>
         </fieldset>

@@ -56,7 +56,6 @@ function Header(props) {
             isBlackTheme={props.isChangeTheme} // отк/вкл темную тему state
             resetBlackTheme={resetBlackTheme} // откл темную тему
             isOpenRegister={handleRegisterForm}
-            openRegister={props.isOpenRegister}
           />
         </nav>
       </div>
