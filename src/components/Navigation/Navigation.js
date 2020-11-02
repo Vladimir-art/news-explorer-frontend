@@ -1,16 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logOut from '../../images/logout.svg';
 
 function Navigation() {
   return (
     <ul className="navigation">
-      <li className="navigation__links navigation__links_hover ">
-        <Link className="navigation__link ">Главная</Link>
-      </li>
-      <li className="navigation__links navigation__links_hover ">
-        <Link className="navigation__link ">Сохранённые статьи</Link>
-      </li>
+      <NavLink exact to="/" className="navigation__links" activeClassName="navigation__links_hover ">
+        Главная
+      </NavLink>
+      <NavLink to="/saved-news" className="navigation__links" activeClassName="navigation__links_hover ">
+        Сохранённые статьи
+      </NavLink>
       <li className="navigation__links navigation__links_loggedout ">
         <Link className="navigation__link navigation__link_center">Авторизоваться</Link>
       </li>

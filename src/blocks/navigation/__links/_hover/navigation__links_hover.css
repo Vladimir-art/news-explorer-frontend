@@ -6,14 +6,14 @@
   height: 3px;
   background: #FFF;
   content: '';
-  opacity: 0;
+  opacity: 1;
   transition: opacity 0.3s ease, transform 0.3s ease;
-  transform: translateY(14px);
+  transform: translateY(13px);
   box-sizing: border-box;
 }
 
 
-.navigation__links_hover:hover::after {
+/* .navigation__links_hover::after {
   opacity: 1;
   transform: translateY(13px);
-}
+} */
