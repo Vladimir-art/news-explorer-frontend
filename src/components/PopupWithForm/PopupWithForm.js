@@ -3,8 +3,13 @@ import React from 'react';
 
 function PopupWithForm(props) {
 
+  function changePopup() {
+    props.onChangeReg();
+    props.closeRegister();
+  }
+  console.log(props.isOpenLogin);
   return (
-    <section className={`register ${props.isOpenReg && `register_opened`}`}>
+    <section className={`register ${props.isOpenReg && `register_opened`} ${props.isOpenLogin && `register_opened`}`}>
       <form className="register-container" name={props.name} method="POST">
         <h2 className="register-container__text">{props.title}</h2>
         <fieldset className="register-container__info">
@@ -20,7 +25,12 @@ function PopupWithForm(props) {
           </label>
           {props.children}
           <button className="register-container__button" type="submit">{props.button}</button>
-          <p className="register-container__choice">или <a className="register-container__link" href="#">{props.link}</a></p>
+          <p className="register-container__choice">
+            или&#32;
+            <a className="register-container__link" href="#" onClick={changePopup}>
+              {` ${props.link}`}
+            </a>
+          </p>
         </fieldset>
         <button className="register-container__close" type="reset" aria-label="Close"></button>
       </form>

@@ -7,9 +7,19 @@ import PopupWithForm from '../PopupWithForm/PopupWithForm';
 
 function Register(props) {
 
+  function closeReg() {
+    props.closeRegister()
+  }
+
+  function isOpenLog() {
+    props.onChageReg();
+  }
+
   return (
     <PopupWithForm
       isOpenReg={props.isOpenRegister}
+      onChangeReg={isOpenLog}
+      closeRegister={closeReg}
       name="register"
       title="Регистрация"
       button="Зарегистрироваться"

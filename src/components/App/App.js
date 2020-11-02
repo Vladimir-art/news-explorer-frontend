@@ -12,6 +12,7 @@ function App() {
 
   const [changeTheme, setChangeTheme] = React.useState(false);
   const [register, setRegister] = React.useState(false);
+  const [login, setLogin] = React.useState(false);
 
   // стейт для включения темной темя для шапки сайта
   function changeThemes() {
@@ -28,6 +29,15 @@ function App() {
     setRegister(true);
   }
 
+  // функция по открытию попапа войти
+  function openLogin() {
+    setLogin(true);
+  }
+
+  function closeRegister() {
+    setRegister(false);
+  }
+  console.log(register, '  ncjdjdj  ', login)
   return (
     <div className="page">
       <Header
@@ -45,8 +55,12 @@ function App() {
         </Route>
       </Switch>
 
-      <Register isOpenRegister={register} />
-      <Login />
+      <Register
+        isOpenRegister={register} // открытие попапа регистрации
+        closeRegister={closeRegister}
+        onChageReg={openLogin}
+      />
+      <Login isOpenLogin={login} />
 
       <Footer />
     </div>

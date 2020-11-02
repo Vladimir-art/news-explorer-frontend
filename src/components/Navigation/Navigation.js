@@ -10,7 +10,6 @@ function Navigation(props) {
     props.isOpenRegister();
   }
 
-  console.log(props.isBlackTheme);
   return (
     <ul className="navigation">
       <NavLink exact to="/"
