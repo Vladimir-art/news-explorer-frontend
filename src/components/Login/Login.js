@@ -12,12 +12,17 @@ function Login(props) {
     props.onChageLog();
   }
 
+  function overlayClick(e) {
+    props.overlay(e.target);
+  }
+
   return (
     <PopupWithForm
       isOpenLogin={props.isOpenLogin}
       onChangeLog={isOpenReg}
       closeLogin={closeLog}
       closePopup={props.closePopup}
+      overlayClick={overlayClick}
       name="login"
       title="Вход"
       button="Войти"

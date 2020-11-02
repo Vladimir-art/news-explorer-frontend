@@ -15,12 +15,17 @@ function Register(props) {
     props.onChageReg();
   }
 
+  function overlayClick(e) {
+    props.overlay(e.target);
+  }
+
   return (
     <PopupWithForm
       isOpenReg={props.isOpenRegister}
       onChangeReg={isOpenLog}
       closeRegister={closeReg}
       closePopup={props.closePopup}
+      overlayClick={overlayClick}
       name="register"
       title="Регистрация"
       button="Зарегистрироваться"

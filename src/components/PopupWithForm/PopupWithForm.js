@@ -17,7 +17,7 @@ function PopupWithForm(props) {
   }
 
   return (
-    <section className={`register ${props.isOpenReg && `register_opened`} ${props.isOpenLogin && `register_opened`}`}>
+    <section className={`register ${props.isOpenReg && `register_opened`} ${props.isOpenLogin && `register_opened`}`} onClick={props.overlayClick}>
       <form className="register-container" name={props.name} method="POST">
         <h2 className="register-container__text">{props.title}</h2>
         <fieldset className="register-container__info">

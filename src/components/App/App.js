@@ -47,6 +47,20 @@ function App() {
     setLogin(false);
   }
 
+  React.useEffect(() => {
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeAllPopups();
+      }
+    });
+  }, []);
+
+  function overlayClick(e) { //оверлей по клику (принимает попап)
+    if (e.classList.contains('register')) {
+      closeAllPopups();
+    }
+  }
+
   console.log(register, '  ncjdjdj  ', login)
   return (
     <div className="page">
@@ -70,12 +84,14 @@ function App() {
         closeRegister={closeRegister}
         onChageReg={openLogin}
         closePopup={closeAllPopups}
+        overlay={overlayClick}
       />
       <Login
         isOpenLogin={login}
         closeLogin={closeLogin}
         onChageLog={openRegister}
         closePopup={closeAllPopups}
+        overlay={overlayClick}
       />
 
       <Footer />
