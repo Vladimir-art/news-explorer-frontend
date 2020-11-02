@@ -10,15 +10,15 @@ import Footer from '../Footer/Footer';
 
 function App() {
 
-  // const [changeTheme, setChangeTheme] = React.useState(false);
+  const [changeTheme, setChangeTheme] = React.useState(false);
 
-  // function changeTheme() {
-  //   setChangeTheme
-  // }
+  function changeThemes() {
+    setChangeTheme(true);
+  }
 
   return (
     <div className="page">
-      <Header />
+      <Header isChangeTheme={changeTheme} onChange={changeThemes} />
       {/* <Register /> */}
       {/* <Login /> */}
       <Switch>

@@ -5,15 +5,7 @@
   align-items: center;
   text-align: center;
   position: relative;
-
   text-decoration: none;
-  font-family: "Roboto", Arial, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
-  color: #FFFFFF;
-  transition: all .2s ease;
 }
 
 .navigation__links:hover {

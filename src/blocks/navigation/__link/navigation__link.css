@@ -12,10 +12,6 @@
   color: #FFFFFF;
 }
 
-.navigation__link:hover {
-  cursor: pointer;
-}
-
 @media screen and (max-width: 1024px) and (min-width: 768px) {
   .navigation__link {
     font-size: 16px;

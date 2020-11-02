@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 import Navigation from '../Navigation/Navigation';
 
-function Header() {
+function Header(props) {
 
   const [activeMenu, setActiveMenu] = React.useState(false);
 
@@ -17,6 +18,10 @@ function Header() {
     }
   }
 
+  function setBlackTheme() {
+    props.onChange();
+  }
+
   return (
     <header className={`header header__main-background ${activeMenu && `header__main-background_mobile`}`}>
       <div className="header__info">
@@ -27,7 +32,7 @@ function Header() {
           </button>
         </div>
         <nav className={`header__nav ${activeMenu && `header__nav_active`}`}>
-          <Navigation />
+          <Navigation onChangeTheme={setBlackTheme} isBlackTheme={props.isChangeTheme} />
         </nav>
       </div>
     </header>
