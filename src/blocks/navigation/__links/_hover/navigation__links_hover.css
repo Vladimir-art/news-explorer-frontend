@@ -10,3 +10,9 @@
   transform: translateY(13px);
   box-sizing: border-box;
 }
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .navigation__links_hover::after {
+    display: none;
+  }
+}

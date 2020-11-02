@@ -18,14 +18,6 @@
   position: relative;
 }
 
-/* .navigation :last-child, .navigation :nth-child(3) {
-  margin: 0;
-} */
-
-/* .navigation :nth-child(2n) {
-  display: none;
-} */
-
 @media screen and (max-width: 767px) and (min-width: 320px) {
   .navigation {
     width: 100%;

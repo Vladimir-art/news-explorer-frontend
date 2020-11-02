@@ -47,4 +47,3 @@ function PopupWithForm(props) {
 }
 
 export default PopupWithForm;
-// register_opened
