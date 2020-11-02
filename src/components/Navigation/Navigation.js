@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logOut from '../../images/logout.svg';
 
 function Navigation() {
@@ -12,10 +12,10 @@ function Navigation() {
         Сохранённые статьи
       </NavLink>
       <li className="navigation__links navigation__links_loggedout ">
-        <Link className="navigation__link navigation__link_center">Авторизоваться</Link>
+        <button className="navigation__link navigation__link_center">Авторизоваться</button>
       </li>
       <li className="navigation__links navigation__links_loggedin ">
-        <Link className="navigation__link navigation__link_center">Имя</Link>
+        <button className="navigation__link navigation__link_center">Имя</button>
         <img className="navigation__image" alt="Иконка-выйти" src={logOut} />
       </li>
     </ul>

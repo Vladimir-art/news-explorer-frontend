@@ -2,12 +2,18 @@
   margin: 0;
   padding: 0;
   text-decoration: none;
+  background-color: transparent;
+  border: none;
   font-family: "Roboto", Arial, sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
   color: #FFFFFF;
+}
+
+.navigation__link:hover {
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1024px) and (min-width: 768px) {
