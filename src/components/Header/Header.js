@@ -47,7 +47,7 @@ function Header(props) {
             NewsExplorer
           </Link>
           <button className="header__cover" onClick={changeButton}>
-            <div className="header__button "></div>
+            <figure className="header__button "></figure>
           </button>
         </div>
         <nav className={`header__nav ${activeMenu && `header__nav_active`}`}>
