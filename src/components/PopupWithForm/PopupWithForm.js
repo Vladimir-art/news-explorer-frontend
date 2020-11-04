@@ -4,6 +4,7 @@ import React from 'react';
 function PopupWithForm(props) {
 
   function changePopup(e) {
+    e.preventDefault();
     switch (e.target.name) {
       case 'register':
         props.closeRegister();
@@ -13,12 +14,14 @@ function PopupWithForm(props) {
         props.closeLogin();
         props.onChangeLog();
         break;
+      default:
+        break;
     }
   }
 
   return (
     <section className={`register ${props.isOpenReg && `register_opened`} ${props.isOpenLogin && `register_opened`}`} onClick={props.overlayClick}>
-      <form className="register-container" name={props.name} method="POST">
+      <form className="register-container" name={props.name}>
         <h2 className="register-container__text">{props.title}</h2>
         <fieldset className="register-container__info">
           <label className="register-container__name" id="email">
@@ -35,7 +38,7 @@ function PopupWithForm(props) {
           <button className="register-container__button" type="submit">{props.button}</button>
           <p className="register-container__choice">
             {`или `}
-            <button className="register-container__link" name={props.name} href="#" onClick={changePopup}>
+            <button className="register-container__link" name={props.name} onClick={changePopup}>
               {props.link}
             </button>
           </p>
