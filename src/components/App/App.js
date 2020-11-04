@@ -61,7 +61,6 @@ function App() {
     }
   }
 
-  console.log(register, '  ncjdjdj  ', login)
   return (
     <div className="page">
       <Header
