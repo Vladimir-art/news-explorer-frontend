@@ -12,24 +12,28 @@ function Navigation(props) {
 
   return (
     <ul className="navigation">
-      <NavLink exact to="/"
-        className="navigation__links"
-        activeClassName={`navigation__links_hover ${props.isBlackTheme && `navigation__links_hover_theme-dark`}`}
-        onClick={props.resetBlackTheme}
-      >
-        <p className={`navigation__link ${props.isBlackTheme && `navigation__link_theme-dark`}`}>Главная</p>
-      </NavLink>
-      <NavLink to="/saved-news"
-        className="navigation__links"
-        activeClassName={`navigation__links_hover ${props.isBlackTheme && `navigation__links_hover_theme-dark`}`}
-        onClick={props.onChangeTheme}
-      >
-        <p
-          className={`navigation__link ${props.isBlackTheme && `navigation__link_theme-dark`}`}
+      <li className="navigation__links">
+        <NavLink exact to="/"
+          className="navigation__link"
+          activeClassName={`navigation__links_hover ${props.isBlackTheme && `navigation__links_hover_theme-dark`}`}
+          onClick={props.resetBlackTheme}
         >
-          Сохранённые статьи
-        </p>
-      </NavLink>
+          <p className={`navigation__link ${props.isBlackTheme && `navigation__link_theme-dark`}`}>Главная</p>
+        </NavLink>
+      </li>
+      <li className="navigation__links">
+        <NavLink to="/saved-news"
+          className="navigation__link"
+          activeClassName={`navigation__links_hover ${props.isBlackTheme && `navigation__links_hover_theme-dark`}`}
+          onClick={props.onChangeTheme}
+        >
+          <p
+            className={`navigation__link ${props.isBlackTheme && `navigation__link_theme-dark`}`}
+          >
+            Сохранённые статьи
+          </p>
+        </NavLink>
+      </li>
       <li
         className={`navigation__links navigation__links_loggedout ${props.isBlackTheme && `navigation__links_theme-dark`}`}
         onClick={onClickAuthorize}
