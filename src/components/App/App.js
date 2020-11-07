@@ -64,15 +64,15 @@ function App() {
     }
   }
 
-  function handleSubmitSearching(form, value, today, pastday) {
-    setPreloader(true);
-    NewsApi.getArticles(value, pastday, today)
+  function handleSubmitSearching(form, value, today, weekAgo) {
+    setPreloader(true); // включаем прелоудер
+    NewsApi.getArticles(value, weekAgo, today)
       .then((data) => {
         localStorage.setItem('articles', JSON.stringify(data.articles)); // записываем данные в локаьное хранилище, в случае перезагрузки стр, данные не потеряются
       })
       .then(() => {
         setSearchArticles(JSON.parse(localStorage.getItem('articles'))); // обновляем стейт и записываем массив статей
-        setPreloader(false);
+        setPreloader(false); // откл прелоудер
       })
       .catch((err) => console.log('Произошла ошибка: ', err))
       .finally(() => {

@@ -2,7 +2,7 @@
 import React from 'react';
 
 function Preloader(props) {
-  console.log(props.isOpen);
+
   return (
     <section className={`preloader ${props.isOpen ? '' : 'preloader_inactive'}`}>
       <i className="preloader__circle"></i>
