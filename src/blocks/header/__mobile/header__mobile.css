@@ -1,0 +1,16 @@
+.header__mobile {
+  margin: 0;
+  padding: 0;
+  align-self: flex-end;
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .header__mobile {
+    width: 100%;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+}

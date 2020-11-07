@@ -1,0 +1,14 @@
+.register-container__info {
+  margin: 0 auto;
+  padding: 0;
+  width: 358px;
+  display: flex;
+  flex-direction: column;
+  border: none;
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .register-container__info {
+    width: 288px;
+  }
+}

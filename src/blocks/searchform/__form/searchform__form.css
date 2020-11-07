@@ -1,0 +1,25 @@
+.searchform__form {
+  position: relative;
+  width: 100%;
+  height: 64px;
+  background: #FFFFFF;
+  box-sizing: border-box;
+  backdrop-filter: blur(8px);
+  border-radius: 100px;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 320px) {
+  .searchform__form {
+    max-width: 448px;
+    margin: 0 auto;
+    height: 56px;
+
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .searchform__form {
+    max-width: 288px;
+    margin-bottom: 104px;
+  }
+}

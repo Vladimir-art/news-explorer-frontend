@@ -1,0 +1,15 @@
+.header__info {
+  max-width: 85%;
+  height: inherit;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .header__info {
+    max-width: 288px;
+    flex-direction: column;
+  }
+}

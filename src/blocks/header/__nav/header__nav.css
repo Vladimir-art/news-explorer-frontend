@@ -1,0 +1,14 @@
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .header__nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s opacity, .3s visibility;
+  }
+}
+

@@ -1,0 +1,32 @@
+.navigation__links_loggedout {
+  max-width: 176px;
+  height: 48px;
+  padding: 15px;
+  border: 1px solid #FFF;
+  box-sizing: border-box;
+  border-radius: 100px;
+  transition: all .2s ease;
+}
+
+.navigation__links_loggedout:hover {
+  cursor: pointer;
+  opacity: .7;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .navigation__links_loggedout {
+    max-width: 152px;
+    padding: 8px;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .navigation__links_loggedout {
+    max-width: 288px;
+    margin-bottom: 22px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+}

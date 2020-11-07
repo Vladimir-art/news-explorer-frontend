@@ -1,0 +1,20 @@
+.footer__sources {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .footer__sources {
+    width: 46%;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .footer__sources {
+    width: 100%;
+    margin-bottom: 36px;
+  }
+}

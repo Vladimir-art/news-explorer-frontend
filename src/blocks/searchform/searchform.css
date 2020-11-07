@@ -1,0 +1,12 @@
+@import url(./__info/searchform__info.css);
+@import url(./__title/searchform__title.css);
+@import url(./__text/searchform__text.css);
+@import url(./__form/searchform__form.css);
+@import url(./__input/searchform__input.css);
+@import url(./__search/searchform__search.css);
+
+.searchform {
+  width: 100%;
+  margin: 0 auto;
+  color: #FFF;
+}

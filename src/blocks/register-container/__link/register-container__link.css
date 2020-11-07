@@ -1,0 +1,21 @@
+.register-container__link {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  font-family: "Inter", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+
+  color: #2F71E5;
+  transition: all .3s ease;
+}
+
+.register-container__link:hover {
+  cursor: pointer;
+  color: #6099fa;
+}

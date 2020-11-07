@@ -1,0 +1,9 @@
+.preloader__image {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto;
+  padding: 0;
+  background-image: url('../../../images/not-found.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}

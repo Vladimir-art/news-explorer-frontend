@@ -1,0 +1,23 @@
+.searchform__text {
+  margin: 0 0 64px 0;
+  padding: 0;
+  max-width: 545px;
+  font-family: "Roboto", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFF;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .searchform__text {
+    margin: 0 0 48px 0;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .searchform__text {
+    margin: 0 0 122px;
+  }
+}

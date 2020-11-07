@@ -1,0 +1,23 @@
+.article-element__image {
+  width: 400px;
+  height: 272px;
+  object-fit: contain;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+@media screen and (max-width: 1268px) and (min-width: 768px) {
+  .article-element__image {
+    width: 224px;
+    height: 150px;
+    margin-bottom: 12px;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .article-element__image {
+    width: 288px;
+    height: 196px;
+    margin-bottom: 12px;
+  }
+}

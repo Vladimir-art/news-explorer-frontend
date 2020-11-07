@@ -1,0 +1,33 @@
+@import url(./__main-background/header__main-background.css);
+@import url(./__info/header__info.css);
+@import url(./__mobile/header__mobile.css);
+@import url(./__nav/header__nav.css);
+@import url(./__button/header__button.css);
+@import url(./__text/header__text.css);
+@import url(./__text/_theme-dark/header__text_theme-dark.css);
+@import URL(./__cover/header__cover.css);
+@import url(./__main-background/_inactive/header__main-background_inactive.css);
+@import url(./__main-background/_mobile/header__main-background_mobile.css);
+@import url(./__button/_active/header__button_active.css);
+@import url(./__nav/_active/header__nav_active.css);
+
+.header {
+  position: relative;
+  max-width: 1440px;
+  height: 80px;
+  margin: 0 auto;
+  box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(26, 27, 34, 0.2);
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .header {
+    height: 66px;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .header {
+    height: 100%;
+  }
+}

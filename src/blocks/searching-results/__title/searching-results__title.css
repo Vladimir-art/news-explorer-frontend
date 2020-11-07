@@ -1,0 +1,24 @@
+.searching-results__title {
+  margin: 0 0 64px;
+  padding: 0;
+  font-family: "Roboto Slab", Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 46px;
+  color: #1A1B22;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .searching-results__title {
+    margin: 0 0 32px;
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .searching-results__title {
+    margin: 0 0 24px;
+  }
+}

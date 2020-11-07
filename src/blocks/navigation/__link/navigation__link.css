@@ -1,0 +1,19 @@
+.navigation__link {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  font-family: "Roboto", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .navigation__link {
+    font-size: 16px;
+  }
+}
