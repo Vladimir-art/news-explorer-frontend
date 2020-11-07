@@ -15,6 +15,7 @@ function App() {
   const [register, setRegister] = React.useState(false); // стейт для открытия /закрытия регистрации
   const [login, setLogin] = React.useState(false); // открытие/закрытие входа на сайт
   const [searchArticles, setSearchArticles] = React.useState(JSON.parse(localStorage.getItem('articles'))); // стейт для записи всех найденных статей
+  const [preloader, setPreloader] = React.useState(false); // вкл/откл прелоудера
 
   // стейт для включения темной темя для шапки сайта
   function changeThemes() {
@@ -64,12 +65,14 @@ function App() {
   }
 
   function handleSubmitSearching(form, value, today, pastday) {
+    setPreloader(true);
     NewsApi.getArticles(value, pastday, today)
       .then((data) => {
         localStorage.setItem('articles', JSON.stringify(data.articles)); // записываем данные в локаьное хранилище, в случае перезагрузки стр, данные не потеряются
       })
       .then(() => {
         setSearchArticles(JSON.parse(localStorage.getItem('articles'))); // обновляем стейт и записываем массив статей
+        setPreloader(false);
       })
       .catch((err) => console.log('Произошла ошибка: ', err))
       .finally(() => {
@@ -87,7 +90,7 @@ function App() {
       />
       <Switch>
         <Route exact path="/">
-          <Main submitSearching={handleSubmitSearching} isResult={searchArticles} />
+          <Main submitSearching={handleSubmitSearching} isResult={searchArticles} isPreloader={preloader} />
         </Route>
         <Route path="/saved-news">
           <SavedNews />

@@ -1,8 +1,10 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
-function Preloader() {
+function Preloader(props) {
+  console.log(props.isOpen);
   return (
-    <section className="preloader preloader_inactive">
+    <section className={`preloader ${props.isOpen ? '' : 'preloader_inactive'}`}>
       <i className="preloader__circle"></i>
       <p className="preloader__text">Идет поиск новостей...</p>
     </section>

@@ -10,7 +10,7 @@ function Main(props) {
   return (
     <main className="main">
       <SearchForm submitForm={props.submitSearching} />
-      <Preloader />
+      <Preloader isOpen={props.isPreloader} />
       <PageNotFound />
       <SearchingResults isResult={props.isResult} />
       <About />
