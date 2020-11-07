@@ -6,7 +6,7 @@ function NewsCard(props) {
 
   return (
     <div className="article-element">
-      <img className="article-element__image" alt={props.source} src={props.src === null ? image : props.src} onLoad={props.errLoad} onError={props.errorLoad} />
+      <img className="article-element__image" alt={props.source} src={props.src === null ? image : props.src} onError={props.errorLoad} />
       <div className="article-element__cover">
         <p className="article-element__date">{props.time}</p>
         <h3 className="article-element__title">{props.title}</h3>
