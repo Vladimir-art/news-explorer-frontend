@@ -2,17 +2,18 @@
 import React from 'react';
 
 function NewsCard(props) {
+
   return (
     <div className="article-element">
-      <img className="article-element__image" alt="Изображение" src={props.scr} />
+      <img className="article-element__image" alt={props.source} src={props.src} />
       <div className="article-element__cover">
-        <p className="article-element__date">2 августа, 2019</p>
+        <p className="article-element__date">{props.time}</p>
         <h3 className="article-element__title">{props.title}</h3>
         <p className="article-element__text">
           {props.text}
         </p>
       </div>
-      <a className="article-element__source" href="https://newsapi.org/" target="_blank" rel="noreferrer">{props.source}</a>
+      <a className="article-element__source" href={props.link} target="_blank" rel="noreferrer">{props.source}</a>
       <div className="article-element__loggedout">
         <p className="article-element__attantion">Войдите, чтобы сохранять статьи</p>
         <button className="article-element__flag" type="button"></button>

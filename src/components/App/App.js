@@ -66,14 +66,18 @@ function App() {
   function handleSubmitSearching(form, value, today, pastday) {
     NewsApi.getArticles(value, pastday, today)
       .then((data) => {
-        setSearchArticles(data.articles);
+        // setSearchArticles(data.articles);
+        localStorage.setItem('articles', JSON.stringify(data.articles));
+      })
+      .then(() => {
+        setSearchArticles(JSON.parse(localStorage.getItem('articles')));
       })
       .catch((err) => console.log('Произошла ошибка: ', err))
       .finally(() => {
         form.reset();
       })
   }
-console.log(searchArticles);
+  console.log(searchArticles);
   return (
     <div className="page">
       <Header
@@ -84,7 +88,7 @@ console.log(searchArticles);
       />
       <Switch>
         <Route exact path="/">
-          <Main submitSearching={handleSubmitSearching} />
+          <Main submitSearching={handleSubmitSearching} isResult={searchArticles} />
         </Route>
         <Route path="/saved-news">
           <SavedNews />

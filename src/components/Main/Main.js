@@ -12,7 +12,7 @@ function Main(props) {
       <SearchForm submitForm={props.submitSearching} />
       <Preloader />
       <PageNotFound />
-      <SearchingResults />
+      <SearchingResults isResult={props.isResult} />
       <About />
     </main>
   );
