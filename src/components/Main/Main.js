@@ -11,8 +11,8 @@ function Main(props) {
     <main className="main">
       <SearchForm submitForm={props.submitSearching} />
       <Preloader isOpen={props.isPreloader} />
-      <PageNotFound />
-      <SearchingResults isResult={props.isResult} />
+      <PageNotFound isOpen={props.isResult} isPreloader={props.isPreloader} />
+      <SearchingResults isResult={props.isResult} isPreloader={props.isPreloader} />
       <About />
     </main>
   );
