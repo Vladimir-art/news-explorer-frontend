@@ -3,9 +3,9 @@
 @import url(./__title/preloader__title.css);
 @import url(./__image/preloader__image.css);
 @import url(./__text/preloader__text.css);
+@import url(./_inactive/preloader_imactive.css);
 
 .preloader {
-  display: none;
   margin: 0 auto;
   padding: 80px 0;
   width: 1440px;

@@ -14,7 +14,7 @@ function App() {
   const [changeTheme, setChangeTheme] = React.useState(false); // стейт для смены темы черная/белая
   const [register, setRegister] = React.useState(false); // стейт для открытия /закрытия регистрации
   const [login, setLogin] = React.useState(false); // открытие/закрытие входа на сайт
-  //const [searchInput, setSearchInput] = React.useState(''); // стейт для записи value формы поиска
+  //const [searchArticles, setSearchArticles] = React.useState([]); // стейт для записи всех найденных статей
 
   // стейт для включения темной темя для шапки сайта
   function changeThemes() {
@@ -68,7 +68,7 @@ function App() {
       .then((data) => {
         console.log(data);
       })
-      .catch((err) => console.log('Error: ', err))
+      .catch((err) => console.log('Произошла ошибка: ', err))
       .finally(() => {
         form.reset();
       })
