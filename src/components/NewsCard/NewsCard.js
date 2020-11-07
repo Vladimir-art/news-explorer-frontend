@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import image from '../../utils/constants';
 
 function NewsCard(props) {
 
   return (
     <div className="article-element">
-      <img className="article-element__image" alt={props.source} src={props.src} />
+      <img className="article-element__image" alt={props.source} src={props.src === null ? image : props.src} onLoad={props.errLoad} onError={props.errorLoad} />
       <div className="article-element__cover">
         <p className="article-element__date">{props.time}</p>
         <h3 className="article-element__title">{props.title}</h3>

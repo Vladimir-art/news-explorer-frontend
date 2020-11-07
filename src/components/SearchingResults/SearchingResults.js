@@ -1,9 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import NewsCard from '../NewsCard/NewsCard';
+import image from '../../utils/constants';
 
 function SearchingResults(props) {
-  const [arr, setArr] = React.useState(props.isResult.slice(0, 3));
+  const [arr, setArr] = React.useState([]);
+
+  React.useEffect(() => {
+    setArr(props.isResult.slice(0, 3))
+  }, [props.isResult]);
 
   function dateFormat(str) {
     const date = new Date(str);
@@ -13,9 +18,13 @@ function SearchingResults(props) {
 
   function showMore(e) {
     setArr(props.isResult.slice(0, arr.length + 3));
-    if (arr.length > props.isResult.length - 1) {
+    if (arr.length >= props.isResult.length - 1) {
       e.target.remove();
     }
+  }
+
+  function onErrorImage(e) {
+    e.target.setAttribute('src', image);
   }
 
   return (
@@ -27,6 +36,7 @@ function SearchingResults(props) {
             return (
               <NewsCard
                 key={index}
+                errorLoad={onErrorImage}
                 src={item.urlToImage}
                 title={item.title}
                 text={item.description}
