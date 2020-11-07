@@ -66,18 +66,17 @@ function App() {
   function handleSubmitSearching(form, value, today, pastday) {
     NewsApi.getArticles(value, pastday, today)
       .then((data) => {
-        // setSearchArticles(data.articles);
-        localStorage.setItem('articles', JSON.stringify(data.articles));
+        localStorage.setItem('articles', JSON.stringify(data.articles)); // записываем данные в локаьное хранилище, в случае перезагрузки стр, данные не потеряются
       })
       .then(() => {
-        setSearchArticles(JSON.parse(localStorage.getItem('articles')));
+        setSearchArticles(JSON.parse(localStorage.getItem('articles'))); // обновляем стейт и записываем массив статей
       })
       .catch((err) => console.log('Произошла ошибка: ', err))
       .finally(() => {
-        form.reset();
+        form.reset(); // сбрасывем значение инпута с поиском
       })
   }
-  console.log(searchArticles);
+
   return (
     <div className="page">
       <Header
