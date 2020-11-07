@@ -14,7 +14,7 @@ function App() {
   const [changeTheme, setChangeTheme] = React.useState(false); // стейт для смены темы черная/белая
   const [register, setRegister] = React.useState(false); // стейт для открытия /закрытия регистрации
   const [login, setLogin] = React.useState(false); // открытие/закрытие входа на сайт
-  const [searchArticles, setSearchArticles] = React.useState([]); // стейт для записи всех найденных статей
+  const [searchArticles, setSearchArticles] = React.useState(JSON.parse(localStorage.getItem('articles'))); // стейт для записи всех найденных статей
 
   // стейт для включения темной темя для шапки сайта
   function changeThemes() {

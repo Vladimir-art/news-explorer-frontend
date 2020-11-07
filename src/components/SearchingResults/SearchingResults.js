@@ -4,6 +4,12 @@ import NewsCard from '../NewsCard/NewsCard';
 
 function SearchingResults(props) {
 
+  function dateFormat(str) {
+    const date = new Date(str);
+    const options = { year: 'numeric', month: 'long', day: 'numeric' }
+    return date.toLocaleString('ru', options);
+  }
+
   return (
     <section className={`searching-results ${props.isResult.length > 0 ? '' : 'searching-results_inactive'}`}>
       <h2 className="searching-results__title">Результаты поиска</h2>
@@ -15,10 +21,10 @@ function SearchingResults(props) {
                 key={index}
                 src={item.urlToImage}
                 title={item.title}
-                text={item.content}
+                text={item.description}
                 source={item.source.name}
                 link={item.url}
-                time={item.publishedAt}
+                time={dateFormat(item.publishedAt)}
               />
             )
           })
