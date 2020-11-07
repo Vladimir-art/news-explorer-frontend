@@ -14,7 +14,7 @@ function App() {
   const [changeTheme, setChangeTheme] = React.useState(false); // стейт для смены темы черная/белая
   const [register, setRegister] = React.useState(false); // стейт для открытия /закрытия регистрации
   const [login, setLogin] = React.useState(false); // открытие/закрытие входа на сайт
-  //const [searchArticles, setSearchArticles] = React.useState([]); // стейт для записи всех найденных статей
+  const [searchArticles, setSearchArticles] = React.useState([]); // стейт для записи всех найденных статей
 
   // стейт для включения темной темя для шапки сайта
   function changeThemes() {
@@ -63,17 +63,17 @@ function App() {
     }
   }
 
-  function handleSubmitSearching(form, value, today, past) {
-    NewsApi.getArticles(value, past, today)
+  function handleSubmitSearching(form, value, today, pastday) {
+    NewsApi.getArticles(value, pastday, today)
       .then((data) => {
-        console.log(data);
+        setSearchArticles(data.articles);
       })
       .catch((err) => console.log('Произошла ошибка: ', err))
       .finally(() => {
         form.reset();
       })
   }
-
+console.log(searchArticles);
   return (
     <div className="page">
       <Header

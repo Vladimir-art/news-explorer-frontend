@@ -1,5 +1,5 @@
 export const getArticles = (keyword, pastDate, currDate) => {
-  return fetch(`https://newsapi.org/v2/everything?q=${keyword}&from=${pastDate}&to=${currDate}&sortBy=popularity`, {
+  return fetch(`https://newsapi.org/v2/everything?q=${keyword}&from=${pastDate}&to=${currDate}&sortBy=popularity&pageSize=100`, {
     method: 'GET',
     headers: {
       'authorization': 'fd59b3e2c05a4cf99251be8b08a136ed'
