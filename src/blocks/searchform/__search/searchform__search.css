@@ -11,6 +11,7 @@
   background: #2F71E5;
   box-shadow: -5px 0 10px rgba(14, 26, 57, 0.2);
   border-radius: 100px;
+  outline: none;
 
   font-family: "Roboto", Arial, sans-serif;
   font-style: normal;

@@ -3,6 +3,7 @@ import React from 'react';
 import NewsCard from '../NewsCard/NewsCard';
 
 function SearchingResults(props) {
+  const [arr, setArr] = React.useState(props.isResult.slice(0, 3));
 
   function dateFormat(str) {
     const date = new Date(str);
@@ -10,12 +11,20 @@ function SearchingResults(props) {
     return date.toLocaleString('ru', options);
   }
 
+  function showMore(e) {
+    setArr(props.isResult.slice(0, arr.length + 3));
+    if (arr.length === props.isResult.length - 1) {
+      e.target.remove();
+    }
+    console.log(arr.length);
+  }
+
   return (
     <section className={`searching-results ${(props.isResult.length > 0) && (props.isPreloader !== true) ? '' : 'searching-results_inactive'}`}>
       <h2 className="searching-results__title">Результаты поиска</h2>
       <div className="searching-results__elements">
         {
-          props.isResult.map((item, index) => {
+          arr.map((item, index) => {
             return (
               <NewsCard
                 key={index}
@@ -30,7 +39,7 @@ function SearchingResults(props) {
           })
         }
       </div>
-      <button className="searching-results__button" type="button">Показать еще</button>
+      <button className="searching-results__button" type="button" onClick={showMore} >Показать еще</button>
     </section>
   );
 }
