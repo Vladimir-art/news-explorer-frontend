@@ -7,12 +7,14 @@ import SavedNews from '../SavedNews/SavedNews';
 import Register from '../Register/Register';
 import Footer from '../Footer/Footer';
 import Login from '../Login/Login';
+import * as NewsApi from '../../utils/NewsApi';
 
 function App() {
 
-  const [changeTheme, setChangeTheme] = React.useState(false);
-  const [register, setRegister] = React.useState(false);
-  const [login, setLogin] = React.useState(false);
+  const [changeTheme, setChangeTheme] = React.useState(false); // стейт для смены темы черная/белая
+  const [register, setRegister] = React.useState(false); // стейт для открытия /закрытия регистрации
+  const [login, setLogin] = React.useState(false); // открытие/закрытие входа на сайт
+  //const [searchInput, setSearchInput] = React.useState(''); // стейт для записи value формы поиска
 
   // стейт для включения темной темя для шапки сайта
   function changeThemes() {
@@ -61,6 +63,17 @@ function App() {
     }
   }
 
+  function handleSubmitSearching(form, value, today, past) {
+    NewsApi.getArticles(value, past, today)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => console.log('Error: ', err))
+      .finally(() => {
+        form.reset();
+      })
+  }
+
   return (
     <div className="page">
       <Header
@@ -71,7 +84,7 @@ function App() {
       />
       <Switch>
         <Route exact path="/">
-          <Main />
+          <Main submitSearching={handleSubmitSearching} />
         </Route>
         <Route path="/saved-news">
           <SavedNews />

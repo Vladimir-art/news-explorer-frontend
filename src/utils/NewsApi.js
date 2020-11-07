@@ -1,9 +1,8 @@
 export const getArticles = (keyword, pastDate, currDate) => {
-  return fetch(`https://newsapi.org/v2/everything?country=ru&q=${keyword}&from=${pastDate}&to=${currDate}&pageSize=100`, {
+  return fetch(`https://newsapi.org/v2/everything?q=${keyword}&from=${pastDate}&to=${currDate}&sortBy=popularity`, {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json',
-      "Authorization": 'Bearer fd59b3e2c05a4cf99251be8b08a136ed'
+      'authorization': 'fd59b3e2c05a4cf99251be8b08a136ed'
     },
   })
   .then((res) => {
@@ -16,6 +15,7 @@ export const getArticles = (keyword, pastDate, currDate) => {
       }
     }
     catch (err) {
+      console.log('jcdncjfv'. err);
       return err;
     }
   })
