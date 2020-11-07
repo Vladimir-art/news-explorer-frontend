@@ -33,20 +33,20 @@ function App() {
   function openLogin() {
     setLogin(true);
   }
-
+  // закрыть форму регистрации
   function closeRegister() {
     setRegister(false);
   }
-
+  // закрыть форму входа
   function closeLogin() {
     setLogin(false);
   }
-
+  // закрыть все попапы
   function closeAllPopups() {
     setRegister(false);
     setLogin(false);
   }
-
+  // закрыть все попапы по нажатию на Esc
   React.useEffect(() => {
     window.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
@@ -54,7 +54,7 @@ function App() {
       }
     });
   }, []);
-
+  // оверлей попапов
   function overlayClick(e) { //оверлей по клику (принимает попап)
     if (e.classList.contains('register')) {
       closeAllPopups();
