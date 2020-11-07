@@ -13,10 +13,9 @@ function SearchingResults(props) {
 
   function showMore(e) {
     setArr(props.isResult.slice(0, arr.length + 3));
-    if (arr.length === props.isResult.length - 1) {
+    if (arr.length > props.isResult.length - 1) {
       e.target.remove();
     }
-    console.log(arr.length);
   }
 
   return (
