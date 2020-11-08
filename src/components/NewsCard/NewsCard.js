@@ -8,12 +8,10 @@ function NewsCard(props) {
   const isId = props.id !== undefined ? true : false;
 
   function onSave(e) {
-    // props.onChangeFlag(e.target, e.target.id);
     setSaveArticle(true);
     props.onSaveArticle(props.article, e.target.name);
-    // console.log(e.target.name);
   }
-console.log(props.src);
+
   return (
     <div className="article-element">
       <img className="article-element__image" alt={props.source} src={(props.src === null || props.src === undefined) ? image : props.src} onError={props.errorLoad} />

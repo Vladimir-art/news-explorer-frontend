@@ -15,7 +15,7 @@ function App() {
   const [changeTheme, setChangeTheme] = React.useState(false); // стейт для смены темы черная/белая
   const [register, setRegister] = React.useState(false); // стейт для открытия /закрытия регистрации
   const [login, setLogin] = React.useState(false); // открытие/закрытие входа на сайт
-  const [searchArticles, setSearchArticles] = React.useState(JSON.parse(localStorage.getItem('articles'))); // стейт для записи всех найденных статей
+  const [searchArticles, setSearchArticles] = React.useState([]); // стейт для записи всех найденных статей
   const [preloader, setPreloader] = React.useState(false); // вкл/откл прелоудера
   // const [saveArticleFlag, setSaveArticleFlag] = React.useState(false);
 
@@ -50,11 +50,6 @@ function App() {
   function closeLogin() {
     setLogin(false);
   }
-  // function saveArticleFlags(e, id) {
-  //   console.log(e, id);
-  //   e.id === id && setSaveArticleFlag(true);
-  //   // e.classList.add('article-element__flag_save');
-  // }
 
   // закрыть все попапы
   function closeAllPopups() {
@@ -94,19 +89,17 @@ function App() {
   }
 
   function saveArticle(data, keyword) {
-    // console.log(button, data, keyword);
     MainApi.saveArticles('articles', { keyword, data })
       .then((data) => {
-        // console.log(data);
+        // создает новый массив, если новая карточка совпадает со старой, то старая перезаписывается с новыми ключами объекта
         const newArticles = searchArticles.map(article => article.title === data.title ? data : article);
-        // console.log(newArticles);
         localStorage.setItem('articles', JSON.stringify(newArticles));
       })
       .catch((err) => {
         console.log('Произошла ошибка: ', err);
       })
   }
-// console.log(JSON.parse(localStorage.getItem('articles')));
+
   return (
     <div className="page">
       <Header
