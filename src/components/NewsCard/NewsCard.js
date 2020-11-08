@@ -4,6 +4,12 @@ import image from '../../utils/constants';
 
 function NewsCard(props) {
 
+  const [saveArticle, setSaveArticle] = React.useState(false);
+
+  function onSave() {
+    setSaveArticle(!saveArticle);
+  }
+
   return (
     <div className="article-element">
       <img className="article-element__image" alt={props.source} src={props.src === null ? image : props.src} onError={props.errorLoad} />
@@ -15,9 +21,9 @@ function NewsCard(props) {
         </p>
       </div>
       <a className="article-element__source" href={props.link} target="_blank" rel="noreferrer">{props.source}</a>
-      <div className="article-element__loggedout">
+      <div className={`article-element__loggedout ${saveArticle && 'article-element__loggedout_hover-inactive'}`}>
         <p className="article-element__attantion">Войдите, чтобы сохранять статьи</p>
-        <button className="article-element__flag" type="button"></button>
+        <button className={`article-element__flag ${saveArticle && 'article-element__flag_save'}`} type="button" onClick={onSave}></button>
       </div>
       <div className="article-element__loggedin article-element__inactive">
         <p className="article-element__attantion">Убрать из сохранённых</p>

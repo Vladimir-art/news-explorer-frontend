@@ -11,6 +11,8 @@
 @import url(./__trash/article-element__trash.css);
 @import url(./__category/article-element__category.css);
 @import url(./__inactive/article-element__inactive.css);
+@import url(./__flag/_save/article-element__flag_save.css);
+@import url(./__loggedout/_hover-inactive/article-element__loggedout_hover-inactive.css);
 
 .article-element {
   max-width: 400px;

@@ -1,0 +1,10 @@
+.article-element__flag_save {
+  background-image: url('../../../../images/flag-blue.svg');
+  background-size: 23px 23px;
+  transition: all .2s ease;
+}
+
+.article-element__flag_save:hover {
+  background-image: url('../../../../images/flag-blue.svg');
+  opacity: .8;
+}
