@@ -36,7 +36,9 @@ function SearchingResults(props) {
             return (
               <NewsCard
                 article={item}
+                onSaveArticle={props.onSaveArticle}
                 key={index}
+                id={index}
                 errorLoad={onErrorImage}
                 src={item.urlToImage}
                 title={item.title}
@@ -44,6 +46,8 @@ function SearchingResults(props) {
                 source={item.source.name}
                 link={item.url}
                 time={dateFormat(item.publishedAt)}
+                // isBlueFlag={props.isBlueFlag}
+                // onChangeFlag={props.onChangeFlag}
               />
             )
           })

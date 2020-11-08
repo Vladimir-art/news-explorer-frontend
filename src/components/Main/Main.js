@@ -12,7 +12,13 @@ function Main(props) {
       <SearchForm submitForm={props.submitSearching} />
       <Preloader isOpen={props.isPreloader} />
       <PageNotFound isOpen={props.isResult} isPreloader={props.isPreloader} />
-      <SearchingResults isResult={props.isResult} isPreloader={props.isPreloader} />
+      <SearchingResults
+        isResult={props.isResult}
+        isPreloader={props.isPreloader}
+        onSaveArticle={props.onSaveArticle}
+        // isBlueFlag={props.isBlueFlag}
+        // onChangeFlag={props.onChangeFlag}
+      />
       <About />
     </main>
   );

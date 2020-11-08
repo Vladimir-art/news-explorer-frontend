@@ -15,7 +15,6 @@ export const getArticles = (keyword, pastDate, currDate) => {
       }
     }
     catch (err) {
-      console.log('jcdncjfv'. err);
       return err;
     }
   })

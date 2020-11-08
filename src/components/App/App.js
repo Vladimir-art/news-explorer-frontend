@@ -8,14 +8,20 @@ import Register from '../Register/Register';
 import Footer from '../Footer/Footer';
 import Login from '../Login/Login';
 import * as NewsApi from '../../utils/NewsApi';
+import * as MainApi from '../../utils/MainApi';
 
 function App() {
 
   const [changeTheme, setChangeTheme] = React.useState(false); // стейт для смены темы черная/белая
   const [register, setRegister] = React.useState(false); // стейт для открытия /закрытия регистрации
   const [login, setLogin] = React.useState(false); // открытие/закрытие входа на сайт
-  const [searchArticles, setSearchArticles] = React.useState(JSON.parse(localStorage.getItem('articles'))); // стейт для записи всех найденных статей
+  const [searchArticles, setSearchArticles] = React.useState([]); // стейт для записи всех найденных статей
   const [preloader, setPreloader] = React.useState(false); // вкл/откл прелоудера
+  // const [saveArticleFlag, setSaveArticleFlag] = React.useState(false);
+
+  React.useEffect(() => {
+    setSearchArticles(JSON.parse(localStorage.getItem('articles')));
+  }, [])
 
   // стейт для включения темной темя для шапки сайта
   function changeThemes() {
@@ -44,6 +50,12 @@ function App() {
   function closeLogin() {
     setLogin(false);
   }
+  // function saveArticleFlags(e, id) {
+  //   console.log(e, id);
+  //   e.id === id && setSaveArticleFlag(true);
+  //   // e.classList.add('article-element__flag_save');
+  // }
+
   // закрыть все попапы
   function closeAllPopups() {
     setRegister(false);
@@ -81,6 +93,17 @@ function App() {
       })
   }
 
+  function saveArticle(button, data, keyword) {
+    // console.log(button, data, keyword);
+    MainApi.saveArticles('articles', { keyword, data })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log('Произошла ошибка: ', err);
+      })
+  }
+
   return (
     <div className="page">
       <Header
@@ -91,7 +114,14 @@ function App() {
       />
       <Switch>
         <Route exact path="/">
-          <Main submitSearching={handleSubmitSearching} isResult={searchArticles} isPreloader={preloader} />
+          <Main
+            submitSearching={handleSubmitSearching}
+            isResult={searchArticles}
+            isPreloader={preloader}
+            onSaveArticle={saveArticle}
+          // isBlueFlag={saveArticleFlag}
+          // onChangeFlag={saveArticleFlags}
+          />
         </Route>
         <Route path="/saved-news">
           <SavedNews />
