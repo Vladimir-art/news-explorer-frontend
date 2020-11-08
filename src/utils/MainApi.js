@@ -1,6 +1,6 @@
 import image from './constants';
 export const saveArticles = (url, data) => {
-  // console.log(url, data);
+  console.log(url, data);
   return fetch(`https://illus.students.nomoreparties.space/${url}`, {
     method: 'POST',
     headers: {

@@ -38,14 +38,14 @@ function SearchingResults(props) {
                 article={item}
                 onSaveArticle={props.onSaveArticle}
                 key={index}
-                id={index}
+                id={item._id && item._id}
                 errorLoad={onErrorImage}
-                src={item.urlToImage}
+                src={item.urlToImage ? item.urlToImage : item.image}
                 title={item.title}
-                text={item.description}
-                source={item.source.name}
-                link={item.url}
-                time={dateFormat(item.publishedAt)}
+                text={item.description ? item.description : item.text}
+                source={item.source.name ? item.source.name : item.source}
+                link={item.url ? item.url : item.link}
+                time={dateFormat(item.publishedAt ? item.publishedAt : item.date)}
                 // isBlueFlag={props.isBlueFlag}
                 // onChangeFlag={props.onChangeFlag}
               />
