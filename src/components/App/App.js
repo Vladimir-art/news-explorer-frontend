@@ -63,7 +63,7 @@ function App() {
       closeAllPopups();
     }
   }
-
+  // localStorage.removeItem('articles');
   function handleSubmitSearching(form, value, today, weekAgo) {
     setPreloader(true); // включаем прелоудер
     NewsApi.getArticles(value, weekAgo, today)
