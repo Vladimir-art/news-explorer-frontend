@@ -35,6 +35,7 @@ function SearchingResults(props) {
           arr.map((item, index) => {
             return (
               <NewsCard
+                article={item}
                 key={index}
                 errorLoad={onErrorImage}
                 src={item.urlToImage}
