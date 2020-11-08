@@ -11,7 +11,7 @@ function NewsCard(props) {
   }
 
   return (
-    <div className="article-element">
+    <div className="article-element" name={localStorage.getItem('keyword') ? localStorage.getItem('keyword') : 'Поиск'}>
       <img className="article-element__image" alt={props.source} src={props.src === null ? image : props.src} onError={props.errorLoad} />
       <div className="article-element__cover">
         <p className="article-element__date">{props.time}</p>

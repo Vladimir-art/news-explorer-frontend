@@ -69,6 +69,7 @@ function App() {
     NewsApi.getArticles(value, weekAgo, today)
       .then((data) => {
         localStorage.setItem('articles', JSON.stringify(data.articles)); // записываем данные в локаьное хранилище, в случае перезагрузки стр, данные не потеряются
+        localStorage.setItem('keyword', value);
       })
       .then(() => {
         setSearchArticles(JSON.parse(localStorage.getItem('articles'))); // обновляем стейт и записываем массив статей
