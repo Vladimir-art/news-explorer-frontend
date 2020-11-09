@@ -7,18 +7,18 @@ function PopupWithForm(props) {
     e.preventDefault();
     switch (e.target.name) {
       case 'register':
-        props.closeRegister();
+        props.closeRegister(e.target);
         props.onChangeReg();
         break;
       case 'login':
-        props.closeLogin();
+        props.closeLogin(e.target);
         props.onChangeLog();
         break;
       default:
         break;
     }
   }
-  // console.log(props.valid);
+console.log(props.valid)
   return (
     <section className={`register ${props.isOpenReg && `register_opened`} ${props.isOpenLogin && `register_opened`}`} onClick={props.overlayClick}>
       <form className="register-container" name={props.name} noValidate>

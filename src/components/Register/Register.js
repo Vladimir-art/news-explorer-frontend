@@ -10,8 +10,9 @@ function Register(props) {
 
   const valid = useFormWithValidation();
 
-  function closeReg() {
+  function closeReg(e) {
     props.closeRegister();
+    e.closest('.register-container').reset();
     valid.resetForm();
   }
 
@@ -21,8 +22,9 @@ function Register(props) {
 
   function overlayClick(e) {
     props.overlay(e.target);
+    valid.resetForm();
   }
-  // console.log(valid);
+
   return (
     <PopupWithForm
       valid={valid}

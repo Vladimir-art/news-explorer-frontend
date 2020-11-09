@@ -7,8 +7,10 @@ function Login(props) {
 
   const valid = useFormWithValidation();
 
-  function closeLog() {
+  function closeLog(e) {
     props.closeLogin()
+    e.closest('.register-container').reset();
+    valid.resetForm();
   }
 
   function isOpenReg() {
@@ -17,6 +19,7 @@ function Login(props) {
 
   function overlayClick(e) {
     props.overlay(e.target);
+    valid.resetForm();
   }
 
   return (
