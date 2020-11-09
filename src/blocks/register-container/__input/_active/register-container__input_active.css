@@ -1,0 +1,4 @@
+.register-container__input_active {
+  border-bottom: 1px solid red;
+  transition: border-bottom .2s ease;
+}
