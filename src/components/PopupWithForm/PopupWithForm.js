@@ -21,22 +21,33 @@ function PopupWithForm(props) {
 
   return (
     <section className={`register ${props.isOpenReg && `register_opened`} ${props.isOpenLogin && `register_opened`}`} onClick={props.overlayClick}>
-      <form className="register-container" name={props.name}>
+      <form className="register-container" name={props.name} noValidate>
         <h2 className="register-container__text">{props.title}</h2>
         <fieldset className="register-container__info">
           <label className="register-container__name" id="email">
             Email
-            <input className="register-container__input" id="email" name="email" placeholder="Введите почту" type="email" required />
+            <input className="register-container__input" id="email" name="email" placeholder="Введите почту" type="email" onChange={props.handleValues} required />
             <span className="register-container__input-error" id="email-error">Неправильный формат</span>
           </label>
           <label className="register-container__name" id="password">
             Пароль
-            <input className="register-container__input" id="password" name="password" placeholder="Введите пароль" type="password" required />
+            <input className="register-container__input" id="password" name="password" placeholder="Введите пароль" type="password" onChange={props.handleValues} required />
             <span className="register-container__input-error" id="password-error">Неправильный формат</span>
           </label>
           <label className={`register-container__name ${props.isOpenReg ? '' : 'register-container__name_inactive'}`} id="name">
             Имя
-            <input className="register-container__input" id="name" name="name" placeholder="Введите своё имя" type="text" pattern="[A-Za-zАЯ-Ёая-ё -]{1,}" required />
+            <input
+              className="register-container__input"
+              id="name"
+              name="name"
+              placeholder="Введите своё имя"
+              type="text"
+              pattern="[A-Za-zАЯ-Ёая-ё -]{1,}"
+              minLength="2"
+              maxLength="30"
+              onChange={props.handleValues}
+              required
+            />
             <span className="register-container__input-error" id="name-error">Неправильный формат</span>
           </label>
           <span className="register-container__input-error register-container__input-error_center" id="name-error">Такой пользователь уже есть</span>

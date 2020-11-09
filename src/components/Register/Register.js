@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-children-prop */
 
-import React from 'react';
+import React,{ useCallback } from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
 
 function Register(props) {
@@ -18,7 +18,31 @@ function Register(props) {
   function overlayClick(e) {
     props.overlay(e.target);
   }
-console.log(props.isOpenRegister)
+
+  const [values, setValues] = React.useState({});
+  const [errors, setErrors] = React.useState({});
+  const [isValid, setIsValid] = React.useState(false);
+
+  function useForm(event) {
+
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+    setValues({ ...values, [name]: value });
+    setErrors({ ...errors, [name]: target.validationMessage });
+    setIsValid(target.closest('.register-container').checkValidity());
+    resetForm();
+  }
+
+  const resetForm = useCallback(
+    (newValues = {}, newErrors = {}, newIsValid = false) => {
+      setValues(newValues);
+      setErrors(newErrors);
+      setIsValid(newIsValid);
+    },
+    [setValues, setErrors, setIsValid]
+  );
+  console.log(values, errors, isValid);
   return (
     <PopupWithForm
       isOpenReg={props.isOpenRegister}
@@ -26,20 +50,11 @@ console.log(props.isOpenRegister)
       closeRegister={closeReg}
       closePopup={props.closePopup}
       overlayClick={overlayClick}
+      handleValues={useForm}
       name="register"
       title="Регистрация"
       button="Зарегистрироваться"
       link="Войти"
-      // children={
-      //   <>
-      //     <label className="register-container__name register-container__name_inactive" id="name">
-      //       Имя
-      //       <input className="register-container__input" id="name" name="name" placeholder="Введите своё имя" type="text" pattern="[A-Za-zАЯ-Ёая-ё -]{1,}" required />
-      //       <span className="register-container__input-error" id="name-error">Неправильный формат</span>
-      //     </label>
-      //     <span className="register-container__input-error register-container__input-error_center" id="name-error">Такой пользователь уже есть</span>
-      //   </>
-      // }
     />
   );
 }
