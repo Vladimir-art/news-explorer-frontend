@@ -2,13 +2,17 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-children-prop */
 
-import React,{ useCallback } from 'react';
+import React, { useCallback } from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
+import { useFormWithValidation } from '../Validation/Validation';
 
 function Register(props) {
 
+  const valid = useFormWithValidation();
+
   function closeReg() {
-    props.closeRegister()
+    props.closeRegister();
+    valid.resetForm();
   }
 
   function isOpenLog() {
@@ -19,30 +23,6 @@ function Register(props) {
     props.overlay(e.target);
   }
 
-  const [values, setValues] = React.useState({});
-  const [errors, setErrors] = React.useState({});
-  const [isValid, setIsValid] = React.useState(false);
-
-  function useForm(event) {
-
-    const target = event.target;
-    const value = target.value;
-    const name = target.name;
-    setValues({ ...values, [name]: value });
-    setErrors({ ...errors, [name]: target.validationMessage });
-    setIsValid(target.closest('.register-container').checkValidity());
-    resetForm();
-  }
-
-  const resetForm = useCallback(
-    (newValues = {}, newErrors = {}, newIsValid = false) => {
-      setValues(newValues);
-      setErrors(newErrors);
-      setIsValid(newIsValid);
-    },
-    [setValues, setErrors, setIsValid]
-  );
-  console.log(values, errors, isValid);
   return (
     <PopupWithForm
       isOpenReg={props.isOpenRegister}
@@ -50,7 +30,7 @@ function Register(props) {
       closeRegister={closeReg}
       closePopup={props.closePopup}
       overlayClick={overlayClick}
-      handleValues={useForm}
+      handleValues={valid.handleChange}
       name="register"
       title="Регистрация"
       button="Зарегистрироваться"
