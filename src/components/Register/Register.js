@@ -22,7 +22,7 @@ function Register(props) {
   function overlayClick(e) {
     props.overlay(e.target);
   }
-  console.log(valid);
+  // console.log(valid);
   return (
     <PopupWithForm
       valid={valid}
