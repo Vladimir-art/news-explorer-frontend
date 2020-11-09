@@ -34,7 +34,12 @@ function PopupWithForm(props) {
             <input className="register-container__input" id="password" name="password" placeholder="Введите пароль" type="password" required />
             <span className="register-container__input-error" id="password-error">Неправильный формат</span>
           </label>
-          {props.children}
+          <label className={`register-container__name ${props.isOpenReg ? '' : 'register-container__name_inactive'}`} id="name">
+            Имя
+            <input className="register-container__input" id="name" name="name" placeholder="Введите своё имя" type="text" pattern="[A-Za-zАЯ-Ёая-ё -]{1,}" required />
+            <span className="register-container__input-error" id="name-error">Неправильный формат</span>
+          </label>
+          <span className="register-container__input-error register-container__input-error_center" id="name-error">Такой пользователь уже есть</span>
           <button className="register-container__button" type="submit">{props.button}</button>
           <p className="register-container__choice">
             {`или `}
