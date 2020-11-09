@@ -26,12 +26,12 @@ function PopupWithForm(props) {
         <fieldset className="register-container__info">
           <label className="register-container__name" id="email">
             Email
-            <input className="register-container__input" id="email" name="email" placeholder="Введите почту" type="email" />
+            <input className="register-container__input" id="email" name="email" placeholder="Введите почту" type="email" required />
             <span className="register-container__input-error" id="email-error">Неправильный формат</span>
           </label>
           <label className="register-container__name" id="password">
             Пароль
-            <input className="register-container__input" id="password" name="password" placeholder="Введите пароль" type="password" />
+            <input className="register-container__input" id="password" name="password" placeholder="Введите пароль" type="password" required />
             <span className="register-container__input-error" id="password-error">Неправильный формат</span>
           </label>
           {props.children}
