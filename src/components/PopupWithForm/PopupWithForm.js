@@ -18,7 +18,7 @@ function PopupWithForm(props) {
         break;
     }
   }
-
+console.log(props.valid);
   return (
     <section className={`register ${props.isOpenReg && `register_opened`} ${props.isOpenLogin && `register_opened`}`} onClick={props.overlayClick}>
       <form className="register-container" name={props.name} noValidate>
@@ -26,7 +26,7 @@ function PopupWithForm(props) {
         <fieldset className="register-container__info">
           <label className="register-container__name" id="email">
             Email
-            <input className="register-container__input" id="email" name="email" placeholder="Введите почту" type="email" onChange={props.handleValues} required />
+            <input className={`register-container__input `} id="email" name="email" placeholder="Введите почту" type="email" onChange={props.handleValues} required />
             <span className="register-container__input-error" id="email-error">Неправильный формат</span>
           </label>
           <label className="register-container__name" id="password">
