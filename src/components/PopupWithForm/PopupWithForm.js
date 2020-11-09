@@ -38,7 +38,7 @@ function PopupWithForm(props) {
               className={`register-container__input-error ${!props.valid.valuesValid.email && 'register-container__input-error_active'}`}
               id="email-error"
             >
-              {props.valid.errors.email === undefined ? 'Пожалйста, заполните поле' : props.valid.errors.email}
+              {props.valid.errors.email === undefined ? 'Пожалуйста, заполните поле' : props.valid.errors.email}
             </span>
           </label>
           <label className="register-container__name" id="password">
@@ -57,7 +57,7 @@ function PopupWithForm(props) {
               className={`register-container__input-error ${!props.valid.valuesValid.password && 'register-container__input-error_active'}`}
               id="password-error"
             >
-              {props.valid.errors.password === undefined ? 'Пожалйста, заполните поле' : props.valid.errors.password}
+              {props.valid.errors.password === undefined ? 'Пожалуйста, заполните поле' : props.valid.errors.password}
             </span>
           </label>
           <label className={`register-container__name ${props.isOpenReg ? '' : 'register-container__name_inactive'}`} id="name">
@@ -78,11 +78,17 @@ function PopupWithForm(props) {
               className={`register-container__input-error ${!props.valid.valuesValid.name && 'register-container__input-error_active'}`}
               id="name-error"
             >
-              {props.valid.errors.name === undefined ? 'Пожалйста, заполните поле' : props.valid.errors.name}
+              {props.valid.errors.name === undefined ? 'Пожалуйста, заполните поле' : props.valid.errors.name}
             </span>
           </label>
           <span className="register-container__input-error register-container__input-error_center" id="name-error">Такой пользователь уже есть</span>
-          <button className="register-container__button" type="submit">{props.button}</button>
+          <button
+            className={`register-container__button ${!props.valid.isValid && 'register-container__button_inactive'}`}
+            type="submit"
+            disabled={!props.valid.isValid}
+          >
+            {props.button}
+          </button>
           <p className="register-container__choice">
             {`или `}
             <button className="register-container__link" name={props.name} onClick={changePopup}>
