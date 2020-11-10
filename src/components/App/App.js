@@ -103,7 +103,13 @@ function App() {
   }
 
   function submitRegister(form, inputValues) {
-    console.log(form, inputValues);
+    MainApi.register('signup', inputValues)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log('Произошла ошибка: ', err);
+      })
   }
 
   function submitLogin(form, inputValues) {

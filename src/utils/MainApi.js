@@ -1,6 +1,5 @@
 import image from './constants';
 export const saveArticles = (url, data) => {
-  console.log(url, data);
   return fetch(`https://illus.students.nomoreparties.space/${url}`, {
     method: 'POST',
     headers: {
@@ -15,6 +14,26 @@ export const saveArticles = (url, data) => {
       "source": data.data.source.name,
       "link": data.data.url,
       "image": data.data.urlToImage === null ? image : data.data.urlToImage,
+    })
+  })
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    return data;
+  })
+}
+
+export const register = (url, values) => {
+  return fetch(`https://illus.students.nomoreparties.space/${url}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      "name": values.name,
+      "email": values.email,
+      "password": values.password,
     })
   })
   .then((res) => {

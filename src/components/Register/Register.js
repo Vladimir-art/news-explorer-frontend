@@ -26,7 +26,7 @@ function Register(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.onSubmit(e.target, valid.values);
+    props.onSubmit(e.target, valid.values, valid.resetForm);
   }
 
   return (
@@ -53,7 +53,7 @@ function Register(props) {
               name="name"
               placeholder="Введите своё имя"
               type="text"
-              pattern="[A-Za-zАЯ-Ёая-ё -]{1,}"
+              pattern="[A-Za-zА-ЯЁа-яё -]{1,}"
               minLength="2"
               maxLength="30"
               onChange={valid.handleChange}
