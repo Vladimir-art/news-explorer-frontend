@@ -8,6 +8,7 @@ import Register from '../Register/Register';
 import Footer from '../Footer/Footer';
 import Login from '../Login/Login';
 import SuccessRegister from '../SuccessRegister/SuccessRegister';
+import { CurrentUserContext } from '../../context/CurrentUserContext';
 import * as NewsApi from '../../utils/NewsApi';
 import * as MainApi from '../../utils/MainApi';
 
@@ -20,6 +21,8 @@ function App() {
   const [preloader, setPreloader] = React.useState(false); // вкл/откл прелоудера
   const [successRegister, setSuccessRegister] = React.useState(false); // попап после успешной регистрации
   const [errorStatus, setErrorStatus] = React.useState('');
+
+  const [currentUser, setCurrentUser] = React.useState({});
 
   React.useEffect(() => {
     setSearchArticles(JSON.parse(localStorage.getItem('articles')));
@@ -116,6 +119,7 @@ function App() {
         if (data.statusCode) {
           setErrorStatus(data.validation.body.message);
         } else {
+          setCurrentUser(inputValues); // доделать и подумать!!!
           closeAllPopups(); // закрываем попап с регистрацией
           setSuccessRegister(true); // меняем стейт для открытия попапа с успешной регистрацией
         }
@@ -128,7 +132,7 @@ function App() {
         console.log('Произошла ошибка: ', err);
       })
   }
-
+  console.log(currentUser);
   function submitLogin(form, inputValues, inputReset) {
     MainApi.login('signin', inputValues)
       .then((data) => {
@@ -150,54 +154,56 @@ function App() {
 
   return (
     <div className="page">
-      <Header
-        isChangeTheme={changeTheme} // стейт для вкл/откл темной темы
-        onChange={changeThemes} // вкл темной темы
-        resetTheme={resetChangeTheme} // откл темной темы
-        handleRegister={openRegister}
-      />
-      <Switch>
-        <Route exact path="/">
-          <Main
-            submitSearching={handleSubmitSearching}
-            isResult={searchArticles}
-            isPreloader={preloader}
-            onSaveArticle={saveArticle}
-          />
-        </Route>
-        <Route path="/saved-news">
-          <SavedNews />
-        </Route>
-      </Switch>
+      <CurrentUserContext.Provider value={currentUser}>
+        <Header
+          isChangeTheme={changeTheme} // стейт для вкл/откл темной темы
+          onChange={changeThemes} // вкл темной темы
+          resetTheme={resetChangeTheme} // откл темной темы
+          handleRegister={openRegister}
+        />
+        <Switch>
+          <Route exact path="/">
+            <Main
+              submitSearching={handleSubmitSearching}
+              isResult={searchArticles}
+              isPreloader={preloader}
+              onSaveArticle={saveArticle}
+            />
+          </Route>
+          <Route path="/saved-news">
+            <SavedNews />
+          </Route>
+        </Switch>
 
-      <Register
-        isOpenRegister={register} // открытие попапа регистрации
-        closeRegister={closeRegister}
-        onChageReg={openLogin}
-        closePopup={closeAllPopups}
-        overlay={overlayClick}
-        onSubmit={submitRegister}
-        errorSubmit={errorStatus}
-      />
-      <Login
-        isOpenLogin={login}
-        closeLogin={closeLogin}
-        onChageLog={openRegister}
-        closePopup={closeAllPopups}
-        overlay={overlayClick}
-        onSubmit={submitLogin}
-        errorSubmit={errorStatus}
-      />
+        <Register
+          isOpenRegister={register} // открытие попапа регистрации
+          closeRegister={closeRegister}
+          onChageReg={openLogin}
+          closePopup={closeAllPopups}
+          overlay={overlayClick}
+          onSubmit={submitRegister}
+          errorSubmit={errorStatus}
+        />
+        <Login
+          isOpenLogin={login}
+          closeLogin={closeLogin}
+          onChageLog={openRegister}
+          closePopup={closeAllPopups}
+          overlay={overlayClick}
+          onSubmit={submitLogin}
+          errorSubmit={errorStatus}
+        />
 
-      <SuccessRegister
-        closeMyself={closeSuccessRegister}
-        onChange={openLogin}
-        isOpen={successRegister}
-        closePopup={closeAllPopups}
-        overlay={overlayClick}
-      />
+        <SuccessRegister
+          closeMyself={closeSuccessRegister}
+          onChange={openLogin}
+          isOpen={successRegister}
+          closePopup={closeAllPopups}
+          overlay={overlayClick}
+        />
 
-      <Footer />
+        <Footer />
+      </CurrentUserContext.Provider>
     </div>
   );
 }
