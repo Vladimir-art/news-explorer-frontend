@@ -102,6 +102,14 @@ function App() {
       })
   }
 
+  function submitRegister(form, inputValues) {
+    console.log(form, inputValues);
+  }
+
+  function submitLogin(form, inputValues) {
+    console.log(form, inputValues);
+  }
+
   return (
     <div className="page">
       <Header
@@ -130,6 +138,7 @@ function App() {
         onChageReg={openLogin}
         closePopup={closeAllPopups}
         overlay={overlayClick}
+        onSubmit={submitRegister}
       />
       <Login
         isOpenLogin={login}
@@ -137,6 +146,7 @@ function App() {
         onChageLog={openRegister}
         closePopup={closeAllPopups}
         overlay={overlayClick}
+        onSubmit={submitLogin}
       />
 
       <Footer />

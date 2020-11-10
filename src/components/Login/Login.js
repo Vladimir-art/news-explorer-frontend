@@ -21,9 +21,15 @@ function Login(props) {
     props.overlay(e.target, valid.resetForm);
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.onSubmit(e.target, valid.values);
+  }
+
   return (
     <PopupWithForm
       valid={valid}
+      onSubmit={handleSubmit}
       isOpenLogin={props.isOpenLogin}
       onChangeLog={isOpenReg}
       closeLogin={closeLog}

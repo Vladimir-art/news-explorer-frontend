@@ -10,24 +10,29 @@ function Register(props) {
 
   const valid = useFormWithValidation();
 
-  function closeReg(e) {
-    props.closeRegister();
-    e.closest('.register-container').reset();
-    valid.resetForm();
+  function closeReg(e) { // закрыть форму регистрации
+    props.closeRegister(); // перевести стейт на false
+    e.closest('.register-container').reset(); // сбросить значения полей формы
+    valid.resetForm(); // сбросить стейты при валидации
   }
 
-  function isOpenLog() {
-    props.onChageReg();
+  function isOpenLog() { // открыть форму входа
+    props.onChageReg(); // поменять стейт входа на true
   }
 
-  function overlayClick(e) {
+  function overlayClick(e) { // оверлей: отдает таргет и функцию для сброса полей
     props.overlay(e.target, valid.resetForm);
-    // valid.resetForm();
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.onSubmit(e.target, valid.values);
   }
 
   return (
     <PopupWithForm
       valid={valid}
+      onSubmit={handleSubmit}
       isOpenReg={props.isOpenRegister}
       onChangeReg={isOpenLog}
       closeRegister={closeReg}
