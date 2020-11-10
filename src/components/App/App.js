@@ -65,9 +65,11 @@ function App() {
     });
   }, []);
   // оверлей попапов
-  function overlayClick(e) { //оверлей по клику (принимает попап)
+  function overlayClick(e, resetCallback) { //оверлей по клику (принимает попап)
     if (e.classList.contains('register')) {
       closeAllPopups();
+      e.firstElementChild.reset();
+      resetCallback();
     }
   }
   // localStorage.removeItem('articles');

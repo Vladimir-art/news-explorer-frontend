@@ -18,8 +18,7 @@ function Login(props) {
   }
 
   function overlayClick(e) {
-    props.overlay(e.target);
-    valid.resetForm();
+    props.overlay(e.target, valid.resetForm);
   }
 
   return (

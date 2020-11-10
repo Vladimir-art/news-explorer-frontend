@@ -21,8 +21,8 @@ function Register(props) {
   }
 
   function overlayClick(e) {
-    props.overlay(e.target);
-    valid.resetForm();
+    props.overlay(e.target, valid.resetForm);
+    // valid.resetForm();
   }
 
   return (
@@ -38,6 +38,31 @@ function Register(props) {
       title="Регистрация"
       button="Зарегистрироваться"
       link="Войти"
+      children={
+        (
+          <label className={`register-container__name `} id="name">
+            Имя
+            <input
+              className={`register-container__input ${!valid.valuesValid.name && 'register-container__input_active'}`}
+              id="name"
+              name="name"
+              placeholder="Введите своё имя"
+              type="text"
+              pattern="[A-Za-zАЯ-Ёая-ё -]{1,}"
+              minLength="2"
+              maxLength="30"
+              onChange={valid.handleChange}
+              required
+            />
+            <span
+              className={`register-container__input-error ${!valid.valuesValid.name && 'register-container__input-error_active'}`}
+              id="name-error"
+            >
+              {valid.errors.name === undefined ? 'Пожалуйста, заполните поле' : valid.errors.name}
+            </span>
+          </label>
+        )
+      }
     />
   );
 }

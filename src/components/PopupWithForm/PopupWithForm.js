@@ -18,7 +18,7 @@ function PopupWithForm(props) {
         break;
     }
   }
-console.log(props.valid)
+
   return (
     <section className={`register ${props.isOpenReg && `register_opened`} ${props.isOpenLogin && `register_opened`}`} onClick={props.overlayClick}>
       <form className="register-container" name={props.name} noValidate>
@@ -60,7 +60,8 @@ console.log(props.valid)
               {props.valid.errors.password === undefined ? 'Пожалуйста, заполните поле' : props.valid.errors.password}
             </span>
           </label>
-          <label className={`register-container__name ${props.isOpenReg ? '' : 'register-container__name_inactive'}`} id="name">
+          {props.children}
+          {/* <label className={`register-container__name ${props.isOpenReg ? '' : 'register-container__name_inactive'}`} id="name">
             Имя
             <input
               className={`register-container__input ${!props.valid.valuesValid.name && 'register-container__input_active'}`}
@@ -80,7 +81,7 @@ console.log(props.valid)
             >
               {props.valid.errors.name === undefined ? 'Пожалуйста, заполните поле' : props.valid.errors.name}
             </span>
-          </label>
+          </label> */}
           <span className="register-container__input-error register-container__input-error_center" id="name-error">Такой пользователь уже есть</span>
           <button
             className={`register-container__button ${!props.valid.isValid && 'register-container__button_inactive'}`}
