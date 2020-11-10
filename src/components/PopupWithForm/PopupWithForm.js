@@ -19,7 +19,6 @@ function PopupWithForm(props) {
     }
   }
 
-console.log(props.errorSubmit)
   return (
     <section className={`register ${props.isOpenReg && `register_opened`} ${props.isOpenLogin && `register_opened`}`} onClick={props.overlayClick}>
       <form className="register-container" name={props.name} onSubmit={props.onSubmit} method="POST" noValidate>
