@@ -61,27 +61,6 @@ function PopupWithForm(props) {
             </span>
           </label>
           {props.children}
-          {/* <label className={`register-container__name ${props.isOpenReg ? '' : 'register-container__name_inactive'}`} id="name">
-            Имя
-            <input
-              className={`register-container__input ${!props.valid.valuesValid.name && 'register-container__input_active'}`}
-              id="name"
-              name="name"
-              placeholder="Введите своё имя"
-              type="text"
-              pattern="[A-Za-zАЯ-Ёая-ё -]{1,}"
-              minLength="2"
-              maxLength="30"
-              onChange={props.handleValues}
-              required
-            />
-            <span
-              className={`register-container__input-error ${!props.valid.valuesValid.name && 'register-container__input-error_active'}`}
-              id="name-error"
-            >
-              {props.valid.errors.name === undefined ? 'Пожалуйста, заполните поле' : props.valid.errors.name}
-            </span>
-          </label> */}
           <span className="register-container__input-error register-container__input-error_center" id="name-error">Такой пользователь уже есть</span>
           <button
             className={`register-container__button ${!props.valid.isValid && 'register-container__button_inactive'}`}

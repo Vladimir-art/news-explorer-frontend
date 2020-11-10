@@ -16,8 +16,6 @@ function Main(props) {
         isResult={props.isResult}
         isPreloader={props.isPreloader}
         onSaveArticle={props.onSaveArticle}
-        // isBlueFlag={props.isBlueFlag}
-        // onChangeFlag={props.onChangeFlag}
       />
       <About />
     </main>

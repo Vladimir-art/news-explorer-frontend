@@ -65,11 +65,11 @@ function App() {
     });
   }, []);
   // оверлей попапов
-  function overlayClick(e, resetCallback) { //оверлей по клику (принимает попап)
+  function overlayClick(e, resetCallback) { //оверлей по клику (принимает попап и функцию для сброса полей формы)
     if (e.classList.contains('register')) {
-      closeAllPopups();
-      e.firstElementChild.reset();
-      resetCallback();
+      closeAllPopups(); // закрывает все попапы
+      e.firstElementChild.reset(); // сбрасывает значения полей
+      resetCallback(); // сбрасывает переменные для валидации полей
     }
   }
   // localStorage.removeItem('articles');
@@ -117,8 +117,6 @@ function App() {
             isResult={searchArticles}
             isPreloader={preloader}
             onSaveArticle={saveArticle}
-          // isBlueFlag={saveArticleFlag}
-          // onChangeFlag={saveArticleFlags}
           />
         </Route>
         <Route path="/saved-news">
