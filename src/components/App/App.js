@@ -19,6 +19,7 @@ function App() {
   const [searchArticles, setSearchArticles] = React.useState([]); // стейт для записи всех найденных статей
   const [preloader, setPreloader] = React.useState(false); // вкл/откл прелоудера
   const [successRegister, setSuccessRegister] = React.useState(false); // попап после успешной регистрации
+  const [errorStatus, setErrorStatus] = React.useState('');
 
   React.useEffect(() => {
     setSearchArticles(JSON.parse(localStorage.getItem('articles')));
@@ -61,6 +62,7 @@ function App() {
     setRegister(false);
     setLogin(false);
     setSuccessRegister(false);
+    setErrorStatus('');
   }
   // закрыть все попапы по нажатию на Esc
   React.useEffect(() => {
@@ -110,9 +112,13 @@ function App() {
 
   function submitRegister(form, inputValues, inputReset) {
     MainApi.register('signup', inputValues)
-      .then(() => {
-        closeAllPopups(); // закрываем попап с регистрацией
-        setSuccessRegister(true); // меняем стейт для открытия попапа с успешной регистрацией
+      .then((data) => {
+        if (data.statusCode) {
+          setErrorStatus(data.validation.body.message);
+        } else {
+          closeAllPopups(); // закрываем попап с регистрацией
+          setSuccessRegister(true); // меняем стейт для открытия попапа с успешной регистрацией
+        }
       })
       .then(() => {
         form.reset(); // сбрасываем инпуты
@@ -156,6 +162,7 @@ function App() {
         closePopup={closeAllPopups}
         overlay={overlayClick}
         onSubmit={submitRegister}
+        errorSubmit={errorStatus}
       />
       <Login
         isOpenLogin={login}
@@ -164,6 +171,7 @@ function App() {
         closePopup={closeAllPopups}
         overlay={overlayClick}
         onSubmit={submitLogin}
+        errorSubmit={errorStatus}
       />
 
       <SuccessRegister

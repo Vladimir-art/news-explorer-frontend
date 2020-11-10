@@ -19,7 +19,7 @@ function PopupWithForm(props) {
     }
   }
 
-
+console.log(props.errorSubmit)
   return (
     <section className={`register ${props.isOpenReg && `register_opened`} ${props.isOpenLogin && `register_opened`}`} onClick={props.overlayClick}>
       <form className="register-container" name={props.name} onSubmit={props.onSubmit} method="POST" noValidate>
@@ -62,7 +62,9 @@ function PopupWithForm(props) {
             </span>
           </label>
           {props.children}
-          <span className="register-container__input-error register-container__input-error_center" id="name-error">Такой пользователь уже есть</span>
+          <span
+          className={`register-container__input-error register-container__input-error_center ${props.errorSubmit && 'register-container__input-error_active'}`}
+          id="name-error">{props.errorSubmit}</span>
           <button
             className={`register-container__button ${!props.valid.isValid && 'register-container__button_inactive'}`}
             type="submit"

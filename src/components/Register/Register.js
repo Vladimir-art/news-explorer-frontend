@@ -31,6 +31,7 @@ function Register(props) {
 
   return (
     <PopupWithForm
+      errorSubmit={props.errorSubmit}
       valid={valid}
       onSubmit={handleSubmit}
       isOpenReg={props.isOpenRegister}

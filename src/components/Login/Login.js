@@ -29,6 +29,7 @@ function Login(props) {
   return (
     <PopupWithForm
       valid={valid}
+      errorSubmit={props.errorSubmit}
       onSubmit={handleSubmit}
       isOpenLogin={props.isOpenLogin}
       onChangeLog={isOpenReg}
