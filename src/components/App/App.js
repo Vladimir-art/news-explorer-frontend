@@ -52,6 +52,10 @@ function App() {
     setLogin(false);
   }
 
+  function closeSuccessRegister() {
+    setSuccessRegister(false)
+  }
+
   // закрыть все попапы
   function closeAllPopups() {
     setRegister(false);
@@ -163,6 +167,8 @@ function App() {
       />
 
       <SuccessRegister
+        closeMyself={closeSuccessRegister}
+        onChange={openLogin}
         isOpen={successRegister}
         closePopup={closeAllPopups}
         overlay={overlayClick}
