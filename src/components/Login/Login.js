@@ -23,7 +23,7 @@ function Login(props) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    props.onSubmit(e.target, valid.values);
+    props.onSubmit(e.target, valid.values, valid.resetForm);
   }
 
   return (

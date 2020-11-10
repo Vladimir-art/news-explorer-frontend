@@ -43,3 +43,23 @@ export const register = (url, values) => {
     return data;
   })
 }
+
+export const login = (url, values) => {
+  return fetch(`https://illus.students.nomoreparties.space/${url}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      "email": values.email,
+      "password": values.password,
+    })
+  })
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    localStorage.setItem('jwt', data.token);
+    return data;
+  })
+}

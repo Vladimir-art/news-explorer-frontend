@@ -129,8 +129,23 @@ function App() {
       })
   }
 
-  function submitLogin(form, inputValues) {
-    console.log(form, inputValues);
+  function submitLogin(form, inputValues, inputReset) {
+    MainApi.login('signin', inputValues)
+      .then((data) => {
+        if (data.token) {
+          console.log(data); // доделать!!!!!
+          closeAllPopups();
+        } else {
+          setErrorStatus(data.message);
+        }
+      })
+      .then(() => {
+        form.reset(); // сбрасываем инпуты
+        inputReset(); // сбрасываем поля валидации
+      })
+      .catch((err) => {
+        console.log('Произошла ошибка: ', err);
+      })
   }
 
   return (
