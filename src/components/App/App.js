@@ -7,6 +7,7 @@ import SavedNews from '../SavedNews/SavedNews';
 import Register from '../Register/Register';
 import Footer from '../Footer/Footer';
 import Login from '../Login/Login';
+import SuccessRegister from '../SuccessRegister/SuccessRegister';
 import * as NewsApi from '../../utils/NewsApi';
 import * as MainApi from '../../utils/MainApi';
 
@@ -102,10 +103,12 @@ function App() {
       })
   }
 
-  function submitRegister(form, inputValues) {
+  function submitRegister(form, inputValues, inputReset) {
     MainApi.register('signup', inputValues)
-      .then((data) => {
-        console.log(data);
+      .then(() => {
+        form.reset();
+        inputReset();
+        closeAllPopups();
       })
       .catch((err) => {
         console.log('Произошла ошибка: ', err);
@@ -154,6 +157,8 @@ function App() {
         overlay={overlayClick}
         onSubmit={submitLogin}
       />
+
+      <SuccessRegister />
 
       <Footer />
     </div>
