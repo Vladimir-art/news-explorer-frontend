@@ -23,9 +23,12 @@ function App() {
   const [errorStatus, setErrorStatus] = React.useState('');
 
   const [currentUser, setCurrentUser] = React.useState({});
+  const [loggedIn, setLoggedIn] = React.useState(false);
 
   React.useEffect(() => {
     setSearchArticles(JSON.parse(localStorage.getItem('articles')));
+    setCurrentUser(JSON.parse(localStorage.getItem('user')));
+    localStorage.getItem('jwt') && setLoggedIn(true);
   }, [])
 
   // стейт для включения темной темя для шапки сайта
@@ -132,7 +135,7 @@ function App() {
         console.log('Произошла ошибка: ', err);
       })
   }
-  console.log(currentUser);
+
   function submitLogin(form, inputValues, inputReset) {
     MainApi.login('signin', inputValues)
       .then((data) => {
@@ -140,8 +143,10 @@ function App() {
           const token = localStorage.getItem('jwt');
           MainApi.getUser('users/me', token)
             .then((data) => {
-              setCurrentUser(data);
-              closeAllPopups();
+              localStorage.setItem('user', JSON.stringify(data));
+              setCurrentUser(JSON.parse(localStorage.getItem('user'))); // обновляет информацию текущего пользователя
+              setLoggedIn(true); // меняет стейт удачного логина
+              closeAllPopups(); // закрывает все попапы
             })
             .catch((err) => console.log('Произошла ошибка: ', err));
         } else {
@@ -156,7 +161,7 @@ function App() {
         console.log('Произошла ошибка: ', err);
       })
   }
-
+  console.log(loggedIn);
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>

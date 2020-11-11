@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { CurrentUserContext } from '../../context/CurrentUserContext';
 import Navigation from '../Navigation/Navigation';
 
 function Header(props) {
 
   const [activeMenu, setActiveMenu] = React.useState(false);
+  const currentUser = React.useContext(CurrentUserContext); //получаем объект о пользвателе из контекста
 
   function changeButton(e) {
     if (e.target.classList.contains('header__button')) {
@@ -29,7 +30,7 @@ function Header(props) {
   function handleRegisterForm() {
     props.handleRegister();
   }
-
+console.log(currentUser);
   return (
     <header
       className={
