@@ -166,6 +166,7 @@ function App() {
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
         <Header
+          isLoggedIn={loggedIn}
           isChangeTheme={changeTheme} // стейт для вкл/откл темной темы
           onChange={changeThemes} // вкл темной темы
           resetTheme={resetChangeTheme} // откл темной темы

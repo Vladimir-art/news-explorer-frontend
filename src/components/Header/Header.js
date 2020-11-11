@@ -53,6 +53,8 @@ console.log(currentUser);
         </div>
         <nav className={`header__nav ${activeMenu && `header__nav_active`}`}>
           <Navigation
+            isLoggedIn={props.isLoggedIn}
+            user={currentUser}
             onChangeTheme={setBlackTheme} // вкл темную тему
             isBlackTheme={props.isChangeTheme} // отк/вкл темную тему state
             resetBlackTheme={resetBlackTheme} // откл темную тему

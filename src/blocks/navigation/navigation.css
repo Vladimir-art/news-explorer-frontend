@@ -8,6 +8,7 @@
 @import url(./__links/_theme-dark/navigation__links_theme-dark.css);
 @import url(./__links/_hover/_theme-dark/navigation__links_hover_theme-dark.css);
 @import url(./__link/_center/navigation__link_center.css);
+@import url(./__links/_inactive/navigation__links_inactive.css);
 
 .navigation {
   margin: 0;
