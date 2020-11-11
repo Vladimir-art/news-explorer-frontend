@@ -1,48 +1,34 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import NewsCard from '../NewsCard/NewsCard';
 
-import fisusOne from '../../images/ficus-one.png';
-import flower from '../../images/another-flower.png';
+function NewsCardList(props) {
 
-function NewsCardList() {
+  function dateFormat(str) {
+    const date = new Date(str);
+    const options = { year: 'numeric', month: 'long', day: 'numeric' }
+    return date.toLocaleString('ru', options);
+  }
+
   return (
     <section className="article-list">
       <div className="article-list__item">
-        <NewsCard
-          scr={fisusOne}
-          title="Национальное достояние – парки"
-          text="В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков –
-        охраняемых территорий, где и сегодня каждый может приобщиться к природе."
-          source="Дзен"
-        />
-        <NewsCard
-          scr={flower}
-          title="Лесные огоньки: история одной фотографии"
-          text="Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
-          из местных чудес природы."
-          source="Афиша"
-        />
-        <NewsCard
-          scr={fisusOne}
-          title="Национальное достояние – парки"
-          text="В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков –
-        охраняемых территорий, где и сегодня каждый может приобщиться к природе."
-          source="Дзен"
-        />
-        <NewsCard
-          scr={flower}
-          title="Лесные огоньки: история одной фотографии"
-          text="Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
-          из местных чудес природы."
-          source="Афиша"
-        />
-        <NewsCard
-          scr={fisusOne}
-          title="Национальное достояние – парки"
-          text="В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков –
-        охраняемых территорий, где и сегодня каждый может приобщиться к природе."
-          source="Дзен"
-        />
+        {
+          props.articles.map((item) => {
+            return (
+              <NewsCard
+                item={item}
+                key={item._id}
+                src={item.image}
+                title={item.title}
+                text={item.text}
+                source={item.source}
+                link={item.link}
+                time={dateFormat(item.date)}
+              />
+            )
+          })
+        }
       </div>
     </section>
   );

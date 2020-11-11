@@ -37,7 +37,6 @@ function App() {
     MainApi.getContent('articles', localStorage.getItem('jwt'))
       .then((data) => {
         setChangeTheme(true);
-        // const userArticleArray = data.map((item) => currentUser.id === item.owner && item);
         const userArticleArray = [];
         data.forEach((item) => {
           if (item.owner === currentUser.id) {
@@ -197,6 +196,7 @@ function App() {
           <Route path="/saved-news">
             <SavedNews
               articles={userArticles}
+              isLoggedIn={loggedIn}
             />
           </Route>
         </Switch>
