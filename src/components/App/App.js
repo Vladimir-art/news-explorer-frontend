@@ -34,6 +34,11 @@ function App() {
   // стейт для включения темной темя для шапки сайта
   function changeThemes() {
     setChangeTheme(true);
+    MainApi.getContent('articles', localStorage.getItem('jwt'))
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => console.log('Произошла ошибка: ', err));
   }
 
   // стейт для отключения темной темы
@@ -141,7 +146,7 @@ function App() {
       .then((data) => {
         if (data.token) {
           const token = localStorage.getItem('jwt');
-          MainApi.getUser('users/me', token)
+          MainApi.getContent('users/me', token)
             .then((data) => {
               localStorage.setItem('user', JSON.stringify(data));
               setCurrentUser(JSON.parse(localStorage.getItem('user'))); // обновляет информацию текущего пользователя
@@ -161,7 +166,7 @@ function App() {
         console.log('Произошла ошибка: ', err);
       })
   }
-  console.log(loggedIn);
+
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>

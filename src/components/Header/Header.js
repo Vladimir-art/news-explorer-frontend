@@ -30,7 +30,7 @@ function Header(props) {
   function handleRegisterForm() {
     props.handleRegister();
   }
-console.log(currentUser);
+
   return (
     <header
       className={

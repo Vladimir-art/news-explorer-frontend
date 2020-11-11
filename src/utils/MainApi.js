@@ -64,7 +64,7 @@ export const login = (url, values) => {
   })
 }
 
-export const getUser = (url, token) => {
+export const getContent = (url, token) => {
   return fetch(`https://illus.students.nomoreparties.space/${url}`, {
     method: 'GET',
     headers: {
