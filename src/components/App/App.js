@@ -24,6 +24,7 @@ function App() {
 
   const [currentUser, setCurrentUser] = React.useState({});
   const [loggedIn, setLoggedIn] = React.useState(false);
+  const [userArticles, setUserrticles] = React.useState([]);
 
   React.useEffect(() => {
     setSearchArticles(JSON.parse(localStorage.getItem('articles')));
@@ -33,10 +34,17 @@ function App() {
 
   // стейт для включения темной темя для шапки сайта
   function changeThemes() {
-    setChangeTheme(true);
     MainApi.getContent('articles', localStorage.getItem('jwt'))
       .then((data) => {
-        console.log(data);
+        setChangeTheme(true);
+        // const userArticleArray = data.map((item) => currentUser.id === item.owner && item);
+        const userArticleArray = [];
+        data.forEach((item) => {
+          if (item.owner === currentUser.id) {
+            userArticleArray.push(item);
+          }
+        })
+        setUserrticles(userArticleArray);
       })
       .catch((err) => console.log('Произошла ошибка: ', err));
   }
@@ -187,7 +195,9 @@ function App() {
             />
           </Route>
           <Route path="/saved-news">
-            <SavedNews />
+            <SavedNews
+              articles={userArticles}
+            />
           </Route>
         </Switch>
 
