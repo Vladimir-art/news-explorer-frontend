@@ -102,7 +102,8 @@ function App() {
   }
 
   function saveArticle(data, keyword) {
-    MainApi.saveArticles('articles', { keyword, data })
+    const token = localStorage.getItem('jwt');
+    MainApi.saveArticles('articles', { keyword, data }, token)
       .then((data) => {
         // создает новый массив, если новая карточка совпадает со старой, то старая перезаписывается с новыми ключами объекта
         const newArticles = searchArticles.map(article => article.title === data.title ? data : article);
@@ -119,7 +120,6 @@ function App() {
         if (data.statusCode) {
           setErrorStatus(data.validation.body.message);
         } else {
-          setCurrentUser(inputValues); // доделать и подумать!!!
           closeAllPopups(); // закрываем попап с регистрацией
           setSuccessRegister(true); // меняем стейт для открытия попапа с успешной регистрацией
         }
@@ -137,8 +137,13 @@ function App() {
     MainApi.login('signin', inputValues)
       .then((data) => {
         if (data.token) {
-          console.log(data); // доделать!!!!!
-          closeAllPopups();
+          const token = localStorage.getItem('jwt');
+          MainApi.getUser('users/me', token)
+            .then((data) => {
+              setCurrentUser(data);
+              closeAllPopups();
+            })
+            .catch((err) => console.log('Произошла ошибка: ', err));
         } else {
           setErrorStatus(data.message);
         }

@@ -1,10 +1,10 @@
 import image from './constants';
-export const saveArticles = (url, data) => {
+export const saveArticles = (url, data, token) => {
   return fetch(`https://illus.students.nomoreparties.space/${url}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZmE3ZDcyNDE3ODVhYTZkNGIyY2Y4N2EiLCJpYXQiOjE2MDQ4MzUxMjksImV4cCI6MTYwNTQzOTkyOX0.2MeuGg59O25OEcSTC8lZ1wswHnpqH_WwrQewNWD7frQ'
+      'authorization': `Bearer ${token}`
     },
     body: JSON.stringify({
       "keyword": data.keyword,
@@ -62,4 +62,20 @@ export const login = (url, values) => {
     localStorage.setItem('jwt', data.token);
     return data;
   })
+}
+
+export const getUser = (url, token) => {
+  return fetch(`https://illus.students.nomoreparties.space/${url}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': `Bearer ${token}`
+    }
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      return data;
+    })
 }
