@@ -12,6 +12,7 @@ function SavedNews(props) {
     <main className="main">
       <SavedNewsHeader
         user={currentUser}
+        articles={props.articles}
       />
       <NewsCardList
         articles={props.articles}
