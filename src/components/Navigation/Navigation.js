@@ -2,6 +2,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import logOut from '../../images/logout.svg';
+import logOutWhite from '../../images/logout-white.svg'
 
 function Navigation(props) {
 
@@ -53,7 +54,7 @@ function Navigation(props) {
         >
           {props.user.name}
         </button>
-        <img className="navigation__image" alt="Иконка-выйти" src={logOut} />
+        <img className="navigation__image" alt="Иконка-выйти" src={props.isBlackTheme ? logOut : logOutWhite} />
       </li>
     </ul>
   );
