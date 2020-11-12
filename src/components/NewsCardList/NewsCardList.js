@@ -19,7 +19,7 @@ function NewsCardList(props) {
               <NewsCard
                 isChangeTheme={props.isChangeTheme}
                 keyword={item.keyword}
-                item={item}
+                article={item}
                 key={item._id}
                 src={item.image}
                 title={item.title}

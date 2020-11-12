@@ -48,8 +48,7 @@ function SearchingResults(props) {
                 time={dateFormat(item.publishedAt ? item.publishedAt : item.date)}
                 isChangeTheme={props.isChangeTheme}
                 keyword=''
-                // isBlueFlag={props.isBlueFlag}
-                // onChangeFlag={props.onChangeFlag}
+                deleteArticle={props.deleteArticle}
               />
             )
           })

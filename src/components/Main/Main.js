@@ -17,6 +17,7 @@ function Main(props) {
         isPreloader={props.isPreloader}
         onSaveArticle={props.onSaveArticle}
         isChangeTheme={props.isChangeTheme}
+        deleteArticle={props.deleteArticle}
       />
       <About />
     </main>

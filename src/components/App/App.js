@@ -32,6 +32,10 @@ function App() {
     localStorage.getItem('jwt') && setLoggedIn(true);
   }, [])
 
+  // React.useEffect(() => {
+  //   setSearchArticles(JSON.parse(localStorage.getItem('articles')));
+  // }, [saveArticle])
+
   // стейт для включения темной темя для шапки сайта
   function changeThemes() {
     setChangeTheme(true); // меняем стейт на темную тему
@@ -123,6 +127,7 @@ function App() {
         // создает новый массив, если новая карточка совпадает со старой, то старая перезаписывается с новыми ключами объекта
         const newArticles = searchArticles.map(article => (article.title === data.title && data.owner === currentUser.id) ? data : article);
         localStorage.setItem('articles', JSON.stringify(newArticles));
+        // setSearchArticles(JSON.parse(localStorage.getItem('articles')));
       })
       .catch((err) => {
         console.log('Произошла ошибка: ', err);
@@ -174,6 +179,16 @@ function App() {
       })
   }
 
+  function deleteArticle(data) {
+    const token = localStorage.getItem('jwt');
+    console.log(data)
+    MainApi.deleteArticle(data._id, token)
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => console.log('Произошла ошибка: ', err));
+  }
+
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
@@ -192,6 +207,7 @@ function App() {
               isPreloader={preloader}
               onSaveArticle={saveArticle}
               isChangeTheme={changeTheme}
+              deleteArticle={deleteArticle}
             />
           </Route>
           <Route path="/saved-news">

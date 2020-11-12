@@ -1,5 +1,5 @@
-import image from './constants';
 export const saveArticles = (url, data, token) => {
+  console.log(data);
   return fetch(`https://illus.students.nomoreparties.space/${url}`, {
     method: 'POST',
     headers: {
@@ -9,11 +9,11 @@ export const saveArticles = (url, data, token) => {
     body: JSON.stringify({
       "keyword": data.keyword,
       "title": data.data.title,
-      "text": data.data.description,
-      "date": data.data.publishedAt,
-      "source": data.data.source.name,
-      "link": data.data.url,
-      "image": data.data.urlToImage === null ? image : data.data.urlToImage,
+      "text": data.data.description ? data.data.description : data.data.text,
+      "date": data.data.publishedAt ? data.data.publishedAt : data.data.date,
+      "source": data.data.source.name ? data.data.source.name : data.data.source,
+      "link": data.data.url ? data.data.url : data.data.link,
+      "image": data.data.urlToImage ? data.data.urlToImage : data.data.image,
     })
   })
   .then((res) => {
@@ -67,6 +67,22 @@ export const login = (url, values) => {
 export const getContent = (url, token) => {
   return fetch(`https://illus.students.nomoreparties.space/${url}`, {
     method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'authorization': `Bearer ${token}`
+    }
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => {
+      return data;
+    })
+}
+
+export const deleteArticle = (id, token) => {
+  return fetch(`https://illus.students.nomoreparties.space/articles/${id}`, {
+    method: 'DELETE',
     headers: {
       'Content-Type': 'application/json',
       'authorization': `Bearer ${token}`

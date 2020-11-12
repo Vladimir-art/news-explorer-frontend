@@ -1,15 +1,25 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+// import { CurrentUserContext } from '../../context/CurrentUserContext';
 import image from '../../utils/constants';
 
 function NewsCard(props) {
 
-  const [saveArticle, setSaveArticle] = React.useState(false);
-  const isId = props.id !== undefined ? true : false;
+  // const currentUser = React.useContext(CurrentUserContext);
 
-  function onSave(e) {
-    setSaveArticle(true);
-    props.onSaveArticle(props.article, e.target.name);
+  const [saveArticle, setSaveArticle] = React.useState(false);
+  // const isId = (props.article.owner === currentUser.id ) ? true : false;
+  // setSaveArticle(isId);
+
+  function onToggle(e) {
+console.log(saveArticle, e)
+    if (!saveArticle) {
+      props.onSaveArticle(props.article, e.target.name);
+      setSaveArticle(true);
+    } else {
+      props.deleteArticle(props.article);
+      setSaveArticle(false);
+    }
   }
 
   return (
@@ -23,13 +33,13 @@ function NewsCard(props) {
         </p>
       </div>
       <a className="article-element__source" href={props.link} target="_blank" rel="noreferrer">{props.source}</a>
-      <div className={props.isChangeTheme ? 'article-element__inactive' : `article-element__loggedout ${(isId || saveArticle) && 'article-element__loggedout_hover-inactive'}`}>
+      <div className={props.isChangeTheme ? 'article-element__inactive' : `article-element__loggedout ${saveArticle && 'article-element__loggedout_hover-inactive'}`}>
         <p className="article-element__attantion">Войдите, чтобы сохранять статьи</p>
         <button
-        className={`article-element__flag ${(isId || saveArticle) && 'article-element__flag_save'}`}
-        id={props.id}
-        type="button"
-        onClick={onSave}
+        className={`article-element__flag ${(saveArticle) && 'article-element__flag_save'}`}
+        id={props.article.owner ? props.article.owner : false}
+        type="submit"
+        onClick={onToggle}
         name={localStorage.getItem('keyword') ? localStorage.getItem('keyword') : 'Поиск'}
         ></button>
       </div>
