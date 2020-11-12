@@ -121,7 +121,7 @@ function App() {
     MainApi.saveArticles('articles', { keyword, data }, token)
       .then((data) => {
         // создает новый массив, если новая карточка совпадает со старой, то старая перезаписывается с новыми ключами объекта
-        const newArticles = searchArticles.map(article => article.title === data.title ? data : article);
+        const newArticles = searchArticles.map(article => (article.title === data.title && data.owner === currentUser.id) ? data : article);
         localStorage.setItem('articles', JSON.stringify(newArticles));
       })
       .catch((err) => {

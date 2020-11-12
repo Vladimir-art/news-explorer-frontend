@@ -11,7 +11,7 @@ function NewsCard(props) {
     setSaveArticle(true);
     props.onSaveArticle(props.article, e.target.name);
   }
-console.log(props.item);
+
   return (
     <div className="article-element">
       <img className="article-element__image" alt={props.source} src={(props.src === null || props.src === undefined) ? image : props.src} onError={props.errorLoad} />
