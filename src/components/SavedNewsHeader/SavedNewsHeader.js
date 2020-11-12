@@ -6,7 +6,7 @@ function SavedNewsHeader(props) {
   function getKeywords() {
     const obj = {};
     let counter = 1;
-    // читает количетсво повторяющихся запросов
+    // считает количетсво повторяющихся запросов
     props.articles.forEach((item) => {
       if (obj[item.keyword]) {
         obj[item.keyword]++;
@@ -29,7 +29,7 @@ function SavedNewsHeader(props) {
           <span className="saved-articles__count">{props.articles ? props.articles.length : 0}</span> сохранённых&nbsp;статей</h1>
         <p className="saved-articles__text">
           По ключевым словам:
-          <span className="saved-articles__keyword">&nbsp;{getKeywords()}</span>,
+          <span className="saved-articles__keyword">&nbsp;{getKeywords()}</span>
         </p>
       </div>
     </section>

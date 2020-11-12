@@ -17,6 +17,8 @@ function NewsCardList(props) {
           props.articles.map((item) => {
             return (
               <NewsCard
+                isChangeTheme={props.isChangeTheme}
+                keyword={item.keyword}
                 item={item}
                 key={item._id}
                 src={item.image}

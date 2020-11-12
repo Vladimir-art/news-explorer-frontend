@@ -16,6 +16,7 @@ function Main(props) {
         isResult={props.isResult}
         isPreloader={props.isPreloader}
         onSaveArticle={props.onSaveArticle}
+        isChangeTheme={props.isChangeTheme}
       />
       <About />
     </main>

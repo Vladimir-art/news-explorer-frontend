@@ -20,11 +20,11 @@ function App() {
   const [searchArticles, setSearchArticles] = React.useState([]); // стейт для записи всех найденных статей
   const [preloader, setPreloader] = React.useState(false); // вкл/откл прелоудера
   const [successRegister, setSuccessRegister] = React.useState(false); // попап после успешной регистрации
-  const [errorStatus, setErrorStatus] = React.useState('');
+  const [errorStatus, setErrorStatus] = React.useState(''); // стейт для отображения ошибки запроса в форме
 
-  const [currentUser, setCurrentUser] = React.useState({});
-  const [loggedIn, setLoggedIn] = React.useState(false);
-  const [userArticles, setUserrticles] = React.useState([]);
+  const [currentUser, setCurrentUser] = React.useState({}); // глобальный стейт текущего пользователя
+  const [loggedIn, setLoggedIn] = React.useState(false); // зашля на страницу или нет
+  const [userArticles, setUserrticles] = React.useState([]); //
 
   React.useEffect(() => {
     setSearchArticles(JSON.parse(localStorage.getItem('articles')));
@@ -34,9 +34,9 @@ function App() {
 
   // стейт для включения темной темя для шапки сайта
   function changeThemes() {
+    setChangeTheme(true); // меняем стейт на темную тему
     MainApi.getContent('articles', localStorage.getItem('jwt'))
       .then((data) => {
-        setChangeTheme(true);
         const userArticleArray = [];
         data.forEach((item) => {
           if (item.owner === currentUser.id) {
@@ -191,10 +191,12 @@ function App() {
               isResult={searchArticles}
               isPreloader={preloader}
               onSaveArticle={saveArticle}
+              isChangeTheme={changeTheme}
             />
           </Route>
           <Route path="/saved-news">
             <SavedNews
+              isChangeTheme={changeTheme}
               articles={userArticles}
               isLoggedIn={loggedIn}
             />

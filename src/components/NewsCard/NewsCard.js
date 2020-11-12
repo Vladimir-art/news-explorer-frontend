@@ -11,7 +11,7 @@ function NewsCard(props) {
     setSaveArticle(true);
     props.onSaveArticle(props.article, e.target.name);
   }
-
+console.log(props.item);
   return (
     <div className="article-element">
       <img className="article-element__image" alt={props.source} src={(props.src === null || props.src === undefined) ? image : props.src} onError={props.errorLoad} />
@@ -23,7 +23,7 @@ function NewsCard(props) {
         </p>
       </div>
       <a className="article-element__source" href={props.link} target="_blank" rel="noreferrer">{props.source}</a>
-      <div className={`article-element__loggedout ${(isId || saveArticle) && 'article-element__loggedout_hover-inactive'}`}>
+      <div className={props.isChangeTheme ? 'article-element__inactive' : `article-element__loggedout ${(isId || saveArticle) && 'article-element__loggedout_hover-inactive'}`}>
         <p className="article-element__attantion">Войдите, чтобы сохранять статьи</p>
         <button
         className={`article-element__flag ${(isId || saveArticle) && 'article-element__flag_save'}`}
@@ -33,11 +33,11 @@ function NewsCard(props) {
         name={localStorage.getItem('keyword') ? localStorage.getItem('keyword') : 'Поиск'}
         ></button>
       </div>
-      <div className="article-element__loggedin article-element__inactive">
+      <div className={!props.isChangeTheme ? 'article-element__inactive' : 'article-element__loggedin'}>
         <p className="article-element__attantion">Убрать из сохранённых</p>
         <button className="article-element__trash" type="submit"></button>
       </div>
-      <p className="article-element__category article-element__inactive">Природа</p>
+      <p className={!props.isChangeTheme ? 'article-element__inactive' : 'article-element__category'}>{props.keyword}</p>
     </div>
   );
 }

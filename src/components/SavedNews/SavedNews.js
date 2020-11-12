@@ -15,8 +15,8 @@ function SavedNews(props) {
         articles={props.articles}
       />
       <NewsCardList
+        isChangeTheme={props.isChangeTheme}
         articles={props.articles}
-        isLoggedIn={props.isloggedIn}
       />
     </main>
   );

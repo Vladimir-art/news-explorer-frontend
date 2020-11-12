@@ -46,6 +46,8 @@ function SearchingResults(props) {
                 source={item.source.name ? item.source.name : item.source}
                 link={item.url ? item.url : item.link}
                 time={dateFormat(item.publishedAt ? item.publishedAt : item.date)}
+                isChangeTheme={props.isChangeTheme}
+                keyword=''
                 // isBlueFlag={props.isBlueFlag}
                 // onChangeFlag={props.onChangeFlag}
               />
