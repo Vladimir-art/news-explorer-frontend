@@ -18,6 +18,7 @@ function Main(props) {
         onSaveArticle={props.onSaveArticle}
         isChangeTheme={props.isChangeTheme}
         deleteArticle={props.deleteArticle}
+        isId={props.isId}
       />
       <About />
     </main>

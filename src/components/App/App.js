@@ -25,6 +25,7 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({}); // глобальный стейт текущего пользователя
   const [loggedIn, setLoggedIn] = React.useState(false); // зашля на страницу или нет
   const [userArticles, setUserrticles] = React.useState([]); //
+  const [isId, setIsId] = React.useState(''); // стейт для получения id карточки и записи в кнопку флажка
 
   React.useEffect(() => {
     setSearchArticles(JSON.parse(localStorage.getItem('articles')));
@@ -127,6 +128,7 @@ function App() {
         // создает новый массив, если новая карточка совпадает со старой, то старая перезаписывается с новыми ключами объекта
         const newArticles = searchArticles.map(article => (article.title === data.title && data.owner === currentUser.id) ? data : article);
         localStorage.setItem('articles', JSON.stringify(newArticles));
+        setIsId(data._id);
         // setSearchArticles(JSON.parse(localStorage.getItem('articles')));
       })
       .catch((err) => {
@@ -179,10 +181,10 @@ function App() {
       })
   }
 
-  function deleteArticle(data) {
+  function deleteArticle(e) {
     const token = localStorage.getItem('jwt');
-    console.log(data)
-    MainApi.deleteArticle(data._id, token)
+    console.log(e);
+    MainApi.deleteArticle(e.id, token)
       .then((data) => {
         console.log(data);
       })
@@ -208,6 +210,7 @@ function App() {
               onSaveArticle={saveArticle}
               isChangeTheme={changeTheme}
               deleteArticle={deleteArticle}
+              isId={isId}
             />
           </Route>
           <Route path="/saved-news">

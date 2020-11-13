@@ -12,12 +12,12 @@ function NewsCard(props) {
   // setSaveArticle(isId);
 
   function onToggle(e) {
-console.log(saveArticle, e)
+// console.log(saveArticle, e)
     if (!saveArticle) {
       props.onSaveArticle(props.article, e.target.name);
       setSaveArticle(true);
     } else {
-      props.deleteArticle(props.article);
+      props.deleteArticle(e.target);
       setSaveArticle(false);
     }
   }
@@ -37,7 +37,7 @@ console.log(saveArticle, e)
         <p className="article-element__attantion">Войдите, чтобы сохранять статьи</p>
         <button
         className={`article-element__flag ${(saveArticle) && 'article-element__flag_save'}`}
-        id={props.article.owner ? props.article.owner : false}
+        id={props.id}
         type="submit"
         onClick={onToggle}
         name={localStorage.getItem('keyword') ? localStorage.getItem('keyword') : 'Поиск'}
