@@ -122,10 +122,19 @@ function App() {
     const token = localStorage.getItem('jwt');
     MainApi.saveArticles('articles', { keyword, data }, token)
       .then((data) => {
-        // создает новый массив, если новая карточка совпадает со старой, то старая перезаписывается с новыми ключами объекта
+        // const isUpdateNews = JSON.parse(localStorage.getItem('newArticles')).some((item) => item._id !== undefined);
+        // if (isUpdateNews) {
+        //   const arr = JSON.parse(localStorage.getItem('newArticles')).map((item) => item.title === data.title ? data : item)
+        //   localStorage.setItem('newArticles', JSON.stringify(arr));
+        // } else {
+        //   // создает новый массив, если новая карточка совпадает со старой, то старая перезаписывается с новыми ключами объекта
+        //   const newArticles = searchArticles.map(article => (article.title === data.title && data.owner === currentUser.id) ? data : article);
+        //   localStorage.setItem('newArticles', JSON.stringify(newArticles));
+        //   setIsId(data._id);
+        // }
         const newArticles = searchArticles.map(article => (article.title === data.title && data.owner === currentUser.id) ? data : article);
-        localStorage.setItem('newArticles', JSON.stringify(newArticles));
-        setIsId(data._id);
+          localStorage.setItem('newArticles', JSON.stringify(newArticles));
+          setIsId(data._id);
       })
       .catch((err) => {
         console.log('Произошла ошибка: ', err);
@@ -180,7 +189,7 @@ function App() {
   function deleteArticle(e, data) {
     const token = localStorage.getItem('jwt');
     let id;
-    function returnId () { // если в новом массиве есть эта карточка, то верни ее id
+    function returnId() { // если в новом массиве есть эта карточка, то верни ее id
       JSON.parse(localStorage.getItem('newArticles')).some((item) => {
         if (item.title === data.title) {
           id = item._id;
@@ -192,7 +201,7 @@ function App() {
     // если нет id на флажке, то получит от ф-ции сверху
     MainApi.deleteArticle(e.id || id, token)
       .then(() => { // перезапишет новый массив, если карточки совпадают, то перезаписать на старую
-        const newArr =JSON.parse(localStorage.getItem('newArticles')).map((item) => item.title === data.title ? data : item);
+        const newArr = JSON.parse(localStorage.getItem('newArticles')).map((item) => item.title === data.title ? data : item);
         localStorage.setItem('newArticles', JSON.stringify(newArr));
       })
       .catch((err) => console.log('Произошла ошибка: ', err));
