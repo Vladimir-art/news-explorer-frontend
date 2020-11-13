@@ -31,11 +31,8 @@ function App() {
     setSearchArticles(JSON.parse(localStorage.getItem('articles')));
     setCurrentUser(JSON.parse(localStorage.getItem('user')));
     localStorage.getItem('jwt') && setLoggedIn(true);
+    localStorage.getItem('newArticles') === null && localStorage.setItem('newArticles', JSON.stringify([]));
   }, [])
-
-  // React.useEffect(() => {
-  //   setSearchArticles(JSON.parse(localStorage.getItem('articles')));
-  // }, [saveArticle])
 
   // стейт для включения темной темя для шапки сайта
   function changeThemes() {
@@ -127,9 +124,8 @@ function App() {
       .then((data) => {
         // создает новый массив, если новая карточка совпадает со старой, то старая перезаписывается с новыми ключами объекта
         const newArticles = searchArticles.map(article => (article.title === data.title && data.owner === currentUser.id) ? data : article);
-        localStorage.setItem('articles', JSON.stringify(newArticles));
+        localStorage.setItem('newArticles', JSON.stringify(newArticles));
         setIsId(data._id);
-        // setSearchArticles(JSON.parse(localStorage.getItem('articles')));
       })
       .catch((err) => {
         console.log('Произошла ошибка: ', err);
@@ -181,12 +177,23 @@ function App() {
       })
   }
 
-  function deleteArticle(e) {
+  function deleteArticle(e, data) {
     const token = localStorage.getItem('jwt');
-    console.log(e);
-    MainApi.deleteArticle(e.id, token)
-      .then((data) => {
-        console.log(data);
+    let id;
+    function returnId () { // если в новом массиве есть эта карточка, то верни ее id
+      JSON.parse(localStorage.getItem('newArticles')).some((item) => {
+        if (item.title === data.title) {
+          id = item._id;
+        }
+        return id;
+      })
+    }
+    returnId()
+    // если нет id на флажке, то получит от ф-ции сверху
+    MainApi.deleteArticle(e.id || id, token)
+      .then(() => { // перезапишет новый массив, если карточки совпадают, то перезаписать на старую
+        const newArr =JSON.parse(localStorage.getItem('newArticles')).map((item) => item.title === data.title ? data : item);
+        localStorage.setItem('newArticles', JSON.stringify(newArr));
       })
       .catch((err) => console.log('Произошла ошибка: ', err));
   }

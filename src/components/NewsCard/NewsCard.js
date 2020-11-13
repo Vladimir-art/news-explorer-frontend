@@ -8,7 +8,12 @@ function NewsCard(props) {
   // const currentUser = React.useContext(CurrentUserContext);
 
   const [saveArticle, setSaveArticle] = React.useState(false);
-  // const isId = (props.article.owner === currentUser.id ) ? true : false;
+  React.useEffect(() => {
+    // JSON.parse(localStorage.getItem('newArticles')) === null ;
+    const isId = JSON.parse(localStorage.getItem('newArticles')).some((item) => item.text === props.article.description);
+    isId && isId !== null ? setSaveArticle(true) : setSaveArticle(false);
+  }, [localStorage.getItem('newArticles')]);
+  // const isId = JSON.parse(localStorage.setItem('newArticles')).some((item) => item.text === props.article.description ? )
   // setSaveArticle(isId);
 
   function onToggle(e) {
@@ -17,7 +22,7 @@ function NewsCard(props) {
       props.onSaveArticle(props.article, e.target.name);
       setSaveArticle(true);
     } else {
-      props.deleteArticle(e.target);
+      props.deleteArticle(e.target, props.article);
       setSaveArticle(false);
     }
   }
