@@ -198,6 +198,15 @@ function App() {
       .catch((err) => console.log('Произошла ошибка: ', err));
   }
 
+  function deleteSavesNews(data) {
+    MainApi.deleteArticle(data._id, localStorage.getItem('jwt'))
+      .then(() => {
+        const newArticles = userArticles.filter((a) => a._id !== data._id);
+        setUserrticles(newArticles);
+      })
+      .catch((err) => console.log('Произошла ошибка: ', err));
+  }
+
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
@@ -225,6 +234,7 @@ function App() {
               isChangeTheme={changeTheme}
               articles={userArticles}
               isLoggedIn={loggedIn}
+              onDeleteArticle={deleteSavesNews}
             />
           </Route>
         </Switch>

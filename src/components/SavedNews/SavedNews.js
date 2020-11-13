@@ -17,6 +17,7 @@ function SavedNews(props) {
       <NewsCardList
         isChangeTheme={props.isChangeTheme}
         articles={props.articles}
+        onDeleteArticle={props.onDeleteArticle}
       />
     </main>
   );

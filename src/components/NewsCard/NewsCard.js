@@ -9,15 +9,12 @@ function NewsCard(props) {
 
   const [saveArticle, setSaveArticle] = React.useState(false);
   React.useEffect(() => {
-    // JSON.parse(localStorage.getItem('newArticles')) === null ;
     const isId = JSON.parse(localStorage.getItem('newArticles')).some((item) => item.text === props.article.description);
     isId && isId !== null ? setSaveArticle(true) : setSaveArticle(false);
   }, [localStorage.getItem('newArticles')]);
-  // const isId = JSON.parse(localStorage.setItem('newArticles')).some((item) => item.text === props.article.description ? )
-  // setSaveArticle(isId);
+
 
   function onToggle(e) {
-// console.log(saveArticle, e)
     if (!saveArticle) {
       props.onSaveArticle(props.article, e.target.name);
       setSaveArticle(true);
@@ -25,6 +22,11 @@ function NewsCard(props) {
       props.deleteArticle(e.target, props.article);
       setSaveArticle(false);
     }
+  }
+
+  function handleDeleteClick(e) {
+    e.preventDefault();
+    props.onDeleteArticle(props.article);
   }
 
   return (
@@ -50,7 +52,7 @@ function NewsCard(props) {
       </div>
       <div className={!props.isChangeTheme ? 'article-element__inactive' : 'article-element__loggedin'}>
         <p className="article-element__attantion">Убрать из сохранённых</p>
-        <button className="article-element__trash" type="submit"></button>
+        <button className="article-element__trash" type="submit" onClick={handleDeleteClick}></button>
       </div>
       <p className={!props.isChangeTheme ? 'article-element__inactive' : 'article-element__category'}>{props.keyword}</p>
     </div>

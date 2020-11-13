@@ -27,6 +27,7 @@ function NewsCardList(props) {
                 source={item.source}
                 link={item.link}
                 time={dateFormat(item.date)}
+                onDeleteArticle={props.onDeleteArticle}
               />
             )
           })
