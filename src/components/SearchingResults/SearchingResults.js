@@ -38,7 +38,7 @@ function SearchingResults(props) {
                 article={item}
                 onSaveArticle={props.onSaveArticle}
                 key={index}
-                id={props.isId}
+                // id={props.isId}
                 errorLoad={onErrorImage}
                 src={item.urlToImage ? item.urlToImage : item.image}
                 title={item.title}

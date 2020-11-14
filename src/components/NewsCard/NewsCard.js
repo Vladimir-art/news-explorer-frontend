@@ -15,12 +15,12 @@ function NewsCard(props) {
 
 
   function onToggle(e) {
-    if (!saveArticle) {
-      props.onSaveArticle(props.article, e.target.name);
-      setSaveArticle(true);
-    } else {
-      props.deleteArticle(e.target, props.article);
+    if (saveArticle) {
       setSaveArticle(false);
+      props.deleteArticle(e.target, props.article);
+    } else {
+      setSaveArticle(true);
+      props.onSaveArticle(props.article, e.target.name, e.target);
     }
   }
 
@@ -43,8 +43,8 @@ function NewsCard(props) {
       <div className={props.isChangeTheme ? 'article-element__inactive' : `article-element__loggedout ${saveArticle && 'article-element__loggedout_hover-inactive'}`}>
         <p className="article-element__attantion">Войдите, чтобы сохранять статьи</p>
         <button
-        className={`article-element__flag ${(saveArticle) && 'article-element__flag_save'}`}
-        id={props.id}
+        className={`article-element__flag ${saveArticle ? 'article-element__flag_save' : ''}`}
+        id=''
         type="submit"
         onClick={onToggle}
         name={localStorage.getItem('keyword') ? localStorage.getItem('keyword') : 'Поиск'}

@@ -25,7 +25,8 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({}); // глобальный стейт текущего пользователя
   const [loggedIn, setLoggedIn] = React.useState(false); // зашля на страницу или нет
   const [userArticles, setUserrticles] = React.useState([]); //
-  const [isId, setIsId] = React.useState(''); // стейт для получения id карточки и записи в кнопку флажка
+  // const [isId, setIsId] = React.useState(''); // стейт для получения id карточки и записи в кнопку флажка
+  const [isFlag, setIsFlag] = React.useState(false);
 
   React.useEffect(() => {
     setSearchArticles(JSON.parse(localStorage.getItem('articles')));
@@ -107,6 +108,7 @@ function App() {
       .then((data) => {
         localStorage.setItem('articles', JSON.stringify(data.articles)); // записываем данные в локаьное хранилище, в случае перезагрузки стр, данные не потеряются
         localStorage.setItem('keyword', value);
+        setIsFlag(false);
       })
       .then(() => {
         setSearchArticles(JSON.parse(localStorage.getItem('articles'))); // обновляем стейт и записываем массив статей
@@ -118,23 +120,21 @@ function App() {
       })
   }
 
-  function saveArticle(data, keyword) {
+  function saveArticle(data, keyword, button) {
     const token = localStorage.getItem('jwt');
+
     MainApi.saveArticles('articles', { keyword, data }, token)
       .then((data) => {
-        // const isUpdateNews = JSON.parse(localStorage.getItem('newArticles')).some((item) => item._id !== undefined);
-        // if (isUpdateNews) {
-        //   const arr = JSON.parse(localStorage.getItem('newArticles')).map((item) => item.title === data.title ? data : item)
-        //   localStorage.setItem('newArticles', JSON.stringify(arr));
-        // } else {
-        //   // создает новый массив, если новая карточка совпадает со старой, то старая перезаписывается с новыми ключами объекта
-        //   const newArticles = searchArticles.map(article => (article.title === data.title && data.owner === currentUser.id) ? data : article);
-        //   localStorage.setItem('newArticles', JSON.stringify(newArticles));
-        //   setIsId(data._id);
-        // }
-        const newArticles = searchArticles.map(article => (article.title === data.title && data.owner === currentUser.id) ? data : article);
+        if (isFlag) {
+          const arrayWithFlag = JSON.parse(localStorage.getItem('newArticles')).map((a) => a.title === data.title ? data : a);
+          localStorage.setItem('newArticles', JSON.stringify(arrayWithFlag));
+          button.id = data._id;
+        } else {
+          const newArticles = searchArticles.map(article => (article.title === data.title && data.owner === currentUser.id) ? data : article);
           localStorage.setItem('newArticles', JSON.stringify(newArticles));
-          setIsId(data._id);
+          button.id = data._id;
+          setIsFlag(true);
+        }
       })
       .catch((err) => {
         console.log('Произошла ошибка: ', err);
@@ -235,7 +235,7 @@ function App() {
               onSaveArticle={saveArticle}
               isChangeTheme={changeTheme}
               deleteArticle={deleteArticle}
-              isId={isId}
+            // isId={isId}
             />
           </Route>
           <Route path="/saved-news">
