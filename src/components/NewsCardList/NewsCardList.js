@@ -12,26 +12,29 @@ function NewsCardList(props) {
 
   return (
     <section className="article-list">
+
       <div className="article-list__item">
         {
-          props.articles.map((item) => {
-            return (
-              <NewsCard
-                isChangeTheme={props.isChangeTheme}
-                keyword={item.keyword}
-                article={item}
-                key={item._id}
-                src={item.image}
-                title={item.title}
-                text={item.text}
-                source={item.source}
-                link={item.link}
-                time={dateFormat(item.date)}
-                onDeleteArticle={props.onDeleteArticle}
-                isLoggedIn={props.isLoggedIn}
-              />
-            )
-          })
+          props.articles.length > 0 ?
+            props.articles.map((item) => {
+              return (
+                <NewsCard
+                  isChangeTheme={props.isChangeTheme}
+                  keyword={item.keyword}
+                  article={item}
+                  key={item._id}
+                  src={item.image}
+                  title={item.title}
+                  text={item.text}
+                  source={item.source}
+                  link={item.link}
+                  time={dateFormat(item.date)}
+                  onDeleteArticle={props.onDeleteArticle}
+                  isLoggedIn={props.isLoggedIn}
+                />
+              )
+            }) : <h2 className="saved-articles__title">У Вас пока нет сохраненных статей...</h2>
+
         }
       </div>
     </section>
