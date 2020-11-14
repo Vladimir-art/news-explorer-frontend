@@ -53,8 +53,8 @@ function Navigation(props) {
           className={`navigation__link navigation__link_center ${props.isBlackTheme && `navigation__link_theme-dark`}`}
         >
           {props.user ? props.user.name : ''}
-        </button>
-        <img className="navigation__image" alt="Иконка-выйти" src={props.isBlackTheme ? logOut : logOutWhite} />
+
+        <img className="navigation__image" alt="Иконка-выйти" src={props.isBlackTheme ? logOut : logOutWhite} /></button>
       </li>
     </ul>
   );

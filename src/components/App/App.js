@@ -9,6 +9,7 @@ import Footer from '../Footer/Footer';
 import Login from '../Login/Login';
 import SuccessRegister from '../SuccessRegister/SuccessRegister';
 import { CurrentUserContext } from '../../context/CurrentUserContext';
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import * as NewsApi from '../../utils/NewsApi';
 import * as MainApi from '../../utils/MainApi';
 
@@ -238,14 +239,23 @@ function App() {
             // isId={isId}
             />
           </Route>
-          <Route path="/saved-news">
+          <ProtectedRoute
+            path="/saved-news"
+            loggedIn={loggedIn}
+            component={SavedNews}
+            isChangeTheme={changeTheme}
+            articles={userArticles}
+            isLoggedIn={loggedIn}
+            onDeleteArticle={deleteSavesNews}
+          />
+          {/* <Route path="/saved-news">
             <SavedNews
               isChangeTheme={changeTheme}
               articles={userArticles}
               isLoggedIn={loggedIn}
               onDeleteArticle={deleteSavesNews}
             />
-          </Route>
+          </Route> */}
         </Switch>
 
         <Register
