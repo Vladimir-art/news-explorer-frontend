@@ -7,7 +7,8 @@ function SearchingResults(props) {
   const [arr, setArr] = React.useState([]);
 
   React.useEffect(() => {
-    setArr(props.isResult.slice(0, 3))
+    props.isResult &&
+    setArr(props.isResult.slice(0, 3));
   }, [props.isResult]);
 
   function dateFormat(str) {
@@ -28,7 +29,7 @@ function SearchingResults(props) {
   }
 
   return (
-    <section className={`searching-results ${(props.isResult.length > 0 && props.isResult.length !== null) && (props.isPreloader !== true) ? '' : 'searching-results_inactive'}`}>
+    <section className={`searching-results ${(props.isPreloader !== true && (props.isResult !== null || (props.isResult && props.isResult.length === 0))) ? '' : 'searching-results_inactive'}`}>
       <h2 className="searching-results__title">Результаты поиска</h2>
       <div className="searching-results__elements">
         {
