@@ -24,7 +24,7 @@ function App() {
   const [errorStatus, setErrorStatus] = React.useState(''); // стейт для отображения ошибки запроса в форме
 
   const [currentUser, setCurrentUser] = React.useState({}); // глобальный стейт текущего пользователя
-  const [loggedIn, setLoggedIn] = React.useState(false); // зашля на страницу или нет
+  const [loggedIn, setLoggedIn] = React.useState(false); // зашел на страницу или нет
   const [userArticles, setUserrticles] = React.useState([]); //
   // const [isId, setIsId] = React.useState(''); // стейт для получения id карточки и записи в кнопку флажка
   const [isFlag, setIsFlag] = React.useState(false);
@@ -123,23 +123,26 @@ function App() {
 
   function saveArticle(data, keyword, button) {
     const token = localStorage.getItem('jwt');
-
-    MainApi.saveArticles('articles', { keyword, data }, token)
-      .then((data) => {
-        if (isFlag) {
-          const arrayWithFlag = JSON.parse(localStorage.getItem('newArticles')).map((a) => a.title === data.title ? data : a);
-          localStorage.setItem('newArticles', JSON.stringify(arrayWithFlag));
-          button.id = data._id;
-        } else {
-          const newArticles = searchArticles.map(article => (article.title === data.title && data.owner === currentUser.id) ? data : article);
-          localStorage.setItem('newArticles', JSON.stringify(newArticles));
-          button.id = data._id;
-          setIsFlag(true);
-        }
-      })
-      .catch((err) => {
-        console.log('Произошла ошибка: ', err);
-      })
+    if (loggedIn) {
+      MainApi.saveArticles('articles', { keyword, data }, token)
+        .then((data) => {
+          if (isFlag) {
+            const arrayWithFlag = JSON.parse(localStorage.getItem('newArticles')).map((a) => a.title === data.title ? data : a);
+            localStorage.setItem('newArticles', JSON.stringify(arrayWithFlag));
+            button.id = data._id;
+          } else {
+            const newArticles = searchArticles.map(article => (article.title === data.title && data.owner === currentUser.id) ? data : article);
+            localStorage.setItem('newArticles', JSON.stringify(newArticles));
+            button.id = data._id;
+            setIsFlag(true);
+          }
+        })
+        .catch((err) => {
+          console.log('Произошла ошибка: ', err);
+        })
+    } else {
+      return;
+    }
   }
 
   function submitRegister(form, inputValues, inputReset) {
@@ -217,6 +220,18 @@ function App() {
       .catch((err) => console.log('Произошла ошибка: ', err));
   }
 
+  function onSignOut() {
+    setLoggedIn(false);
+    // NewsApi.getCommonArticles()
+    //   .then((data) => {
+
+    //   })
+    setIsFlag(false);
+    const newArray = JSON.parse(localStorage.getItem('articles'));
+    console.log(newArray);
+    localStorage.setItem('newArticles', JSON.stringify(newArray));
+  }
+
   return (
     <div className="page">
       <CurrentUserContext.Provider value={currentUser}>
@@ -226,6 +241,7 @@ function App() {
           onChange={changeThemes} // вкл темной темы
           resetTheme={resetChangeTheme} // откл темной темы
           handleRegister={openRegister}
+          close={onSignOut}
         />
         <Switch>
           <Route exact path="/">
@@ -236,7 +252,7 @@ function App() {
               onSaveArticle={saveArticle}
               isChangeTheme={changeTheme}
               deleteArticle={deleteArticle}
-            // isId={isId}
+              isLoggedIn={loggedIn}
             />
           </Route>
           <ProtectedRoute
@@ -247,6 +263,7 @@ function App() {
             articles={userArticles}
             isLoggedIn={loggedIn}
             onDeleteArticle={deleteSavesNews}
+            openLogin={openLogin}
           />
           {/* <Route path="/saved-news">
             <SavedNews

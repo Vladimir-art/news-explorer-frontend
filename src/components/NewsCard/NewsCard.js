@@ -43,7 +43,7 @@ function NewsCard(props) {
       <div className={props.isChangeTheme ? 'article-element__inactive' : `article-element__loggedout ${saveArticle && 'article-element__loggedout_hover-inactive'}`}>
         <p className="article-element__attantion">Войдите, чтобы сохранять статьи</p>
         <button
-        className={`article-element__flag ${saveArticle ? 'article-element__flag_save' : ''}`}
+        className={`article-element__flag ${(saveArticle && props.isLoggedIn) ? 'article-element__flag_save' : ''}`}
         id=''
         type="submit"
         onClick={onToggle}

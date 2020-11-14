@@ -18,6 +18,7 @@ function SavedNews(props) {
         isChangeTheme={props.isChangeTheme}
         articles={props.articles}
         onDeleteArticle={props.onDeleteArticle}
+        isLoggedIn={props.isLoggedIn}
       />
     </main>
   );

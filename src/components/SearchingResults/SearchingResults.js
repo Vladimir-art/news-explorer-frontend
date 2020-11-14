@@ -38,7 +38,6 @@ function SearchingResults(props) {
                 article={item}
                 onSaveArticle={props.onSaveArticle}
                 key={index}
-                // id={props.isId}
                 errorLoad={onErrorImage}
                 src={item.urlToImage ? item.urlToImage : item.image}
                 title={item.title}
@@ -49,6 +48,7 @@ function SearchingResults(props) {
                 isChangeTheme={props.isChangeTheme}
                 keyword=''
                 deleteArticle={props.deleteArticle}
+                isLoggedIn={props.isLoggedIn}
               />
             )
           })

@@ -22,3 +22,18 @@ export const getArticles = (keyword, pastDate, currDate) => {
     return data;
   });
 }
+
+export const getCommonArticles = () => {
+  return fetch('https://newsapi.org/v2/everything?language=ru&sortBy=popularity', {
+    method: 'GET',
+    headers: {
+      'authorization': 'fd59b3e2c05a4cf99251be8b08a136ed'
+    }
+  })
+  .then((res) => {
+    return res.json();
+  })
+  .then((data) => {
+    return data;
+  })
+}

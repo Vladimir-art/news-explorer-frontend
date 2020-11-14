@@ -11,6 +11,11 @@ function Navigation(props) {
     props.isOpenRegister();
   }
 
+  function signOut() {
+    props.close();
+    localStorage.removeItem('jwt');
+  }
+
   return (
     <ul className="navigation">
       <li className="navigation__links">
@@ -51,6 +56,7 @@ function Navigation(props) {
       >
         <button
           className={`navigation__link navigation__link_center ${props.isBlackTheme && `navigation__link_theme-dark`}`}
+          onClick={signOut}
         >
           {props.user ? props.user.name : ''}
 

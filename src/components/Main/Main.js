@@ -7,6 +7,7 @@ import SearchingResults from '../SearchingResults/SearchingResults';
 import About from '../About/About';
 
 function Main(props) {
+
   return (
     <main className="main">
       <SearchForm submitForm={props.submitSearching} />
@@ -18,7 +19,7 @@ function Main(props) {
         onSaveArticle={props.onSaveArticle}
         isChangeTheme={props.isChangeTheme}
         deleteArticle={props.deleteArticle}
-        // isId={props.isId}
+        isLoggedIn={props.isLoggedIn}
       />
       <About />
     </main>

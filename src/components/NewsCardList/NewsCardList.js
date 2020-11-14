@@ -28,6 +28,7 @@ function NewsCardList(props) {
                 link={item.link}
                 time={dateFormat(item.date)}
                 onDeleteArticle={props.onDeleteArticle}
+                isLoggedIn={props.isLoggedIn}
               />
             )
           })
