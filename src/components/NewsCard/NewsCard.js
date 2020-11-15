@@ -40,8 +40,8 @@ function NewsCard(props) {
         </p>
       </div>
       <a className="article-element__source" href={props.link} target="_blank" rel="noreferrer">{props.source}</a>
-      <div className={props.isChangeTheme ? 'article-element__inactive' : `article-element__loggedout ${saveArticle && 'article-element__loggedout_hover-inactive'}`}>
-        <p className="article-element__attantion">Войдите, чтобы сохранять статьи</p>
+      <div className={props.isChangeTheme ? 'article-element__inactive' : `article-element__loggedout ${(saveArticle || props.isLoggedIn)  && 'article-element__loggedout_hover-inactive'}`}>
+        <p className={`article-element__attantion ${props.isLoggedIn ? 'article-element__attantion_inactive' : ''}`}>Войдите, чтобы сохранять статьи</p>
         <button
         className={`article-element__flag ${(saveArticle && props.isLoggedIn) ? 'article-element__flag_save' : ''}`}
         id=''
