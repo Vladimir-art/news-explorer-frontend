@@ -127,11 +127,11 @@ function App() {
       MainApi.saveArticles('articles', { keyword, data }, token)
         .then((data) => {
           if (isFlag) {
-            const arrayWithFlag = JSON.parse(localStorage.getItem('newArticles')).map((a) => a.title === data.title ? data : a);
+            const arrayWithFlag = JSON.parse(localStorage.getItem('newArticles')).map((a) => a.url === data.link ? data : a);
             localStorage.setItem('newArticles', JSON.stringify(arrayWithFlag));
             button.id = data._id;
           } else {
-            const newArticles = searchArticles.map(article => (article.title === data.title && data.owner === currentUser.id) ? data : article);
+            const newArticles = searchArticles.map((article) => (article.url === data.link && data.owner === currentUser.id) ? data : article);
             localStorage.setItem('newArticles', JSON.stringify(newArticles));
             button.id = data._id;
             setIsFlag(true);
@@ -195,7 +195,7 @@ function App() {
     let id;
     function returnId() { // если в новом массиве есть эта карточка, то верни ее id
       JSON.parse(localStorage.getItem('newArticles')).some((item) => {
-        if (item.title === data.title) {
+        if (item.link === data.url) {
           id = item._id;
         }
         return id;

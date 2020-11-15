@@ -9,10 +9,9 @@ function NewsCard(props) {
 
   const [saveArticle, setSaveArticle] = React.useState(false);
   React.useEffect(() => {
-    const isId = JSON.parse(localStorage.getItem('newArticles')).some((item) => item.text === props.article.description);
+    const isId = JSON.parse(localStorage.getItem('newArticles')).some((item) => item.link === props.article.url);
     isId && isId !== null ? setSaveArticle(true) : setSaveArticle(false);
-  }, [localStorage.getItem('newArticles')]);
-
+  }, [JSON.parse(localStorage.getItem('newArticles'))]);
 
   function onToggle(e) {
     if (saveArticle) {
