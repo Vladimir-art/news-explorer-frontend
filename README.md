@@ -43,7 +43,7 @@
 
 Парочка скринов работы сайта (до авторизации и после во вкладке сохраненные статьи)
 ![](//https://raw.githubusercontent.com/Vladimir-art/news-explorer-frontend/main/src/images/without.png/)
-![](//placehold.it/300x300)
+![](//https://images.unsplash.com/photo-1605557833838-b8920b5bbdfe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80/300x300)
 ![](//https://raw.githubusercontent.com/Vladimir-art/news-explorer-frontend/main/src/images/with.png/)
 
 #### *Что сделать в будущем:*
