@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+## Дипломный проект
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Привет) Меня зовут Владимир и я выпускник Яндекс.Практикума.  
+Представляю свой дипломный проект по поиску интересных новостей.  
 
-## Available Scripts
+### *Функциональность*
 
-In the project directory, you can run:
+Сайт создан с помощью пакета **Create React App (CRA)**.  
+Взаимодейтсвует с двумя API: 
+- [NewsAPI](https://newsapi.org/)
+- [Собственным API](https://illus.students.nomoreparties.space)  
 
-### `npm start`
+Стек технологий, используемых в собственном API я описал в его репозитории.  
+Здесь остановлюсь на стеке со стороны frontend.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### *Верстка:*
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- для каждого компонента создан свой файл, в котором находится js-файл и css-файл.  
+- для вспомогательных функций, а также для запросов к API — директория utils/, для изображений — images/, а для кода или файлов сторонних разработчиков, например, шрифтов — vendor/  
+- верстка портирована в **JSX**  
+- использованы **семантические теги**  
+- сайт **адаптирован** под разные разрешения экрана, он не ломается (минимальная ширина 320px)  
+- для построения сеток использованы **flexbox и grid layout**
+- созданы модальные окна для регистрации и авторизации пользователя  
+- настроены роуты для перехода на страницу с сохраненными статьями ```/saved-news```
+- элементы при наведении имеют состояние *hover и focus*, использованы возможности **pseudo элементов (nth-child, last-child и т.д.)**
 
-### `npm test`
+#### *Функциональность на «Реакте» и JS:*
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+В проекте активно используются **React Hooks, такие как useState, useEffect**,  
+установлена библиотека **react-router-dom**, сайт придерживается концепции **SPA**
 
-### `npm run build`
+- сделаны асинхронные **GET- и POST-запросы к API**
+- роут ```/saved-news``` защищен авторизацией;  
+- для хранения данных о пользователе использована **глобальная стейт-переменная currentUser**, созданная с помощью createContext;  
+- в компонент App внедрен контекст через CurrentUserContext.Provider;  
+- данные о пользователе и карточках хранятся в **localStorage**;  
+- **ошибки от API обработаны**, и пользователь видит это сообщение;  
+- настроен **прелоудер** так, что он крутился, пока от сервера идёт ответ;  
+- кликом по ссылке внизу карточки переводится на статью сайта;
+- после успешной авторизации можно перейти на страницу с сохраненными статьями, где динамически записывается имя текущего пользователя и количество статей; 
+- статьи расположены в порядке убывания популярности. Первыми идут те ключевые слова, по которым сохранено наибольшее количество статей.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Парочка скринов работы сайта (до авторизации и после во вкладке сохраненные статьи)
+![](//placehold.it/300x300)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![](//placehold.it/300x300)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### *Что сделать в будущем:*
+- откорректировать работу флажков для отображения активного (синего) состояния
+- разместить фронтенд и бекенд на одном домене
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### *Как со мной связаться*
+Почта ```vl.ermolaevv@yandex.ru``` Владимир Ермолаев   
+Telegram ```@artVladimir```  
+Спасибо)
