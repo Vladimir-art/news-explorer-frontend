@@ -42,9 +42,9 @@
 - статьи расположены в порядке убывания популярности. Первыми идут те ключевые слова, по которым сохранено наибольшее количество статей.
 
 Парочка скринов работы сайта (до авторизации и после во вкладке сохраненные статьи)
-![](//https://github.com/Vladimir-art/news-explorer-frontend/blob/main/src/images/without.png/300x300)
+![](//https://github.com/Vladimir-art/news-explorer-frontend/blob/main/src/images/without.png/)
 
-![](//https://github.com/Vladimir-art/news-explorer-frontend/blob/main/src/images/with.png/300x300)
+![](//https://github.com/Vladimir-art/news-explorer-frontend/blob/main/src/images/with.png/)
 
 #### *Что сделать в будущем:*
 - откорректировать работу флажков для отображения активного (синего) состояния
