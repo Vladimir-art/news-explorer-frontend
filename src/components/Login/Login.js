@@ -1,11 +1,16 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import PopupWithForm from '../PopupWithForm/PopupWithForm';
+import { useFormWithValidation } from '../Validation/Validation';
 
 function Login(props) {
 
-  function closeLog() {
+  const valid = useFormWithValidation();
+
+  function closeLog(e) {
     props.closeLogin()
+    e.closest('.register-container').reset();
+    valid.resetForm();
   }
 
   function isOpenReg() {
@@ -13,16 +18,25 @@ function Login(props) {
   }
 
   function overlayClick(e) {
-    props.overlay(e.target);
+    props.overlay(e.target, valid.resetForm);
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    props.onSubmit(e.target, valid.values, valid.resetForm);
   }
 
   return (
     <PopupWithForm
+      valid={valid}
+      errorSubmit={props.errorSubmit}
+      onSubmit={handleSubmit}
       isOpenLogin={props.isOpenLogin}
       onChangeLog={isOpenReg}
       closeLogin={closeLog}
       closePopup={props.closePopup}
       overlayClick={overlayClick}
+      handleValues={valid.handleChange}
       name="login"
       title="Вход"
       button="Войти"

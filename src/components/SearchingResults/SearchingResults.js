@@ -1,38 +1,61 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import NewsCard from '../NewsCard/NewsCard';
+import image from '../../utils/constants';
 
-import flower from '../../images/flowers-pic.png';
-import ficus from '../../images/ficus.png';
-import bush from '../../images/bush.png';
+function SearchingResults(props) {
+  const [arr, setArr] = React.useState([]);
 
-function SearchingResults() {
+  React.useEffect(() => {
+    props.isResult &&
+    setArr(props.isResult.slice(0, 3));
+  }, [props.isResult]);
+
+  function dateFormat(str) {
+    const date = new Date(str);
+    const options = { year: 'numeric', month: 'long', day: 'numeric' }
+    return date.toLocaleString('ru', options);
+  }
+
+  function showMore(e) {
+    setArr(props.isResult.slice(0, arr.length + 3));
+    if (arr.length >= props.isResult.length - 1) {
+      e.target.remove();
+    }
+  }
+
+  function onErrorImage(e) {
+    e.target.setAttribute('src', image);
+  }
+
   return (
-    <section className="searching-results">
+    <section className={`searching-results ${(props.isPreloader !== true && (props.isResult !== null || (props.isResult && props.isResult.length === 0))) ? '' : 'searching-results_inactive'}`}>
       <h2 className="searching-results__title">Результаты поиска</h2>
       <div className="searching-results__elements">
-        <NewsCard
-          scr={flower}
-          title="Национальное достояние – парки"
-          text="В 2016 году Америка отмечала важный юбилей: сто лет назад здесь начала складываться система национальных парков –
-          охраняемых территорий, где и сегодня каждый может приобщиться к природе."
-          source="Лента.ру"
-        />
-        <NewsCard
-          scr={ficus}
-          title="Лесные огоньки: история одной фотографии"
-          text="Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного
-          из местных чудес природы."
-          source="Медуза"
-        />
-        <NewsCard
-          scr={bush}
-          title="«Первозданная тайга»: новый фотопроект Игоря Шпиленка"
-          text="Знаменитый фотограф снимает первозданные леса России,
-          чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где..."
-          source="Лента.ру"
-        />
+        {
+          arr.map((item, index) => {
+            return (
+              <NewsCard
+                article={item}
+                onSaveArticle={props.onSaveArticle}
+                key={index}
+                errorLoad={onErrorImage}
+                src={item.urlToImage ? item.urlToImage : item.image}
+                title={item.title}
+                text={item.description ? item.description : item.text}
+                source={item.source.name ? item.source.name : item.source}
+                link={item.url ? item.url : item.link}
+                time={dateFormat(item.publishedAt ? item.publishedAt : item.date)}
+                isChangeTheme={props.isChangeTheme}
+                keyword=''
+                deleteArticle={props.deleteArticle}
+                isLoggedIn={props.isLoggedIn}
+              />
+            )
+          })
+        }
       </div>
-      <button className="searching-results__button" type="button">Показать еще</button>
+      <button className="searching-results__button" type="button" onClick={showMore} >Показать еще</button>
     </section>
   );
 }

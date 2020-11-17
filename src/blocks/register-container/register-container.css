@@ -9,6 +9,10 @@
 @import url(./__button/register-container__button.css);
 @import url(./__link/register-container__link.css);
 @import url(./__close/register-container__close.css);
+@import url(./__name/_inactive/register-container__name_inactive.css);
+@import url(./__input/_active/register-container__input_active.css);
+@import url(./__button/_inactive/register-container__button_inactive.css);
+@import url(./__link/_success-reg/register-container__link_success-reg.css);
 
 .register-container {
   width: 430px;

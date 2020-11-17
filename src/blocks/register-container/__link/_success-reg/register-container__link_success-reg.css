@@ -1,0 +1,12 @@
+.register-container__link_success-reg {
+  margin: 0 auto 20px;
+  width: 358px;
+  text-align: left;
+}
+
+@media screen and (max-width: 767px) and (min-width: 320px) {
+  .register-container__link_success-reg {
+    width: 288px;
+    margin: 0 auto 22px;
+  }
+}
